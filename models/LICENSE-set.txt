@@ -1,0 +1,12 @@
+Koala Chess piece set — public/models/pieces.glb + public/models/stone/*.webp
+
+Geometry derived from "Chess Set 2" by Riley Queen (Poly Haven), CC0 1.0 Universal (public domain).
+  https://polyhaven.com/a/chess_set
+
+Modified for Koala Chess: only the six white meshes are kept (the black nodes carry the same mesh data),
+each re-centred on its base, put upright (+Y), scaled by one common factor so the king is 1.05 board
+squares tall, the knight's muzzle confirmed to face -Z, and every piece's UVs repacked into one cell of
+a 3x2 atlas. The source textures are NOT used: the "desert stone" colour, roughness and normal maps are
+baked from a procedural material. Build script: chess/scripts/stone_set.py.
+
+CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/ - no attribution required, given gratefully.

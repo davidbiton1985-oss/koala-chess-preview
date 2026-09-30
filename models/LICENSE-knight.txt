@@ -1,0 +1,3 @@
+Knight derived from 'Chess Set 2' by Riley Queen, Poly Haven, CC0 1.0 — https://polyhaven.com/a/chess_set
+
+Modified for Koala Chess: source foot replaced by the set's own lathe foot (bishop/rook profile), rescaled, remeshed and decimated into two LODs (knight.glb, knight_low.glb). Build script: chess/scripts/knight_build.py.

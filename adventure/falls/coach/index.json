@@ -1,0 +1,89 @@
+{
+ "idle": {
+  "file": "idle.mp4",
+  "frames": 221,
+  "fps": 25
+ },
+ "cue": 50,
+ "lines": {
+  "en": {
+   "r05.arrive.1": {
+    "ret": 79,
+    "speech_end": 2.72
+   },
+   "r05.s1.1": {
+    "ret": 79,
+    "speech_end": 1.99
+   },
+   "r05.s1.2": {
+    "ret": 83,
+    "speech_end": 1.39
+   },
+   "r05.s1.3": {
+    "ret": 47,
+    "speech_end": 1.96
+   },
+   "r05.s1.cheer": {
+    "ret": 79,
+    "speech_end": 1.58
+   },
+   "r05.s1.next": {
+    "ret": 83,
+    "speech_end": 1.47
+   },
+   "gen.help.1": {
+    "ret": 79,
+    "speech_end": 1.58
+   },
+   "gen.muddle.1": {
+    "ret": 83,
+    "speech_end": 1.53
+   },
+   "r05.fin.0": {
+    "ret": 59,
+    "speech_end": 2.06
+   },
+   "r05.fin.1": {
+    "ret": 65,
+    "speech_end": 2.27
+   },
+   "r05.fin.2": {
+    "ret": 85,
+    "speech_end": 1.41
+   },
+   "r05.fin.3": {
+    "ret": 47,
+    "speech_end": 1.98
+   },
+   "r05.fin.4": {
+    "ret": 149,
+    "speech_end": 1.27
+   },
+   "r05.fin.5": {
+    "ret": 63,
+    "speech_end": 2.2
+   },
+   "r05.fin.tower": {
+    "ret": 83,
+    "speech_end": 1.58
+   },
+   "r05.fin.cheer": {
+    "ret": 79,
+    "speech_end": 1.59
+   },
+   "r05.fin.queen": {
+    "ret": 149,
+    "speech_end": 1.8
+   },
+   "r05.fin.next": {
+    "ret": 79,
+    "speech_end": 1.71
+   }
+  }
+ },
+ "entries": {
+  "step": 8,
+  "frames": 6,
+  "dir": "entries"
+ }
+}

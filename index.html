@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <!-- M8a — the landscape "edge to edge" brief.
+       viewport-fit=cover  the stage may paint into the notch/home-indicator areas; board3d.css pads the
+                           chrome back out with env(safe-area-inset-*), so nothing readable lands under them.
+       interactive-widget=resizes-content  Chrome/Android: a soft keyboard RESIZES the layout instead of
+                           sliding it, which is what keeps visualViewport and the layout viewport agreeing.
+       user-scalable / maximum-scale are deliberately NOT set: pinch-zoom is an accessibility right, and the
+                           stage re-fits from visualViewport anyway (WCAG 1.4.4). -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" content="#15171A">
+  <meta name="description" content="Koala Chess — a real board, on any screen">
+  <!-- the only way an iPhone ever loses Safari's address bar and tab strip is a standalone launch: the
+       manifest makes "Add to Home Screen" open the game with no browser chrome at all.
+       %EDITION_*% / manifest / brand/* come from the edition's meta.json (vite.config.ts editionIdentity). -->
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Koala Chess">
+  <link rel="apple-touch-icon" href="./brand/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Koala Chess">
+  <meta property="og:description" content="Koala Chess — a real board, on any screen">
+  <meta property="og:image" content="./brand/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="./brand/favicon.svg">
+  <title>Koala Chess · שחמט קואלה</title>
+  <script type="module" crossorigin src="./assets/index-iOOZnBLO.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DzED2AZD.css">
+</head>
+<body>
+  <div id="app"></div>
+</body>
+</html>

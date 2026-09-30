@@ -1,0 +1,599 @@
+{
+ "version": 1,
+ "backdrop": {
+  "url": "backdrop-4096.webp",
+  "urlLight": "backdrop-2048.webp",
+  "kind": "equirect",
+  "height": 4,
+  "radius": 900,
+  "yaw": 1.5708,
+  "position": [
+   0,
+   4,
+   9
+  ],
+  "displayReferred": true,
+  "note": "far layer only (the diorama, water and stones are cut out); graded AgX in Cycles: draw it with toneMapped = false"
+ },
+ "env": {
+  "url": "env-1024.webp",
+  "note": "scene-linear image light (Standard view transform), seen from just above the grid"
+ },
+ "diorama": {
+  "url": "diorama.glb",
+  "urlLight": "diorama_low.glb"
+ },
+ "plate": {
+  "url": "plate-tac.webp",
+  "urlLight": "plate-tac-light.webp",
+  "width": 2688,
+  "height": 1518,
+  "camera": "tactician",
+  "note": "painted 'route B' golden-afternoon plate (docs/chess-redesign/adventure/drop-a/plates/tac_s3.jpg, repainted from the Cycles render stage_tac_v1.jpg taken from cameras.tactician below); drawn as a full-screen screen-space background only while the tactician camera is active, in place of the diorama/backdrop/water"
+ },
+ "platePortrait": {
+  "url": "plate-tacp.webp",
+  "urlLight": "plate-tacp-light.webp",
+  "width": 1800,
+  "height": 3200,
+  "camera": "tacticianPortrait",
+  "note": "portrait (9:16-ish) tactician plate painted from a Blender guide at cameras.tacticianPortrait below; used with a 'cover' fit (not 'contain') so it fills a phone screen with no letterbox bars"
+ },
+ "lightmap": {
+  "url": "lightmap.webp",
+  "urlLight": "lightmap-light.webp",
+  "intensity": 3.3656,
+  "intensityLight": 3.0533,
+  "colorSpace": "srgb",
+  "uv": "uv1",
+  "orientation": "standard",
+  "note": "irradiance (direct + indirect, no albedo), sRGB-encoded; intensity already includes x pi (three lightMap = irradiance). orientation standard = stored for a flipY loader (stage.ts loadTexture). urlLight + intensityLight belong to diorama_low.glb (its uv1 layout differs)"
+ },
+ "exposure": 1,
+ "mood": "golden afternoon (style frame A): low warm sun from behind the waterfall, right of centre",
+ "sun": {
+  "direction": [
+   -0.2,
+   -0.34,
+   0.92
+  ],
+  "color": [
+   1,
+   0.7,
+   0.4
+  ],
+  "note": "direction the light TRAVELS, glTF frame (toward the child, +Z, and down)"
+ },
+ "fog": {
+  "color": [
+   0.86,
+   0.7,
+   0.5
+  ],
+  "near": 12,
+  "far": 70,
+  "note": "squares; the stills use a thin volume haze"
+ },
+ "water": {
+  "level": -0.07,
+  "flow": [
+   0,
+   0,
+   1
+  ],
+  "note": "the stream runs toward the child (+Z)"
+ },
+ "cameras": {
+  "adventure": {
+   "position": [
+    0,
+    1,
+    6
+   ],
+   "target": [
+    -1,
+    0.56,
+    -0.4
+   ],
+   "lensMm": 35
+  },
+  "tactician": {
+   "position": [
+    0,
+    7.2,
+    12
+   ],
+   "target": [
+    0,
+    0,
+    -1.2
+   ],
+   "lensMm": 35
+  },
+  "tacticianPortrait": {
+   "position": [
+    0,
+    12,
+    13.2
+   ],
+   "target": [
+    0,
+    0,
+    -0.4
+   ],
+   "lensMm": 30,
+   "note": "derived from the Blender guide camera (loc 0,-0.66,0.60; target 0,0.02,0; 20 game units per Blender unit; game.x=bx*20, game.y=bz*20, game.z=-by*20 — the same mapping fit to cameras.tactician/its Blender source loc 0,-0.60,0.36 target 0,0.06,0)"
+  },
+  "hero": {
+   "position": [
+    0.6,
+    3.4,
+    9.2
+   ],
+   "target": [
+    0,
+    0.4,
+    -5
+   ],
+   "lensMm": 32
+  }
+ },
+ "nodes": {
+  "bridge": "near end ≈ (3.5, 0, -4.6)",
+  "hammock": "between the left hero trunk and the sapling",
+  "fern_peek": "(-5.0, 0, 2.2)",
+  "log": "left bank beyond rank 8",
+  "koala_rock": "(8.0, ≈1.6, 2.6)"
+ },
+ "stones": [
+  {
+   "sq": "a1",
+   "x": -3.5,
+   "z": 3.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "a2",
+   "x": -3.5,
+   "z": 2.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "a3",
+   "x": -3.5,
+   "z": 1.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "a4",
+   "x": -3.5,
+   "z": 0.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "a5",
+   "x": -3.5,
+   "z": -0.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "a6",
+   "x": -3.5,
+   "z": -1.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "a7",
+   "x": -3.5,
+   "z": -2.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "a8",
+   "x": -3.5,
+   "z": -3.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "b1",
+   "x": -2.5,
+   "z": 3.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "b2",
+   "x": -2.5,
+   "z": 2.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "b3",
+   "x": -2.5,
+   "z": 1.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "b4",
+   "x": -2.5,
+   "z": 0.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "b5",
+   "x": -2.5,
+   "z": -0.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "b6",
+   "x": -2.5,
+   "z": -1.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "b7",
+   "x": -2.5,
+   "z": -2.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "b8",
+   "x": -2.5,
+   "z": -3.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "c1",
+   "x": -1.5,
+   "z": 3.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "c2",
+   "x": -1.5,
+   "z": 2.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "c3",
+   "x": -1.5,
+   "z": 1.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "c4",
+   "x": -1.5,
+   "z": 0.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "c5",
+   "x": -1.5,
+   "z": -0.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "c6",
+   "x": -1.5,
+   "z": -1.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "c7",
+   "x": -1.5,
+   "z": -2.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "c8",
+   "x": -1.5,
+   "z": -3.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "d1",
+   "x": -0.5,
+   "z": 3.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "d2",
+   "x": -0.5,
+   "z": 2.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "d3",
+   "x": -0.5,
+   "z": 1.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "d4",
+   "x": -0.5,
+   "z": 0.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "d5",
+   "x": -0.5,
+   "z": -0.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "d6",
+   "x": -0.5,
+   "z": -1.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "d7",
+   "x": -0.5,
+   "z": -2.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "d8",
+   "x": -0.5,
+   "z": -3.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "e1",
+   "x": 0.5,
+   "z": 3.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "e2",
+   "x": 0.5,
+   "z": 2.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "e3",
+   "x": 0.5,
+   "z": 1.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "e4",
+   "x": 0.5,
+   "z": 0.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "e5",
+   "x": 0.5,
+   "z": -0.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "e6",
+   "x": 0.5,
+   "z": -1.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "e7",
+   "x": 0.5,
+   "z": -2.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "e8",
+   "x": 0.5,
+   "z": -3.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "f1",
+   "x": 1.5,
+   "z": 3.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "f2",
+   "x": 1.5,
+   "z": 2.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "f3",
+   "x": 1.5,
+   "z": 1.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "f4",
+   "x": 1.5,
+   "z": 0.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "f5",
+   "x": 1.5,
+   "z": -0.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "f6",
+   "x": 1.5,
+   "z": -1.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "f7",
+   "x": 1.5,
+   "z": -2.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "f8",
+   "x": 1.5,
+   "z": -3.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "g1",
+   "x": 2.5,
+   "z": 3.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "g2",
+   "x": 2.5,
+   "z": 2.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "g3",
+   "x": 2.5,
+   "z": 1.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "g4",
+   "x": 2.5,
+   "z": 0.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "g5",
+   "x": 2.5,
+   "z": -0.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "g6",
+   "x": 2.5,
+   "z": -1.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "g7",
+   "x": 2.5,
+   "z": -2.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "g8",
+   "x": 2.5,
+   "z": -3.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "h1",
+   "x": 3.5,
+   "z": 3.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "h2",
+   "x": 3.5,
+   "z": 2.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "h3",
+   "x": 3.5,
+   "z": 1.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "h4",
+   "x": 3.5,
+   "z": 0.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "h5",
+   "x": 3.5,
+   "z": -0.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "h6",
+   "x": 3.5,
+   "z": -1.5,
+   "top": 0,
+   "tone": "dark"
+  },
+  {
+   "sq": "h7",
+   "x": 3.5,
+   "z": -2.5,
+   "top": 0,
+   "tone": "light"
+  },
+  {
+   "sq": "h8",
+   "x": 3.5,
+   "z": -3.5,
+   "top": 0,
+   "tone": "dark"
+  }
+ ],
+ "licences": "CC0: Poly Haven (see docs/chess-redesign/adventure/drop-a/art/SOURCES.csv); ferns, bridge, hammock, trunks: procedural (ours)"
+}
