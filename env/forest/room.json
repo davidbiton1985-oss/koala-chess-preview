@@ -1,0 +1,107 @@
+{
+ "room": "forest",
+ "U": 17.5,
+ "tableH": 0.55,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -9.625,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -20,
+   -20,
+   0.0
+  ],
+  "max": [
+   20,
+   20,
+   25
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "rig": {
+  "keyColor": 16769712,
+  "keyIntensity": 2.6,
+  "skyColor": 14543048,
+  "groundColor": 4872752,
+  "skyIntensity": 0.28,
+  "rimColor": 15265992,
+  "rimIntensity": 0.5,
+  "envIntensity": 0.6,
+  "exposure": 1.0
+ },
+ "led": 0.3,
+ "finish": "ebony",
+ "table": "table.glb",
+ "tableLight": "table-1k.glb",
+ "proxyGlb": "proxy.glb",
+ "credits": [
+  [
+   "boulder_01",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "dead_tree_trunk_02",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "fern_02",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "fir_tree_01",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "forrest_ground_01",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "mossy_forest",
+   "Poly Haven HDRI",
+   "CC0"
+  ],
+  [
+   "pine_bark",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "pine_tree_01",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "rock_moss_set_02",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "root_cluster_02",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "tree_stump_01",
+   "Poly Haven model",
+   "CC0"
+  ]
+ ],
+ "budget": {
+  "lightKB": 286,
+  "richKB": 1087
+ }
+}

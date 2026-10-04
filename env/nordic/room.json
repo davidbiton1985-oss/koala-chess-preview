@@ -1,0 +1,225 @@
+{
+ "room": "nordic",
+ "U": 17.5,
+ "tableH": 0.74,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -12.95,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -3.4,
+   -3.3,
+   0.0
+  ],
+  "max": [
+   3.4,
+   3.5,
+   3.3
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "seats": {
+  "w": [
+   0.0,
+   7.744,
+   13.906
+  ],
+  "b": [
+   0.0,
+   7.744,
+   -13.906
+  ]
+ },
+ "seatPano": {
+  "w": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  },
+  "b": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  }
+ },
+ "tableR": 0.401,
+ "tableTop": [
+  0.8,
+  0.401
+ ],
+ "seatView": {
+  "hero": 0,
+  "heroPitch": -2
+ },
+ "seatMirror": true,
+ "rig": {
+  "keyColor": 16054010,
+  "keyIntensity": 2.2,
+  "skyColor": 15265525,
+  "groundColor": 9075818,
+  "skyIntensity": 0.32,
+  "rimColor": 14739700,
+  "rimIntensity": 0.45,
+  "envIntensity": 0.65,
+  "exposure": 1.0
+ },
+ "led": 0,
+ "finish": "birch",
+ "credits": [
+  [
+   "3 panel curtains",
+   "BlenderKit, by antoine f",
+   "royalty_free"
+  ],
+  [
+   "Beige simple carpet",
+   "BlenderKit, by antoine f",
+   "royalty_free"
+  ],
+  [
+   "Beige velvet and leather sofa",
+   "BlenderKit, by Joris LM",
+   "royalty_free"
+  ],
+  [
+   "Candle pot",
+   "BlenderKit, by antoine f",
+   "royalty_free"
+  ],
+  [
+   "Deco Vase",
+   "BlenderKit, by MNDV ",
+   "royalty_free"
+  ],
+  [
+   "Fiddle Leaf Fig Tree (Medium)",
+   "BlenderKit, by Zulian Firmansyah",
+   "royalty_free"
+  ],
+  [
+   "Floor Lamp",
+   "BlenderKit, by Arfat Ikhte Rohman",
+   "royalty_free"
+  ],
+  [
+   "Fluted Wood Sideboard Cabinet",
+   "BlenderKit, by Arnab Chattopadhyay",
+   "royalty_free"
+  ],
+  [
+   "Folded garment stack",
+   "BlenderKit, by antoine f",
+   "royalty_free"
+  ],
+  [
+   "Four stacks of books 30 cm",
+   "BlenderKit, by Rudolf Wohland",
+   "royalty_free"
+  ],
+  [
+   "Handled Wicker Basket",
+   "BlenderKit, by GL3D Gabriela Linhares",
+   "royalty_free"
+  ],
+  [
+   "Indoor Plant  - Cuban Cigar",
+   "BlenderKit, by Pandora Land",
+   "royalty_free"
+  ],
+  [
+   "Minimal modern pouf",
+   "BlenderKit, by Joris LM",
+   "royalty_free"
+  ],
+  [
+   "Oak dining table",
+   "BlenderKit, by Joris LM",
+   "royalty_free"
+  ],
+  [
+   "Oak round coffee table",
+   "BlenderKit, by Joris LM",
+   "royalty_free"
+  ],
+  [
+   "Painting Frame",
+   "BlenderKit, by Nobody ",
+   "royalty_free"
+  ],
+  [
+   "Reni Lounge Chair",
+   "BlenderKit, by Duy Ngo",
+   "royalty_free"
+  ],
+  [
+   "Scandinavian Masonry Heater",
+   "BlenderKit, by Poly Haven ",
+   "cc_zero"
+  ],
+  [
+   "Small Monstera plant",
+   "BlenderKit, by Matteo Pascale",
+   "royalty_free"
+  ],
+  [
+   "Small ceramic glossy vase decoration",
+   "BlenderKit, by Zulian Firmansyah",
+   "royalty_free"
+  ],
+  [
+   "The Nelson Saucer Bubble Pendant MINI",
+   "BlenderKit, by Ibrohim Toxirov",
+   "royalty_free"
+  ],
+  [
+   "Wicker Basket Bowl",
+   "BlenderKit, by GL3D Gabriela Linhares",
+   "royalty_free"
+  ],
+  [
+   "Wooden bookshelf",
+   "BlenderKit, by Jan Hecl",
+   "royalty_free"
+  ],
+  [
+   "Wooden chair Ipe",
+   "BlenderKit, by Demycs ",
+   "royalty_free"
+  ],
+  [
+   "misty_pines",
+   "Poly Haven HDRI",
+   "CC0"
+  ],
+  [
+   "oak_veneer_01",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "oak_wood_planks",
+   "Poly Haven texture",
+   "CC0"
+  ]
+ ],
+ "koala": {
+  "at": [
+   0.12,
+   0.78
+  ],
+  "seat": -0.25,
+  "tint": [
+   0.95,
+   0.97,
+   1.0
+  ],
+  "h": 0.42
+ }
+}

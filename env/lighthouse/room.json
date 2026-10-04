@@ -1,0 +1,124 @@
+{
+ "room": "lighthouse",
+ "U": 17.5,
+ "tableH": 0.74,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -12.95,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -60,
+   -60,
+   -10
+  ],
+  "max": [
+   60,
+   60,
+   60
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "seats": {
+  "w": [
+   0.0,
+   7.744,
+   13.906
+  ],
+  "b": [
+   0.0,
+   7.744,
+   -13.906
+  ]
+ },
+ "seatPano": {
+  "w": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  },
+  "b": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  }
+ },
+ "tableR": 0.43,
+ "tableTop": [
+  0.5,
+  0.43
+ ],
+ "seatView": {
+  "frame": "horizon",
+  "hero": 32,
+  "heroPitch": 5,
+  "up": 55
+ },
+ "seatMirror": true,
+ "koala": {
+  "at": [
+   0.12,
+   0.76
+  ],
+  "seat": -0.24,
+  "tint": [
+   0.92,
+   0.94,
+   0.98
+  ],
+  "h": 0.42
+ },
+ "credits": [
+  [
+   "Lantern_01",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "Wooden Barrel",
+   "BlenderKit, by Free poly",
+   "cc_zero"
+  ],
+  [
+   "boulder_01",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "castle_wall_slates",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "old_planks_02",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "plastered_wall",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "sparse_grass",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "white_cliff_top",
+   "Poly Haven HDRI",
+   "CC0"
+  ],
+  [
+   "wooden_crate_02",
+   "Poly Haven model",
+   "CC0"
+  ]
+ ]
+}

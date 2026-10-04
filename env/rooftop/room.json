@@ -1,0 +1,177 @@
+{
+ "room": "rooftop",
+ "U": 17.5,
+ "tableH": 0.74,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -12.95,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -60,
+   -60,
+   -12.0
+  ],
+  "max": [
+   60,
+   60,
+   60
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "seats": {
+  "w": [
+   0.0,
+   7.254,
+   14.156
+  ],
+  "b": [
+   0.0,
+   7.254,
+   -14.156
+  ]
+ },
+ "seatPano": {
+  "w": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  },
+  "b": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  }
+ },
+ "tableR": 0.292,
+ "seatView": {
+  "frame": "horizon",
+  "hero": 0,
+  "heroPitch": 2,
+  "up": 45
+ },
+ "seatMirror": true,
+ "rig": {
+  "keyColor": 16764824,
+  "keyIntensity": 2.0,
+  "skyColor": 15255984,
+  "groundColor": 5916216,
+  "skyIntensity": 0.3,
+  "rimColor": 10137855,
+  "rimIntensity": 0.6,
+  "envIntensity": 0.55,
+  "exposure": 1.0
+ },
+ "led": 0.7,
+ "finish": "steel",
+ "credits": [
+  [
+   "Bar Cart - Capit\u00f3lio",
+   "BlenderKit, by Ricardo Soares",
+   "royalty_free"
+  ],
+  [
+   "Candle pot",
+   "BlenderKit, by antoine f",
+   "royalty_free"
+  ],
+  [
+   "Denver Dining Chair",
+   "BlenderKit, by Duy Ngo",
+   "royalty_free"
+  ],
+  [
+   "Dieffenbachia Plant",
+   "BlenderKit, by Priscila de Melo ",
+   "royalty_free"
+  ],
+  [
+   "Fiddle Leaf Fig Tree (Medium)",
+   "BlenderKit, by Zulian Firmansyah",
+   "royalty_free"
+  ],
+  [
+   "Jakarta Sofa Bench",
+   "BlenderKit, by Duy Ngo",
+   "royalty_free"
+  ],
+  [
+   "Planter Box 01",
+   "BlenderKit, by Poly Haven ",
+   "cc_zero"
+  ],
+  [
+   "Planter Box 03",
+   "BlenderKit, by Poly Haven ",
+   "cc_zero"
+  ],
+  [
+   "Potted Strelitzia",
+   "BlenderKit, by Ken Xie",
+   "royalty_free"
+  ],
+  [
+   "Reni Lounge Chair",
+   "BlenderKit, by Duy Ngo",
+   "royalty_free"
+  ],
+  [
+   "Sefto Ottoman",
+   "BlenderKit, by Duy Ngo",
+   "royalty_free"
+  ],
+  [
+   "Soren Lounge Sofa",
+   "BlenderKit, by Duy Ngo",
+   "royalty_free"
+  ],
+  [
+   "Wine Glass Large",
+   "BlenderKit, by Arfat Ikhte Rohman",
+   "royalty_free"
+  ],
+  [
+   "concrete_floor_02",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "sunset_jhbcentral",
+   "Poly Haven HDRI",
+   "CC0"
+  ],
+  [
+   "wood_floor_deck",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "wood_planks",
+   "Poly Haven texture",
+   "CC0"
+  ]
+ ],
+ "tableTop": [
+  0.7,
+  0.292
+ ],
+ "koala": {
+  "at": [
+   0.12,
+   0.62
+  ],
+  "seat": -0.24,
+  "tint": [
+   0.98,
+   0.88,
+   0.8
+  ],
+  "h": 0.42
+ }
+}

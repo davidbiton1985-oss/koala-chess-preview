@@ -1,0 +1,114 @@
+{
+ "room": "dunes",
+ "U": 17.5,
+ "tableH": 0.42,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -7.35,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -60,
+   -60,
+   -10
+  ],
+  "max": [
+   60,
+   60,
+   60
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "seats": {
+  "w": [
+   0.0,
+   7.744,
+   13.906
+  ],
+  "b": [
+   0.0,
+   7.744,
+   -13.906
+  ]
+ },
+ "seatPano": {
+  "w": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  },
+  "b": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  }
+ },
+ "tableR": 0.42,
+ "tableTop": [
+  0.49,
+  0.42
+ ],
+ "seatView": {
+  "frame": "horizon",
+  "hero": 0,
+  "heroPitch": 2,
+  "up": 55
+ },
+ "seatMirror": true,
+ "credits": [
+  [
+   "Persian carpet",
+   "BlenderKit, by CHC Design",
+   "royalty_free"
+  ],
+  [
+   "Vintage Brass Oil Lamp",
+   "BlenderKit, by Ken Xie",
+   "royalty_free"
+  ],
+  [
+   "coast_sand_01",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "dark_wood",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "fabric_leather_02",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "rogland_moonlit_night",
+   "Poly Haven HDRI",
+   "CC0"
+  ],
+  [
+   "stone_fire_pit",
+   "Poly Haven model",
+   "CC0"
+  ]
+ ],
+ "koala": {
+  "at": [
+   0.12,
+   0.76
+  ],
+  "seat": -0.16,
+  "tint": [
+   0.4,
+   0.37,
+   0.42
+  ],
+  "h": 0.42
+ }
+}

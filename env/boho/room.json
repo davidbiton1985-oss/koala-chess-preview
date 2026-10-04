@@ -1,0 +1,201 @@
+{
+ "room": "boho",
+ "U": 17.5,
+ "tableH": 0.42,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -7.35,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -3.2,
+   -3.0,
+   0.0
+  ],
+  "max": [
+   3.2,
+   2.6,
+   3.6
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "seats": {
+  "w": [
+   0.0,
+   7.744,
+   13.906
+  ],
+  "b": [
+   0.0,
+   7.744,
+   -13.906
+  ]
+ },
+ "seatPano": {
+  "w": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  },
+  "b": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  }
+ },
+ "tableR": 0.55,
+ "tableTop": [
+  0.55,
+  0.55
+ ],
+ "seatView": {
+  "hero": 0,
+  "heroPitch": 2,
+  "up": 55
+ },
+ "seatMirror": true,
+ "rig": {
+  "keyColor": 16767400,
+  "keyIntensity": 2.6,
+  "skyColor": 16179136,
+  "groundColor": 6965808,
+  "skyIntensity": 0.26,
+  "rimColor": 16763024,
+  "rimIntensity": 0.5,
+  "envIntensity": 0.55,
+  "exposure": 1.0
+ },
+ "led": 0.6,
+ "finish": "desert",
+ "credits": [
+  [
+   "Antique Brass Domestic Storage Jar",
+   "BlenderKit, by Mad Lobster Workshop Dolzall",
+   "royalty_free"
+  ],
+  [
+   "Berber Single Stool",
+   "BlenderKit, by Vicky Nguyen",
+   "royalty_free"
+  ],
+  [
+   "Big Berber Vase",
+   "BlenderKit, by ArtAmin ",
+   "royalty_free"
+  ],
+  [
+   "CRAIG Wooden and Rattan Sofa",
+   "BlenderKit, by Russo 3D",
+   "royalty_free"
+  ],
+  [
+   "Coffee Table",
+   "BlenderKit, by MNDV ",
+   "royalty_free"
+  ],
+  [
+   "Copper Kettle and Glass Coffee Set",
+   "BlenderKit, by Demycs ",
+   "royalty_free"
+  ],
+  [
+   "Decoration vases with pampas",
+   "BlenderKit, by jhon maycon",
+   "royalty_free"
+  ],
+  [
+   "Footed Terracotta Pot",
+   "BlenderKit, by Rex Hans",
+   "royalty_free"
+  ],
+  [
+   "Handled Wicker Basket",
+   "BlenderKit, by GL3D Gabriela Linhares",
+   "royalty_free"
+  ],
+  [
+   "Hanging Plant",
+   "BlenderKit, by Davide Tirindelli",
+   "royalty_free"
+  ],
+  [
+   "Kilim carpet",
+   "BlenderKit, by antoine f",
+   "royalty_free"
+  ],
+  [
+   "Mediterranean Curved Stone Fontain",
+   "BlenderKit, by Lucas Vasseur",
+   "royalty_free"
+  ],
+  [
+   "Palm Tree Medium Dense",
+   "BlenderKit, by Amanpreet Bajwa",
+   "cc_zero"
+  ],
+  [
+   "Pouf",
+   "BlenderKit, by Zainab Syed",
+   "royalty_free"
+  ],
+  [
+   "Round pouf with sheep fur",
+   "BlenderKit, by Joris LM",
+   "royalty_free"
+  ],
+  [
+   "Small Palm Med Potted",
+   "BlenderKit, by Amanpreet Bajwa",
+   "royalty_free"
+  ],
+  [
+   "Vintage Brass Oil Lamp",
+   "BlenderKit, by Ken Xie",
+   "royalty_free"
+  ],
+  [
+   "brown_planks_05",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "floor_tiles_06",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "kloppenheim_06_puresky",
+   "Poly Haven HDRI",
+   "CC0"
+  ],
+  [
+   "patterned_terracotta_tiling",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "terracotta_floor_tiles",
+   "Poly Haven texture",
+   "CC0"
+  ]
+ ],
+ "koala": {
+  "at": [
+   0.12,
+   0.85
+  ],
+  "seat": -0.16,
+  "tint": [
+   0.98,
+   0.86,
+   0.78
+  ],
+  "h": 0.42
+ }
+}

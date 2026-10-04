@@ -1,0 +1,119 @@
+{
+ "room": "village",
+ "U": 17.5,
+ "tableH": 0.74,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -12.95,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -60,
+   -60,
+   -10
+  ],
+  "max": [
+   60,
+   60,
+   60
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "seats": {
+  "w": [
+   0.0,
+   7.744,
+   13.906
+  ],
+  "b": [
+   0.0,
+   7.744,
+   -13.906
+  ]
+ },
+ "seatPano": {
+  "w": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  },
+  "b": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  }
+ },
+ "tableR": 0.5,
+ "tableTop": [
+  0.5,
+  0.5
+ ],
+ "seatView": {
+  "frame": "horizon",
+  "hero": 0,
+  "heroPitch": 0,
+  "up": 45
+ },
+ "seatMirror": true,
+ "credits": [
+  [
+   "Planter Box 01",
+   "BlenderKit, by Poly Haven ",
+   "cc_zero"
+  ],
+  [
+   "Planter Box 03",
+   "BlenderKit, by Poly Haven ",
+   "cc_zero"
+  ],
+  [
+   "Rattan restaurant chair",
+   "BlenderKit, by Joris LM",
+   "royalty_free"
+  ],
+  [
+   "blaubeuren_church_square",
+   "Poly Haven HDRI",
+   "CC0"
+  ],
+  [
+   "cobblestone_floor_02",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "dark_wood",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "fir_sapling_medium",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "street_lamp_01",
+   "Poly Haven model",
+   "CC0"
+  ]
+ ],
+ "koala": {
+  "at": [
+   0.12,
+   0.76
+  ],
+  "seat": -0.26,
+  "tint": [
+   0.95,
+   0.85,
+   0.72
+  ],
+  "h": 0.42
+ }
+}

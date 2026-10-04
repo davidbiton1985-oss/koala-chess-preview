@@ -1,0 +1,114 @@
+{
+ "room": "gardens",
+ "U": 17.5,
+ "tableH": 0.74,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -12.95,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -60,
+   -60,
+   -10
+  ],
+  "max": [
+   60,
+   60,
+   60
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "seats": {
+  "w": [
+   0.0,
+   7.744,
+   13.906
+  ],
+  "b": [
+   0.0,
+   7.744,
+   -13.906
+  ]
+ },
+ "seatPano": {
+  "w": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  },
+  "b": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  }
+ },
+ "tableR": 0.42,
+ "tableTop": [
+  0.49,
+  0.42
+ ],
+ "seatView": {
+  "frame": "horizon",
+  "hero": 0,
+  "heroPitch": -2,
+  "up": 45
+ },
+ "seatMirror": true,
+ "credits": [
+  [
+   "Climbing Roses Bush3",
+   "BlenderKit, by Pandora Land",
+   "royalty_free"
+  ],
+  [
+   "Fiddle Leaf Fig Tree (Medium)",
+   "BlenderKit, by Zulian Firmansyah",
+   "royalty_free"
+  ],
+  [
+   "Mediterranean Curved Stone Fontain",
+   "BlenderKit, by Lucas Vasseur",
+   "royalty_free"
+  ],
+  [
+   "gravel_floor",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "old_sandstone_02",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "planter_pot_clay",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "sunny_rose_garden",
+   "Poly Haven HDRI",
+   "CC0"
+  ]
+ ],
+ "koala": {
+  "at": [
+   0.12,
+   0.76
+  ],
+  "seat": -0.24,
+  "tint": [
+   1.0,
+   0.97,
+   0.92
+  ],
+  "h": 0.42
+ }
+}

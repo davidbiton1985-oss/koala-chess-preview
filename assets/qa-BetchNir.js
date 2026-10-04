@@ -1,0 +1,1 @@
+const e=new Map,i=typeof location<"u"&&location.search.includes("qa");function s(t,r){if(!i)return()=>{};e.set(t,r);const c=window;return c.qcLearnQA=Object.fromEntries([...e].map(([n,o])=>[n,o])),()=>{e.get(t)===r&&(e.delete(t),c.qcLearnQA=Object.fromEntries([...e].map(([n,o])=>[n,o])))}}export{s as q};

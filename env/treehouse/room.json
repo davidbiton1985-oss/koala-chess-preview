@@ -1,0 +1,152 @@
+{
+ "room": "treehouse",
+ "U": 17.5,
+ "tableH": 0.72,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -12.6,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -30,
+   -30,
+   -10
+  ],
+  "max": [
+   30,
+   30,
+   30
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "seats": {
+  "w": [
+   0.0,
+   7.744,
+   13.906
+  ],
+  "b": [
+   0.0,
+   7.744,
+   -13.906
+  ]
+ },
+ "seatPano": {
+  "w": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  },
+  "b": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  }
+ },
+ "tableR": 0.525,
+ "tableTop": [
+  0.525,
+  0.525
+ ],
+ "seatView": {
+  "frame": "horizon",
+  "hero": 0,
+  "heroPitch": -4,
+  "up": 50
+ },
+ "seatMirror": true,
+ "rig": {
+  "keyColor": 16769200,
+  "keyIntensity": 2.6,
+  "skyColor": 14740724,
+  "groundColor": 5918768,
+  "skyIntensity": 0.3,
+  "rimColor": 16771272,
+  "rimIntensity": 0.5,
+  "envIntensity": 0.6,
+  "exposure": 1.0
+ },
+ "led": 0.3,
+ "finish": "gumwood",
+ "credits": [
+  [
+   "Climbing Roses Red",
+   "BlenderKit, by Pandora Land",
+   "royalty_free"
+  ],
+  [
+   "Hanging (beach) busket chair",
+   "BlenderKit, by Dennis Hafemann",
+   "royalty_free"
+  ],
+  [
+   "Lantern_01",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "Peeling Bark Tree Trunk",
+   "BlenderKit, by REAL SCANS",
+   "royalty_free"
+  ],
+  [
+   "Small Wooden Stool",
+   "BlenderKit, by Quinn VB",
+   "royalty_free"
+  ],
+  [
+   "Wooden Barrel",
+   "BlenderKit, by Free poly",
+   "cc_zero"
+  ],
+  [
+   "bark_bluegum",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "brown_planks_05",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "neurathen_rock_castle",
+   "Poly Haven HDRI",
+   "CC0"
+  ],
+  [
+   "old_planks_02",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "roof_planks",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "round_wooden_table_02",
+   "Poly Haven model",
+   "CC0"
+  ]
+ ],
+ "koala": {
+  "at": [
+   0.12,
+   0.62
+  ],
+  "seat": -0.17,
+  "tint": [
+   0.95,
+   0.92,
+   0.86
+  ],
+  "h": 0.42
+ }
+}

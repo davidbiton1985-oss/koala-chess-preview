@@ -1,0 +1,129 @@
+{
+ "room": "falls",
+ "U": 17.5,
+ "tableH": 0.7,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -12.25,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -60,
+   -60,
+   -10
+  ],
+  "max": [
+   60,
+   60,
+   60
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "seats": {
+  "w": [
+   0.0,
+   7.744,
+   13.906
+  ],
+  "b": [
+   0.0,
+   7.744,
+   -13.906
+  ]
+ },
+ "seatPano": {
+  "w": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  },
+  "b": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  }
+ },
+ "tableR": 0.44,
+ "tableTop": [
+  0.52,
+  0.44
+ ],
+ "seatView": {
+  "frame": "horizon",
+  "hero": 0,
+  "heroPitch": -2,
+  "up": 45
+ },
+ "seatMirror": true,
+ "credits": [
+  [
+   "Fallen Trunk",
+   "BlenderKit, by PBRPX ",
+   "cc_zero"
+  ],
+  [
+   "Mossy Rock",
+   "BlenderKit, by Occams Render",
+   "royalty_free"
+  ],
+  [
+   "fern_02",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "forest_ground_04",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "lauter_waterfall",
+   "Poly Haven HDRI",
+   "CC0"
+  ],
+  [
+   "lichen_rock",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "pine_sapling_medium",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "rock_moss_set_01",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "root_cluster_01",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "tree_stump_01",
+   "Poly Haven model",
+   "CC0"
+  ]
+ ],
+ "koala": {
+  "at": [
+   0.12,
+   0.76
+  ],
+  "seat": -0.22,
+  "tint": [
+   0.7,
+   0.76,
+   0.68
+  ],
+  "h": 0.42
+ }
+}

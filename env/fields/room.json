@@ -1,0 +1,134 @@
+{
+ "room": "fields",
+ "U": 17.5,
+ "tableH": 0.74,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -12.95,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -60,
+   -60,
+   -10
+  ],
+  "max": [
+   60,
+   60,
+   60
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "seats": {
+  "w": [
+   0.0,
+   7.744,
+   13.906
+  ],
+  "b": [
+   0.0,
+   7.744,
+   -13.906
+  ]
+ },
+ "seatPano": {
+  "w": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  },
+  "b": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  }
+ },
+ "tableR": 0.43,
+ "tableTop": [
+  0.52,
+  0.43
+ ],
+ "seatView": {
+  "frame": "horizon",
+  "hero": 0,
+  "heroPitch": -2,
+  "up": 45
+ },
+ "seatMirror": true,
+ "credits": [
+  [
+   "Hay Bale",
+   "BlenderKit, by SaTales ",
+   "royalty_free"
+  ],
+  [
+   "Lantern_01",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "Medieval Open Cargo Wagon",
+   "BlenderKit, by Hesoyam 3dart",
+   "royalty_free"
+  ],
+  [
+   "Pitchfork",
+   "BlenderKit, by Remnants of Eden Pierre",
+   "royalty_free"
+  ],
+  [
+   "Round Hay Bale",
+   "BlenderKit, by Reza NeoMasyaf",
+   "royalty_free"
+  ],
+  [
+   "Small Wooden Stool",
+   "BlenderKit, by Quinn VB",
+   "royalty_free"
+  ],
+  [
+   "Wooden Barrel",
+   "BlenderKit, by Free poly",
+   "cc_zero"
+  ],
+  [
+   "hay_bales",
+   "Poly Haven HDRI",
+   "CC0"
+  ],
+  [
+   "old_planks_02",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "withered_grass",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "wooden_bucket_01",
+   "Poly Haven model",
+   "CC0"
+  ]
+ ],
+ "koala": {
+  "at": [
+   0.12,
+   0.76
+  ],
+  "seat": -0.26,
+  "tint": [
+   1.0,
+   0.95,
+   0.85
+  ],
+  "h": 0.42
+ }
+}

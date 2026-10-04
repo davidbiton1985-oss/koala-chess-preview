@@ -1,0 +1,202 @@
+{
+ "room": "ocean",
+ "U": 17.5,
+ "tableH": 0.74,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -12.95,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -4.4,
+   -5.4,
+   0.0
+  ],
+  "max": [
+   14,
+   40,
+   30
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "seats": {
+  "w": [
+   0.0,
+   7.254,
+   14.156
+  ],
+  "b": [
+   0.0,
+   7.254,
+   -14.156
+  ]
+ },
+ "seatPano": {
+  "w": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  },
+  "b": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  }
+ },
+ "tableR": 0.333,
+ "tableTop": [
+  0.8,
+  0.333
+ ],
+ "seatView": {
+  "frame": "horizon",
+  "hero": 0,
+  "up": 45,
+  "heroPitch": -6
+ },
+ "seatMirror": true,
+ "rig": {
+  "keyColor": 16774629,
+  "keyIntensity": 2.6,
+  "skyColor": 14215930,
+  "groundColor": 8023641,
+  "skyIntensity": 0.3,
+  "rimColor": 14544639,
+  "rimIntensity": 0.5,
+  "envIntensity": 0.6,
+  "exposure": 1.0
+ },
+ "led": 0,
+ "finish": "marble",
+ "credits": [
+  [
+   "Antigua Dining Table",
+   "BlenderKit, by Duy Ngo",
+   "royalty_free"
+  ],
+  [
+   "Areca Palm Plant",
+   "BlenderKit, by Ken Xie",
+   "royalty_free"
+  ],
+  [
+   "Ceramic Pot",
+   "BlenderKit, by Poly Haven ",
+   "cc_zero"
+  ],
+  [
+   "Daphne Lounge Sofa",
+   "BlenderKit, by Duy Ngo",
+   "royalty_free"
+  ],
+  [
+   "Fruit Plate",
+   "BlenderKit, by PBRPX ",
+   "cc_zero"
+  ],
+  [
+   "Lemon bush/tree",
+   "BlenderKit, by Jernej Kalin",
+   "royalty_free"
+  ],
+  [
+   "Mud Pot",
+   "BlenderKit, by Muhammed Ismayil",
+   "royalty_free"
+  ],
+  [
+   "Old Lantern",
+   "BlenderKit, by Dovydas Alytas",
+   "royalty_free"
+  ],
+  [
+   "Old Terracotta Pottery 28x28x40",
+   "BlenderKit, by Robert Restu Pambudi",
+   "royalty_free"
+  ],
+  [
+   "Pool chair \"TOKYO CHAISE LONGUE\"",
+   "BlenderKit, by Mesk911 ",
+   "royalty_free"
+  ],
+  [
+   "Rattan chair",
+   "BlenderKit, by Joris LM",
+   "royalty_free"
+  ],
+  [
+   "Wine bottle",
+   "BlenderKit, by Chiashin Liu",
+   "royalty_free"
+  ],
+  [
+   "Wine glass",
+   "BlenderKit, by Patryk Zemsta",
+   "royalty_free"
+  ],
+  [
+   "Wooden sun umbrella",
+   "BlenderKit, by Priscila de Melo ",
+   "royalty_free"
+  ],
+  [
+   "coast_land_rocks_03",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "coast_rocks_05",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "coast_sand_rocks_02",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "patio_tiles",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "qwantani_puresky",
+   "Poly Haven HDRI",
+   "CC0"
+  ],
+  [
+   "rough_wood",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "seaworn_stone_tiles",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "wood_planks",
+   "Poly Haven texture",
+   "CC0"
+  ]
+ ],
+ "koala": {
+  "at": [
+   0.13,
+   0.6
+  ],
+  "seat": -0.24,
+  "tint": [
+   0.96,
+   0.98,
+   1.02
+  ],
+  "h": 0.42
+ }
+}

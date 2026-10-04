@@ -1,0 +1,200 @@
+{
+ "room": "library",
+ "U": 17.5,
+ "tableH": 0.74,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -12.95,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -3.2,
+   -3.0,
+   0.0
+  ],
+  "max": [
+   3.2,
+   3.4,
+   3.4
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "seats": {
+  "w": [
+   0.0,
+   7.744,
+   13.906
+  ],
+  "b": [
+   0.0,
+   7.744,
+   -13.906
+  ]
+ },
+ "seatPano": {
+  "w": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  },
+  "b": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  }
+ },
+ "tableR": 0.525,
+ "tableTop": [
+  0.525,
+  0.525
+ ],
+ "seatView": {
+  "hero": 0,
+  "heroPitch": 4
+ },
+ "seatMirror": true,
+ "rig": {
+  "keyColor": 16763024,
+  "keyIntensity": 2.2,
+  "skyColor": 6969928,
+  "groundColor": 2759184,
+  "skyIntensity": 0.18,
+  "rimColor": 16756848,
+  "rimIntensity": 0.45,
+  "envIntensity": 0.5,
+  "exposure": 1.0
+ },
+ "led": 1.0,
+ "finish": "ebony",
+ "credits": [
+  [
+   "Antique Bookcase",
+   "BlenderKit, by EN.Art ",
+   "royalty_free"
+  ],
+  [
+   "Antique Rustic Wooden Lamp Table",
+   "BlenderKit, by Mad Lobster Workshop Dolzall",
+   "royalty_free"
+  ],
+  [
+   "Bohemia Crystal Decanter",
+   "BlenderKit, by No12U ",
+   "royalty_free"
+  ],
+  [
+   "Bohemia Crystal Glass",
+   "BlenderKit, by No12U ",
+   "royalty_free"
+  ],
+  [
+   "Brass Candleholders",
+   "BlenderKit, by Poly Haven ",
+   "cc_zero"
+  ],
+  [
+   "Chesterfield club chair red",
+   "BlenderKit, by Joachim Bornemann",
+   "royalty_free"
+  ],
+  [
+   "Dinning chair",
+   "BlenderKit, by Pawe\u0142 Wa\u0142asiewicz",
+   "royalty_free"
+  ],
+  [
+   "Faux Antique Standing Globe",
+   "BlenderKit, by Mad Lobster Workshop Dolzall",
+   "royalty_free"
+  ],
+  [
+   "Fireplace",
+   "BlenderKit, by Yniko ",
+   "royalty_free"
+  ],
+  [
+   "Four stacks of books 30 cm",
+   "BlenderKit, by Rudolf Wohland",
+   "royalty_free"
+  ],
+  [
+   "Four stacks of books 40 cm",
+   "BlenderKit, by Rudolf Wohland",
+   "royalty_free"
+  ],
+  [
+   "Leather chair with ottoman",
+   "BlenderKit, by Evgeniy Kudlaev",
+   "royalty_free"
+  ],
+  [
+   "Mantel Clock 01",
+   "BlenderKit, by Poly Haven ",
+   "cc_zero"
+  ],
+  [
+   "Persian carpet",
+   "BlenderKit, by Blendkit Community",
+   "royalty_free"
+  ],
+  [
+   "Retro picture frame",
+   "BlenderKit, by Free poly",
+   "royalty_free"
+  ],
+  [
+   "Victorian Double Student Lamp",
+   "BlenderKit, by Mad Lobster Workshop Dolzall",
+   "royalty_free"
+  ],
+  [
+   "Vintage Oil Lamp",
+   "BlenderKit, by Poly Haven ",
+   "cc_zero"
+  ],
+  [
+   "dark_paneled_wood",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "dark_wooden_planks",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "kloppenheim_02_puresky",
+   "Poly Haven HDRI",
+   "CC0"
+  ],
+  [
+   "plastered_wall_02",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "round_wooden_table_01",
+   "Poly Haven model",
+   "CC0"
+  ]
+ ],
+ "koala": {
+  "at": [
+   0.12,
+   0.66
+  ],
+  "seat": -0.21,
+  "tint": [
+   0.78,
+   0.62,
+   0.48
+  ],
+  "h": 0.42
+ }
+}

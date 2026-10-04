@@ -1,0 +1,283 @@
+{
+ "room": "cabin",
+ "U": 17.5,
+ "tableH": 0.74,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -12.95,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -3.0,
+   -3.0,
+   0.0
+  ],
+  "max": [
+   3.2,
+   3.2,
+   5.0
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "seats": {
+  "w": [
+   0.0,
+   7.744,
+   13.906
+  ],
+  "b": [
+   0.0,
+   7.744,
+   -13.906
+  ]
+ },
+ "seatPano": {
+  "w": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  },
+  "b": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  }
+ },
+ "tableR": 0.42,
+ "tableTop": [
+  0.42,
+  0.42
+ ],
+ "seatView": {
+  "hero": 70,
+  "heroPitch": -10
+ },
+ "seatMirror": true,
+ "rig": {
+  "keyColor": 16771282,
+  "keyIntensity": 1.6,
+  "keyAz": 95,
+  "keyEl": 26,
+  "skyColor": 13161700,
+  "groundColor": 4861984,
+  "skyIntensity": 0.6,
+  "rimColor": 11059432,
+  "rimIntensity": 0.5,
+  "envIntensity": 1.1,
+  "exposure": 1.0,
+  "shadowIntensity": 0.7
+ },
+ "led": 0.9,
+ "finish": "desert",
+ "credits": [
+  [
+   "3 panel curtains",
+   "BlenderKit, by antoine f",
+   "royalty_free"
+  ],
+  [
+   "Antique Bookcase",
+   "BlenderKit, by Cambur theGrey",
+   "royalty_free"
+  ],
+  [
+   "Antique Tea Kettle",
+   "BlenderKit, by Ed Ackerman",
+   "royalty_free"
+  ],
+  [
+   "Burnt Log 01",
+   "BlenderKit, by Joshua Whitney",
+   "cc_zero"
+  ],
+  [
+   "Burnt Log 02",
+   "BlenderKit, by Joshua Whitney",
+   "cc_zero"
+  ],
+  [
+   "Candle and Holder",
+   "BlenderKit, by Ed Ackerman",
+   "cc_zero"
+  ],
+  [
+   "Ceramic flower mug",
+   "BlenderKit, by GL3D Gabriela Linhares",
+   "royalty_free"
+  ],
+  [
+   "Chandelier Rustic  wheel 12 candles",
+   "BlenderKit, by Joachim Bornemann",
+   "royalty_free"
+  ],
+  [
+   "Chess stopwatch",
+   "BlenderKit, by jhon maycon",
+   "royalty_free"
+  ],
+  [
+   "Chesterfield club chair red",
+   "BlenderKit, by Joachim Bornemann",
+   "royalty_free"
+  ],
+  [
+   "Classic Chess Lounge Set",
+   "BlenderKit, by Yuriy Madar",
+   "royalty_free"
+  ],
+  [
+   "Decorated candle",
+   "BlenderKit, by jhon maycon",
+   "royalty_free"
+  ],
+  [
+   "Deer antler trophy",
+   "BlenderKit, by Dovydas Alytas",
+   "royalty_free"
+  ],
+  [
+   "Fireplace tools set",
+   "BlenderKit, by Thomas Jeanne",
+   "royalty_free"
+  ],
+  [
+   "Firewood Log",
+   "BlenderKit, by Matteo Pascale",
+   "royalty_free"
+  ],
+  [
+   "Five pieces of firewood.",
+   "BlenderKit, by Joachim Bornemann",
+   "royalty_free"
+  ],
+  [
+   "Kilim carpet",
+   "BlenderKit, by antoine f",
+   "royalty_free"
+  ],
+  [
+   "Old Lantern",
+   "BlenderKit, by Dovydas Alytas",
+   "royalty_free"
+  ],
+  [
+   "Old books Collection",
+   "BlenderKit, by Mobolaji_3D Dele-Adelodun",
+   "royalty_free"
+  ],
+  [
+   "Pine Cone scan",
+   "BlenderKit, by GL3D Gabriela Linhares",
+   "royalty_free"
+  ],
+  [
+   "Reinforced Wooden Equipment Crate",
+   "BlenderKit, by Mad Lobster Workshop Dolzall",
+   "royalty_free"
+  ],
+  [
+   "Small Wooden Stool",
+   "BlenderKit, by Quinn VB",
+   "royalty_free"
+  ],
+  [
+   "Tree Stump",
+   "BlenderKit, by REAL SCANS",
+   "royalty_free"
+  ],
+  [
+   "Vintage Wooden Chair",
+   "BlenderKit, by Matteo Pascale",
+   "royalty_free"
+  ],
+  [
+   "Whicker Basket",
+   "BlenderKit, by Nico ",
+   "royalty_free"
+  ],
+  [
+   "White Sheep rug",
+   "BlenderKit, by Joris LM",
+   "royalty_free"
+  ],
+  [
+   "Wood door",
+   "BlenderKit, by Free poly",
+   "cc_zero"
+  ],
+  [
+   "Wooden Country Wall Shelf",
+   "BlenderKit, by Mad Lobster Workshop Dolzall",
+   "royalty_free"
+  ],
+  [
+   "Work Boots",
+   "BlenderKit, by Matteo Pascale",
+   "royalty_free"
+  ],
+  [
+   "burned_ground_01",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "castle_wall_slates",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "dl_open_book",
+   "BlenderKit, by dleon3D Le\u00f3n",
+   "cc_zero"
+  ],
+  [
+   "old_wooden_floor_02",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "raw_plank_wall",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "red_brick_03",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "rough_wood",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "snowy_forest_path_01",
+   "Poly Haven HDRI",
+   "CC0"
+  ],
+  [
+   "stone_wall",
+   "Poly Haven texture",
+   "CC0"
+  ]
+ ],
+ "koala": {
+  "at": [
+   0.12,
+   0.78
+  ],
+  "seat": -0.26,
+  "tint": [
+   0.92,
+   0.86,
+   0.82
+  ],
+  "h": 0.42
+ }
+}

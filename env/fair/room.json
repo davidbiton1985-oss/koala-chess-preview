@@ -1,0 +1,124 @@
+{
+ "room": "fair",
+ "U": 17.5,
+ "tableH": 0.74,
+ "capture": [
+  0,
+  6.125,
+  0
+ ],
+ "floorY": -12.95,
+ "proxy": {
+  "kind": "box",
+  "min": [
+   -60,
+   -60,
+   -10
+  ],
+  "max": [
+   60,
+   60,
+   60
+  ]
+ },
+ "pano": {
+  "rich": "pano-4k.webp",
+  "light": "pano-2k.webp"
+ },
+ "env": "env.webp",
+ "panoYaw": 0,
+ "seats": {
+  "w": [
+   0.0,
+   7.744,
+   13.906
+  ],
+  "b": [
+   0.0,
+   7.744,
+   -13.906
+  ]
+ },
+ "seatPano": {
+  "w": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  },
+  "b": {
+   "rich": "seat-w-8k.webp",
+   "light": "seat-w-4k.webp"
+  }
+ },
+ "tableR": 0.42,
+ "tableTop": [
+  0.5,
+  0.42
+ ],
+ "seatView": {
+  "frame": "horizon",
+  "hero": 0,
+  "heroPitch": 2,
+  "up": 45
+ },
+ "seatMirror": true,
+ "koala": {
+  "at": [
+   0.12,
+   0.76
+  ],
+  "seat": -0.24,
+  "tint": [
+   0.95,
+   0.85,
+   0.75
+  ],
+  "h": 0.42
+ },
+ "credits": [
+  [
+   "Draft horse",
+   "BlenderKit, by Irena Aidlin Moonin",
+   "royalty_free"
+  ],
+  [
+   "blaubeuren_night",
+   "Poly Haven HDRI",
+   "CC0"
+  ],
+  [
+   "brown_planks_05",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "gravel_ground_01",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "island_tree_02",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "old_planks_02",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
+   "painted_wooden_stool",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "shrub_02",
+   "Poly Haven model",
+   "CC0"
+  ],
+  [
+   "wooden_lantern_01",
+   "Poly Haven model",
+   "CC0"
+  ]
+ ]
+}

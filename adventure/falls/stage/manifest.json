@@ -39,6 +39,22 @@
   "camera": "tacticianPortrait",
   "note": "portrait (9:16-ish) tactician plate painted from a Blender guide at cameras.tacticianPortrait below; used with a 'cover' fit (not 'contain') so it fills a phone screen with no letterbox bars"
  },
+ "plateCineIntroEnd": {
+  "url": "plate-cine-intro_end.webp",
+  "urlLight": "plate-cine-intro_end-light.webp",
+  "width": 2688,
+  "height": 1512,
+  "camera": "cineIntroEnd",
+  "note": "landscape-only painted plate for the intro fly-in's end pose (cameras.cineIntroEnd below); crossfaded in (~0.6s) once the fly-in arrives, with the diorama/backdrop hidden behind it the same way the tactician plate hides them, so the live knight stays visible on top. No portrait version yet \u2014 portrait keeps the live 3D stage (stage.ts TODO)"
+ },
+ "plateCineBridge": {
+  "url": "plate-cine-bridge.webp",
+  "urlLight": "plate-cine-bridge-light.webp",
+  "width": 2688,
+  "height": 1512,
+  "camera": "cineBridge",
+  "note": "landscape-only painted plate for the static on:'bridge' adventure shot (cameras.cineBridge below, Finale opener); crossfaded in once the glide to the bridge pose finishes. No portrait version yet \u2014 portrait keeps the live 3D stage (stage.ts TODO)"
+ },
  "lightmap": {
   "url": "lightmap.webp",
   "urlLight": "lightmap-light.webp",
@@ -122,7 +138,7 @@
     -0.4
    ],
    "lensMm": 30,
-   "note": "derived from the Blender guide camera (loc 0,-0.66,0.60; target 0,0.02,0; 20 game units per Blender unit; game.x=bx*20, game.y=bz*20, game.z=-by*20 — the same mapping fit to cameras.tactician/its Blender source loc 0,-0.60,0.36 target 0,0.06,0)"
+   "note": "derived from the Blender guide camera (loc 0,-0.66,0.60; target 0,0.02,0; 20 game units per Blender unit; game.x=bx*20, game.y=bz*20, game.z=-by*20 \u2014 the same mapping fit to cameras.tactician/its Blender source loc 0,-0.60,0.36 target 0,0.06,0)"
   },
   "hero": {
    "position": [
@@ -136,14 +152,70 @@
     -5
    ],
    "lensMm": 32
+  },
+  "cineIntroEnd": {
+   "position": [
+    1.2,
+    2.2,
+    9.5
+   ],
+   "target": [
+    0,
+    0.3,
+    -2
+   ],
+   "fov": 40,
+   "note": "the intro fly-in's own end pose (stage.ts introPath P3 + its look-at/fov at introT=1) \u2014 vertical fov in degrees, not a Blender lens; the plate was painted from a Blender guide rendered to match this exact game camera"
+  },
+  "cineBridge": {
+   "position": [
+    -1.2,
+    3.1,
+    8.5
+   ],
+   "target": [
+    1.8,
+    0.2,
+    -3.2
+   ],
+   "fov": 44,
+   "note": "the static on:'bridge' adventure shot (stage.ts goal(), landscape fov) \u2014 vertical fov in degrees, same convention as cineIntroEnd"
+  },
+  "cineIntroEndPortrait": {
+   "position": [
+    1.2,
+    2.2,
+    9.5
+   ],
+   "target": [
+    0,
+    0.3,
+    -2
+   ],
+   "fov": 40,
+   "note": "portrait twin of cameras.cineIntroEnd: same pose, the portrait vertical fov"
+  },
+  "cineBridgePortrait": {
+   "position": [
+    -1.2,
+    3.1,
+    8.5
+   ],
+   "target": [
+    1.8,
+    0.2,
+    -3.2
+   ],
+   "fov": 58,
+   "note": "portrait twin of cameras.cineBridge: same pose, the portrait vertical fov"
   }
  },
  "nodes": {
-  "bridge": "near end ≈ (3.5, 0, -4.6)",
+  "bridge": "near end \u2248 (3.5, 0, -4.6)",
   "hammock": "between the left hero trunk and the sapling",
   "fern_peek": "(-5.0, 0, 2.2)",
   "log": "left bank beyond rank 8",
-  "koala_rock": "(8.0, ≈1.6, 2.6)"
+  "koala_rock": "(8.0, \u22481.6, 2.6)"
  },
  "stones": [
   {
@@ -595,5 +667,21 @@
    "tone": "dark"
   }
  ],
- "licences": "CC0: Poly Haven (see docs/chess-redesign/adventure/drop-a/art/SOURCES.csv); ferns, bridge, hammock, trunks: procedural (ours)"
+ "licences": "CC0: Poly Haven (see docs/chess-redesign/adventure/drop-a/art/SOURCES.csv); ferns, bridge, hammock, trunks: procedural (ours)",
+ "plateCineIntroEndPortrait": {
+  "url": "plate-cine-intro_end-p.webp",
+  "urlLight": "plate-cine-intro_end-p-light.webp",
+  "width": 1800,
+  "height": 3200,
+  "camera": "cineIntroEndPortrait",
+  "note": "upright-phone painting of the same pose (FLUX.2 klein restyle of scripts/adventure/out/guides/guide_intro_end_p.png, ECC-aligned to the guide, Real-ESRGAN x4); vertical fov 40 = stage.ts's portrait fov for this shot; drawn 'cover'"
+ },
+ "plateCineBridgePortrait": {
+  "url": "plate-cine-bridge-p.webp",
+  "urlLight": "plate-cine-bridge-p-light.webp",
+  "width": 1800,
+  "height": 3200,
+  "camera": "cineBridgePortrait",
+  "note": "upright-phone painting of the same pose (FLUX.2 klein restyle of scripts/adventure/out/guides/guide_bridge_p.png, ECC-aligned to the guide, Real-ESRGAN x4); vertical fov 58 = stage.ts's portrait fov for this shot; drawn 'cover'"
+ }
 }
