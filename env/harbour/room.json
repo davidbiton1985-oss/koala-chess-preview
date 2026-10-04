@@ -61,6 +61,19 @@
   "up": 45
  },
  "seatMirror": true,
+ "koala": {
+  "at": [
+   0.12,
+   0.76
+  ],
+  "seat": -0.24,
+  "tint": [
+   1.0,
+   0.86,
+   0.74
+  ],
+  "h": 0.42
+ },
  "credits": [
   [
    "Lantern_01",
@@ -93,11 +106,6 @@
    "CC0"
   ],
   [
-   "ship_pinnace",
-   "Poly Haven model",
-   "CC0"
-  ],
-  [
    "small_harbour_sunset",
    "Poly Haven HDRI",
    "CC0"
@@ -107,18 +115,5 @@
    "Poly Haven model",
    "CC0"
   ]
- ],
- "koala": {
-  "at": [
-   0.12,
-   0.76
-  ],
-  "seat": -0.24,
-  "tint": [
-   1.0,
-   0.86,
-   0.74
-  ],
-  "h": 0.42
- }
+ ]
 }

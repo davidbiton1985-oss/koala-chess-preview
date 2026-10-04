@@ -50,6 +50,10 @@
   }
  },
  "tableR": 0.292,
+ "tableTop": [
+  0.7,
+  0.292
+ ],
  "seatView": {
   "frame": "horizon",
   "hero": 0,
@@ -70,6 +74,19 @@
  },
  "led": 0.7,
  "finish": "steel",
+ "koala": {
+  "at": [
+   0.12,
+   0.62
+  ],
+  "seat": -0.24,
+  "tint": [
+   0.98,
+   0.88,
+   0.8
+  ],
+  "h": 0.42
+ },
  "credits": [
   [
    "Bar Cart - Capit\u00f3lio",
@@ -156,22 +173,5 @@
    "Poly Haven texture",
    "CC0"
   ]
- ],
- "tableTop": [
-  0.7,
-  0.292
- ],
- "koala": {
-  "at": [
-   0.12,
-   0.62
-  ],
-  "seat": -0.24,
-  "tint": [
-   0.98,
-   0.88,
-   0.8
-  ],
-  "h": 0.42
- }
+ ]
 }
