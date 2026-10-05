@@ -61,7 +61,30 @@
   "up": 55
  },
  "seatMirror": true,
+ "koala": {
+  "at": [
+   0.12,
+   0.76
+  ],
+  "seat": -0.16,
+  "tint": [
+   0.4,
+   0.37,
+   0.42
+  ],
+  "h": 0.42
+ },
  "credits": [
+  [
+   "Burnt Log 01",
+   "BlenderKit, by Joshua Whitney",
+   "cc_zero"
+  ],
+  [
+   "Burnt Log 02",
+   "BlenderKit, by Joshua Whitney",
+   "cc_zero"
+  ],
   [
    "Persian carpet",
    "BlenderKit, by CHC Design",
@@ -71,6 +94,11 @@
    "Vintage Brass Oil Lamp",
    "BlenderKit, by Ken Xie",
    "royalty_free"
+  ],
+  [
+   "burned_ground_01",
+   "Poly Haven texture",
+   "CC0"
   ],
   [
    "coast_sand_01",
@@ -97,18 +125,5 @@
    "Poly Haven model",
    "CC0"
   ]
- ],
- "koala": {
-  "at": [
-   0.12,
-   0.76
-  ],
-  "seat": -0.16,
-  "tint": [
-   0.4,
-   0.37,
-   0.42
-  ],
-  "h": 0.42
- }
+ ]
 }

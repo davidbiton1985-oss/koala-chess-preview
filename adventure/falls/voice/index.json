@@ -1,0 +1,378 @@
+{
+ "en": {
+  "gen.help.1": {
+   "dur": 1.86,
+   "speech_end": 1.56,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "gen.muddle.1": {
+   "dur": 2.41,
+   "speech_end": 2.11,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r05.arrive.1": {
+   "dur": 2.53,
+   "speech_end": 2.23,
+   "lufs": -16,
+   "tp": -1.7
+  },
+  "r05.fin.0": {
+   "dur": 2.38,
+   "speech_end": 2.08,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "r05.fin.1": {
+   "dur": 2.57,
+   "speech_end": 2.27,
+   "lufs": -16.1,
+   "tp": -2
+  },
+  "r05.fin.2": {
+   "dur": 1.57,
+   "speech_end": 1.27,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r05.fin.3": {
+   "dur": 2.23,
+   "speech_end": 1.93,
+   "lufs": -16,
+   "tp": -1.9
+  },
+  "r05.fin.4": {
+   "dur": 1.95,
+   "speech_end": 1.65,
+   "lufs": -16.1,
+   "tp": -1.7
+  },
+  "r05.fin.5": {
+   "dur": 2.71,
+   "speech_end": 2.41,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r05.fin.cheer": {
+   "dur": 2.37,
+   "speech_end": 2.07,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "r05.fin.next": {
+   "dur": 2.17,
+   "speech_end": 1.87,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r05.fin.queen": {
+   "dur": 2.35,
+   "speech_end": 2.05,
+   "lufs": -16.2,
+   "tp": -2
+  },
+  "r05.fin.tower": {
+   "dur": 2.23,
+   "speech_end": 1.93,
+   "lufs": -16.2,
+   "tp": -2.1
+  },
+  "r05.s1.1": {
+   "dur": 2.38,
+   "speech_end": 2.08,
+   "lufs": -16.2,
+   "tp": -2
+  },
+  "r05.s1.2": {
+   "dur": 1.94,
+   "speech_end": 1.64,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "r05.s1.3": {
+   "dur": 2.83,
+   "speech_end": 2.53,
+   "lufs": -16.2,
+   "tp": -1.7
+  },
+  "r05.s1.cheer": {
+   "dur": 2.73,
+   "speech_end": 2.43,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r05.s1.next": {
+   "dur": 2.14,
+   "speech_end": 1.84,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r05.s2.1": {
+   "dur": 2.2,
+   "speech_end": 1.9,
+   "lufs": -16.2,
+   "tp": -2
+  },
+  "r05.s2.2": {
+   "dur": 1.77,
+   "speech_end": 1.47,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r05.s2.4": {
+   "dur": 2.46,
+   "speech_end": 2.16,
+   "lufs": -16.1,
+   "tp": -1.7
+  },
+  "r05.s2.cheer": {
+   "dur": 2.69,
+   "speech_end": 2.39,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "r05.s2.next": {
+   "dur": 1.99,
+   "speech_end": 1.69,
+   "lufs": -16.2,
+   "tp": -1.7
+  },
+  "r05.s3.1": {
+   "dur": 3.23,
+   "speech_end": 2.93,
+   "lufs": -16.1,
+   "tp": -2.3
+  },
+  "r05.s3.cheer": {
+   "dur": 2.47,
+   "speech_end": 2.17,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "r05.s3.next": {
+   "dur": 1.96,
+   "speech_end": 1.66,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "r05.s3.twist": {
+   "dur": 2.62,
+   "speech_end": 2.32,
+   "lufs": -16.1,
+   "tp": -1.7
+  },
+  "r05.s4.1": {
+   "dur": 2.15,
+   "speech_end": 1.85,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "r05.s4.2": {
+   "dur": 1.81,
+   "speech_end": 1.51,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "r05.s4.4": {
+   "dur": 3.21,
+   "speech_end": 2.91,
+   "lufs": -16.1,
+   "tp": -1.7
+  },
+  "r05.s4.next": {
+   "dur": 2.71,
+   "speech_end": 2.41,
+   "lufs": -16.2,
+   "tp": -1.9
+  }
+ },
+ "he": {
+  "gen.help.1": {
+   "dur": 2.19,
+   "speech_end": 1.89,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "gen.muddle.1": {
+   "dur": 2.56,
+   "speech_end": 2.26,
+   "lufs": -16.1,
+   "tp": -2.7
+  },
+  "r05.arrive.1": {
+   "dur": 2.93,
+   "speech_end": 2.63,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "r05.fin.0": {
+   "dur": 3.05,
+   "speech_end": 2.75,
+   "lufs": -16.1,
+   "tp": -1.7
+  },
+  "r05.fin.1": {
+   "dur": 3.05,
+   "speech_end": 2.75,
+   "lufs": -16.2,
+   "tp": -2
+  },
+  "r05.fin.2": {
+   "dur": 2.05,
+   "speech_end": 1.75,
+   "lufs": -16.2,
+   "tp": -1.7
+  },
+  "r05.fin.3": {
+   "dur": 2.51,
+   "speech_end": 2.21,
+   "lufs": -16.2,
+   "tp": -2.9
+  },
+  "r05.fin.4": {
+   "dur": 2.19,
+   "speech_end": 1.89,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "r05.fin.5": {
+   "dur": 2.9,
+   "speech_end": 2.6,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r05.fin.cheer": {
+   "dur": 2.33,
+   "speech_end": 2.03,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "r05.fin.next": {
+   "dur": 1.85,
+   "speech_end": 1.55,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r05.fin.queen": {
+   "dur": 2.46,
+   "speech_end": 2.16,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "r05.fin.tower": {
+   "dur": 2.02,
+   "speech_end": 1.72,
+   "lufs": -16.1,
+   "tp": -2
+  },
+  "r05.s1.1": {
+   "dur": 2.4,
+   "speech_end": 2.1,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r05.s1.2": {
+   "dur": 2.78,
+   "speech_end": 2.48,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "r05.s1.3": {
+   "dur": 3.56,
+   "speech_end": 3.26,
+   "lufs": -16.2,
+   "tp": -2.3
+  },
+  "r05.s1.cheer": {
+   "dur": 2.56,
+   "speech_end": 2.26,
+   "lufs": -16.1,
+   "tp": -1.7
+  },
+  "r05.s1.next": {
+   "dur": 2.63,
+   "speech_end": 2.33,
+   "lufs": -16.2,
+   "tp": -1.7
+  },
+  "r05.s2.1": {
+   "dur": 2.32,
+   "speech_end": 2.02,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "r05.s2.2": {
+   "dur": 1.79,
+   "speech_end": 1.49,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "r05.s2.4": {
+   "dur": 2.72,
+   "speech_end": 2.42,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "r05.s2.cheer": {
+   "dur": 3.48,
+   "speech_end": 3.18,
+   "lufs": -16.2,
+   "tp": -1.7
+  },
+  "r05.s2.next": {
+   "dur": 2.68,
+   "speech_end": 2.38,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "r05.s3.1": {
+   "dur": 4.06,
+   "speech_end": 3.76,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r05.s3.cheer": {
+   "dur": 3.2,
+   "speech_end": 2.9,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r05.s3.next": {
+   "dur": 2.74,
+   "speech_end": 2.44,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "r05.s3.twist": {
+   "dur": 2.74,
+   "speech_end": 2.44,
+   "lufs": -16.2,
+   "tp": -1.7
+  },
+  "r05.s4.1": {
+   "dur": 2.8,
+   "speech_end": 2.5,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "r05.s4.2": {
+   "dur": 2,
+   "speech_end": 1.7,
+   "lufs": -16.1,
+   "tp": -2.4
+  },
+  "r05.s4.4": {
+   "dur": 3.09,
+   "speech_end": 2.79,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "r05.s4.next": {
+   "dur": 3.24,
+   "speech_end": 2.94,
+   "lufs": -16.2,
+   "tp": -1.8
+  }
+ }
+}

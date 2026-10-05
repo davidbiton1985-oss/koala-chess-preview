@@ -74,6 +74,19 @@
  },
  "led": 0.3,
  "finish": "gumwood",
+ "koala": {
+  "at": [
+   0.12,
+   0.62
+  ],
+  "seat": -0.17,
+  "tint": [
+   0.95,
+   0.92,
+   0.86
+  ],
+  "h": 0.42
+ },
  "credits": [
   [
    "Climbing Roses Red",
@@ -89,11 +102,6 @@
    "Lantern_01",
    "Poly Haven model",
    "CC0"
-  ],
-  [
-   "Peeling Bark Tree Trunk",
-   "BlenderKit, by REAL SCANS",
-   "royalty_free"
   ],
   [
    "Small Wooden Stool",
@@ -135,18 +143,5 @@
    "Poly Haven model",
    "CC0"
   ]
- ],
- "koala": {
-  "at": [
-   0.12,
-   0.62
-  ],
-  "seat": -0.17,
-  "tint": [
-   0.95,
-   0.92,
-   0.86
-  ],
-  "h": 0.42
- }
+ ]
 }

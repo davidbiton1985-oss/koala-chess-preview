@@ -74,6 +74,19 @@
  },
  "led": 0,
  "finish": "marble",
+ "koala": {
+  "at": [
+   0.13,
+   0.6
+  ],
+  "seat": -0.24,
+  "tint": [
+   0.96,
+   0.98,
+   1.02
+  ],
+  "h": 0.42
+ },
  "credits": [
   [
    "Antigua Dining Table",
@@ -181,22 +194,14 @@
    "CC0"
   ],
   [
+   "terracotta_floor_tiles",
+   "Poly Haven texture",
+   "CC0"
+  ],
+  [
    "wood_planks",
    "Poly Haven texture",
    "CC0"
   ]
- ],
- "koala": {
-  "at": [
-   0.13,
-   0.6
-  ],
-  "seat": -0.24,
-  "tint": [
-   0.96,
-   0.98,
-   1.02
-  ],
-  "h": 0.42
- }
+ ]
 }

@@ -73,6 +73,19 @@
  },
  "led": 0.6,
  "finish": "desert",
+ "koala": {
+  "at": [
+   0.12,
+   0.85
+  ],
+  "seat": -0.16,
+  "tint": [
+   0.98,
+   0.86,
+   0.78
+  ],
+  "h": 0.42
+ },
  "credits": [
   [
    "Antique Brass Domestic Storage Jar",
@@ -184,18 +197,5 @@
    "Poly Haven texture",
    "CC0"
   ]
- ],
- "koala": {
-  "at": [
-   0.12,
-   0.85
-  ],
-  "seat": -0.16,
-  "tint": [
-   0.98,
-   0.86,
-   0.78
-  ],
-  "h": 0.42
- }
+ ]
 }
