@@ -189,10 +189,10 @@
  },
  "he": {
   "r01.arrive.1": {
-   "dur": 2.99,
-   "speech_end": 2.69,
+   "dur": 3.04,
+   "speech_end": 2.74,
    "lufs": -16.1,
-   "tp": -1.8
+   "tp": -2
   },
   "r01.fin.1": {
    "dur": 2.49,
@@ -219,10 +219,10 @@
    "tp": -1.8
   },
   "r01.fin.cheer": {
-   "dur": 2.28,
-   "speech_end": 1.98,
-   "lufs": -16,
-   "tp": -1.7
+   "dur": 2.09,
+   "speech_end": 1.79,
+   "lufs": -16.2,
+   "tp": -1.9
   },
   "r01.fin.next": {
    "dur": 2.94,
@@ -255,10 +255,10 @@
    "tp": -1.8
   },
   "r01.s1.cheer": {
-   "dur": 2.43,
-   "speech_end": 2.13,
-   "lufs": -16.2,
-   "tp": -1.8
+   "dur": 2.6,
+   "speech_end": 2.3,
+   "lufs": -16.1,
+   "tp": -1.9
   },
   "r01.s1.listen": {
    "dur": 2.63,
@@ -369,10 +369,10 @@
    "tp": -1.9
   },
   "r01.s4.next": {
-   "dur": 2.44,
-   "speech_end": 2.14,
+   "dur": 2.25,
+   "speech_end": 1.95,
    "lufs": -16.2,
-   "tp": -1.9
+   "tp": -2.9
   }
  }
 }
