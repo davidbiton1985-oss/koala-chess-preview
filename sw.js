@@ -1,5 +1,5 @@
 // GENERATED at build time (vite.config.ts) — do not edit by hand; edit the `serviceWorker` template there.
-const VERSION = "koala-1791215046610";
+const VERSION = "koala-1791216083523";
 const SHELL_CACHE = `koala-shell-${VERSION}`;
 const MEDIA_CACHE = `koala-media-${VERSION}`;
 const SHELL_URLS = ['./', './index.html', './manifest.webmanifest'];
@@ -47,8 +47,10 @@ self.addEventListener('fetch', (event) => {
   }
 
   // the rooms (panoramas + room.json) are re-rendered under the same names: network-first, so a new panorama never
-  // pairs with an old camera (that drew the board in the wrong place); the cache is only the offline fallback
-  if (url.pathname.includes('/env/')) {
+  // pairs with an old camera (that drew the board in the wrong place); the cache is only the offline fallback.
+  // Every .json too: the clip/voice indexes grow under the same name (a cached koala/index.json kept new Hebrew
+  // lip-sync clips unplayed — he spoke with his mouth closed)
+  if (url.pathname.includes('/env/') || url.pathname.endsWith('.json')) {
     event.respondWith((async () => {
       const cache = await caches.open(MEDIA_CACHE);
       try { const fresh = await fetch(req); if (fresh.ok && fresh.status === 200) cache.put(req, fresh.clone()); return fresh; }
