@@ -72,6 +72,12 @@
    "lufs": -16.2,
    "tp": -1.9
   },
+  "r01.s1.listen": {
+   "dur": 1.51,
+   "speech_end": 1.21,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
   "r01.s1.next": {
    "dur": 2.51,
    "speech_end": 2.21,
@@ -253,6 +259,12 @@
    "speech_end": 2.13,
    "lufs": -16.2,
    "tp": -1.8
+  },
+  "r01.s1.listen": {
+   "dur": 2.63,
+   "speech_end": 2.33,
+   "lufs": -16.1,
+   "tp": -1.9
   },
   "r01.s1.next": {
    "dur": 2.59,
