@@ -207,16 +207,16 @@
    "tp": -1.8
   },
   "r05.fin.0": {
-   "dur": 3.05,
-   "speech_end": 2.75,
-   "lufs": -16.1,
-   "tp": -1.7
+   "dur": 2.68,
+   "speech_end": 2.38,
+   "lufs": -16.2,
+   "tp": -1.9
   },
   "r05.fin.1": {
-   "dur": 3.05,
-   "speech_end": 2.75,
-   "lufs": -16.2,
-   "tp": -2
+   "dur": 2.92,
+   "speech_end": 2.62,
+   "lufs": -16.1,
+   "tp": -1.8
   },
   "r05.fin.2": {
    "dur": 2.05,
@@ -243,28 +243,28 @@
    "tp": -1.9
   },
   "r05.fin.cheer": {
-   "dur": 2.33,
-   "speech_end": 2.03,
-   "lufs": -16.1,
-   "tp": -1.9
-  },
-  "r05.fin.next": {
-   "dur": 1.85,
-   "speech_end": 1.55,
+   "dur": 2.48,
+   "speech_end": 2.18,
    "lufs": -16.2,
    "tp": -1.9
   },
+  "r05.fin.next": {
+   "dur": 2.25,
+   "speech_end": 1.95,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
   "r05.fin.queen": {
-   "dur": 2.46,
-   "speech_end": 2.16,
+   "dur": 2.35,
+   "speech_end": 2.05,
    "lufs": -16.2,
    "tp": -1.8
   },
   "r05.fin.tower": {
-   "dur": 2.02,
-   "speech_end": 1.72,
-   "lufs": -16.1,
-   "tp": -2
+   "dur": 1.7,
+   "speech_end": 1.4,
+   "lufs": -16.2,
+   "tp": -1.8
   },
   "r05.s1.1": {
    "dur": 2.4,
@@ -315,16 +315,16 @@
    "tp": -1.9
   },
   "r05.s2.cheer": {
-   "dur": 3.48,
-   "speech_end": 3.18,
+   "dur": 2.55,
+   "speech_end": 2.25,
    "lufs": -16.2,
-   "tp": -1.7
+   "tp": -1.9
   },
   "r05.s2.next": {
-   "dur": 2.68,
-   "speech_end": 2.38,
+   "dur": 2.61,
+   "speech_end": 2.31,
    "lufs": -16.1,
-   "tp": -1.8
+   "tp": -1.9
   },
   "r05.s3.1": {
    "dur": 4.06,
@@ -351,10 +351,10 @@
    "tp": -1.7
   },
   "r05.s4.1": {
-   "dur": 2.8,
-   "speech_end": 2.5,
+   "dur": 2.12,
+   "speech_end": 1.82,
    "lufs": -16.2,
-   "tp": -1.8
+   "tp": -1.9
   },
   "r05.s4.2": {
    "dur": 2,
@@ -363,14 +363,14 @@
    "tp": -2.4
   },
   "r05.s4.4": {
-   "dur": 3.09,
-   "speech_end": 2.79,
+   "dur": 2.35,
+   "speech_end": 2.05,
    "lufs": -16.2,
    "tp": -1.8
   },
   "r05.s4.next": {
-   "dur": 4.06,
-   "speech_end": 3.76,
+   "dur": 4.47,
+   "speech_end": 4.17,
    "lufs": -16.2,
    "tp": -1.8
   }
