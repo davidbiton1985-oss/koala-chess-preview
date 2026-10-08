@@ -189,190 +189,190 @@
  },
  "he": {
   "r01.arrive.1": {
-   "dur": 3.04,
-   "speech_end": 2.74,
-   "lufs": -16.1,
-   "tp": -2
+   "dur": 2.39,
+   "speech_end": 2.09,
+   "lufs": -16.2,
+   "tp": -1.6
   },
   "r01.fin.1": {
-   "dur": 2.49,
-   "speech_end": 2.19,
+   "dur": 2.33,
+   "speech_end": 2.03,
    "lufs": -16.2,
    "tp": -1.8
   },
   "r01.fin.2": {
-   "dur": 2.84,
-   "speech_end": 2.54,
-   "lufs": -16.1,
-   "tp": -1.9
+   "dur": 2.58,
+   "speech_end": 2.28,
+   "lufs": -16.2,
+   "tp": -1.8
   },
   "r01.fin.3": {
-   "dur": 2.96,
-   "speech_end": 2.66,
-   "lufs": -16.1,
-   "tp": -1.8
+   "dur": 2.87,
+   "speech_end": 2.57,
+   "lufs": -16.2,
+   "tp": -1.9
   },
   "r01.fin.4": {
-   "dur": 2.7,
-   "speech_end": 2.4,
+   "dur": 4.23,
+   "speech_end": 3.93,
    "lufs": -16.1,
-   "tp": -1.8
+   "tp": -2.6
   },
   "r01.fin.cheer": {
-   "dur": 2.09,
-   "speech_end": 1.79,
+   "dur": 2.11,
+   "speech_end": 1.81,
    "lufs": -16.2,
    "tp": -1.9
   },
   "r01.fin.next": {
-   "dur": 2.94,
-   "speech_end": 2.64,
+   "dur": 2.07,
+   "speech_end": 1.77,
    "lufs": -16.2,
    "tp": -1.8
   },
   "r01.fin.queen": {
-   "dur": 2.33,
-   "speech_end": 2.03,
+   "dur": 2.42,
+   "speech_end": 2.12,
    "lufs": -16.2,
-   "tp": -2
+   "tp": -1.9
   },
   "r01.s1.1": {
-   "dur": 2.93,
-   "speech_end": 2.63,
-   "lufs": -16.2,
+   "dur": 2.74,
+   "speech_end": 2.44,
+   "lufs": -16.1,
    "tp": -1.8
   },
   "r01.s1.2": {
-   "dur": 2.07,
-   "speech_end": 1.77,
-   "lufs": -16.2,
-   "tp": -1.9
+   "dur": 1.94,
+   "speech_end": 1.64,
+   "lufs": -16.1,
+   "tp": -2
   },
   "r01.s1.3": {
-   "dur": 2.72,
-   "speech_end": 2.42,
-   "lufs": -16.1,
+   "dur": 3.32,
+   "speech_end": 3.02,
+   "lufs": -16.2,
    "tp": -1.8
   },
   "r01.s1.cheer": {
-   "dur": 2.6,
-   "speech_end": 2.3,
-   "lufs": -16.1,
-   "tp": -1.9
+   "dur": 3.76,
+   "speech_end": 3.46,
+   "lufs": -16.2,
+   "tp": -1.7
   },
   "r01.s1.listen": {
-   "dur": 2.63,
-   "speech_end": 2.33,
+   "dur": 2.43,
+   "speech_end": 2.13,
    "lufs": -16.1,
-   "tp": -1.9
-  },
-  "r01.s1.next": {
-   "dur": 2.59,
-   "speech_end": 2.29,
-   "lufs": -16.2,
-   "tp": -3.5
-  },
-  "r01.s2.1": {
-   "dur": 2.37,
-   "speech_end": 2.07,
-   "lufs": -16.2,
    "tp": -1.8
   },
-  "r01.s2.2": {
-   "dur": 1.97,
-   "speech_end": 1.67,
-   "lufs": -16,
-   "tp": -2.2
+  "r01.s1.next": {
+   "dur": 2.41,
+   "speech_end": 2.11,
+   "lufs": -16.1,
+   "tp": -1.9
   },
-  "r01.s2.3": {
-   "dur": 2.47,
-   "speech_end": 2.17,
-   "lufs": -16.2,
+  "r01.s2.1": {
+   "dur": 1.98,
+   "speech_end": 1.68,
+   "lufs": -16,
    "tp": -2
   },
-  "r01.s2.4": {
-   "dur": 2.54,
-   "speech_end": 2.24,
+  "r01.s2.2": {
+   "dur": 2.31,
+   "speech_end": 2.01,
    "lufs": -16.2,
    "tp": -1.9
   },
+  "r01.s2.3": {
+   "dur": 2.1,
+   "speech_end": 1.8,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r01.s2.4": {
+   "dur": 2.97,
+   "speech_end": 2.67,
+   "lufs": -16.2,
+   "tp": -2.2
+  },
   "r01.s2.cheer": {
-   "dur": 2.86,
-   "speech_end": 2.56,
-   "lufs": -16.1,
+   "dur": 3.16,
+   "speech_end": 2.86,
+   "lufs": -16.2,
    "tp": -1.8
   },
   "r01.s2.next": {
-   "dur": 2.17,
-   "speech_end": 1.87,
+   "dur": 2.61,
+   "speech_end": 2.31,
    "lufs": -16.1,
-   "tp": -1.9
+   "tp": -1.7
   },
   "r01.s3.1": {
-   "dur": 2.13,
-   "speech_end": 1.83,
+   "dur": 2.8,
+   "speech_end": 2.5,
    "lufs": -16.2,
-   "tp": -2
+   "tp": -1.5
   },
   "r01.s3.2": {
-   "dur": 2.21,
-   "speech_end": 1.91,
+   "dur": 1.94,
+   "speech_end": 1.64,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r01.s3.3": {
+   "dur": 3.04,
+   "speech_end": 2.74,
    "lufs": -16.2,
    "tp": -1.8
   },
-  "r01.s3.3": {
-   "dur": 2.64,
-   "speech_end": 2.34,
-   "lufs": -16.2,
-   "tp": -2.1
-  },
   "r01.s3.cheer": {
-   "dur": 3.36,
-   "speech_end": 3.06,
+   "dur": 3.78,
+   "speech_end": 3.48,
    "lufs": -16.1,
    "tp": -1.9
   },
   "r01.s3.next": {
-   "dur": 3.02,
-   "speech_end": 2.72,
-   "lufs": -16.2,
-   "tp": -1.9
+   "dur": 3.09,
+   "speech_end": 2.79,
+   "lufs": -16.1,
+   "tp": -1.8
   },
   "r01.s4.1": {
-   "dur": 2.77,
-   "speech_end": 2.47,
+   "dur": 2.98,
+   "speech_end": 2.68,
    "lufs": -16.2,
    "tp": -1.8
   },
   "r01.s4.2": {
-   "dur": 2.12,
-   "speech_end": 1.82,
-   "lufs": -16.1,
-   "tp": -2
+   "dur": 2.24,
+   "speech_end": 1.94,
+   "lufs": -16.2,
+   "tp": -1.9
   },
   "r01.s4.3": {
-   "dur": 2.84,
-   "speech_end": 2.54,
-   "lufs": -16.1,
-   "tp": -1.8
+   "dur": 2.42,
+   "speech_end": 2.12,
+   "lufs": -16,
+   "tp": -1.9
   },
   "r01.s4.4": {
-   "dur": 5.05,
-   "speech_end": 4.75,
+   "dur": 3.59,
+   "speech_end": 3.29,
    "lufs": -16.2,
-   "tp": -1.8
+   "tp": -1.9
   },
   "r01.s4.cheer": {
-   "dur": 3.19,
-   "speech_end": 2.89,
+   "dur": 3.96,
+   "speech_end": 3.66,
    "lufs": -16.1,
    "tp": -1.9
   },
   "r01.s4.next": {
-   "dur": 2.25,
-   "speech_end": 1.95,
+   "dur": 2.45,
+   "speech_end": 2.15,
    "lufs": -16.2,
-   "tp": -2.9
+   "tp": -1.9
   }
  }
 }
