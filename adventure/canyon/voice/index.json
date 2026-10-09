@@ -1,52 +1,52 @@
 {
  "en": {
   "r01.arrive.1": {
-   "dur": 2.21,
-   "speech_end": 1.91,
+   "dur": 2.49,
+   "speech_end": 2.19,
    "lufs": -16.1,
-   "tp": -2
+   "tp": -1.7
   },
   "r01.fin.1": {
-   "dur": 2.05,
-   "speech_end": 1.75,
+   "dur": 2.04,
+   "speech_end": 1.74,
    "lufs": -16.1,
-   "tp": -1.6
-  },
-  "r01.fin.2": {
-   "dur": 2.12,
-   "speech_end": 1.82,
-   "lufs": -16,
-   "tp": -1.9
-  },
-  "r01.fin.3": {
-   "dur": 2.87,
-   "speech_end": 2.57,
-   "lufs": -16.2,
    "tp": -1.8
   },
+  "r01.fin.2": {
+   "dur": 2.08,
+   "speech_end": 1.78,
+   "lufs": -16.1,
+   "tp": -1.7
+  },
+  "r01.fin.3": {
+   "dur": 2.39,
+   "speech_end": 2.09,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
   "r01.fin.4": {
-   "dur": 3.29,
-   "speech_end": 2.99,
-   "lufs": -16.2,
+   "dur": 3.27,
+   "speech_end": 2.97,
+   "lufs": -16.1,
    "tp": -1.9
   },
   "r01.fin.cheer": {
-   "dur": 2.52,
-   "speech_end": 2.22,
-   "lufs": -16.2,
-   "tp": -2.1
+   "dur": 2.31,
+   "speech_end": 2.01,
+   "lufs": -16.1,
+   "tp": -1.9
   },
   "r01.fin.next": {
-   "dur": 2.41,
-   "speech_end": 2.11,
+   "dur": 2.42,
+   "speech_end": 2.12,
    "lufs": -16.1,
    "tp": -1.8
   },
   "r01.fin.queen": {
-   "dur": 2.65,
-   "speech_end": 2.35,
-   "lufs": -16.1,
-   "tp": -1.8
+   "dur": 3.67,
+   "speech_end": 3.37,
+   "lufs": -16,
+   "tp": -1.9
   },
   "r01.s1.1": {
    "dur": 2.27,
@@ -55,10 +55,10 @@
    "tp": -1.6
   },
   "r01.s1.2": {
-   "dur": 2.2,
-   "speech_end": 1.9,
-   "lufs": -16.1,
-   "tp": -2.5
+   "dur": 1.99,
+   "speech_end": 1.69,
+   "lufs": -16.2,
+   "tp": -1.9
   },
   "r01.s1.3": {
    "dur": 1.77,
@@ -67,9 +67,9 @@
    "tp": -1.9
   },
   "r01.s1.cheer": {
-   "dur": 2.53,
-   "speech_end": 2.23,
-   "lufs": -16.2,
+   "dur": 2.4,
+   "speech_end": 2.1,
+   "lufs": -16.1,
    "tp": -1.9
   },
   "r01.s1.listen": {
@@ -79,10 +79,10 @@
    "tp": -1.9
   },
   "r01.s1.next": {
-   "dur": 2.51,
-   "speech_end": 2.21,
-   "lufs": -16.1,
-   "tp": -1.6
+   "dur": 2.34,
+   "speech_end": 2.04,
+   "lufs": -16.2,
+   "tp": -2.2
   },
   "r01.s2.1": {
    "dur": 1.81,
@@ -97,16 +97,16 @@
    "tp": -1.9
   },
   "r01.s2.3": {
-   "dur": 2.63,
-   "speech_end": 2.33,
-   "lufs": -16.1,
-   "tp": -1.6
+   "dur": 2.47,
+   "speech_end": 2.17,
+   "lufs": -16.2,
+   "tp": -2
   },
   "r01.s2.4": {
-   "dur": 2.4,
-   "speech_end": 2.1,
-   "lufs": -16.1,
-   "tp": -1.8
+   "dur": 3.19,
+   "speech_end": 2.89,
+   "lufs": -16.2,
+   "tp": -1.9
   },
   "r01.s2.cheer": {
    "dur": 2.21,
@@ -115,34 +115,34 @@
    "tp": -1.9
   },
   "r01.s2.next": {
-   "dur": 1.76,
-   "speech_end": 1.46,
-   "lufs": -16.2,
-   "tp": -1.6
-  },
-  "r01.s3.1": {
-   "dur": 2.44,
-   "speech_end": 2.14,
-   "lufs": -16.2,
-   "tp": -2
-  },
-  "r01.s3.2": {
-   "dur": 2.15,
-   "speech_end": 1.85,
+   "dur": 2.95,
+   "speech_end": 2.65,
    "lufs": -16.2,
    "tp": -1.9
+  },
+  "r01.s3.1": {
+   "dur": 2.49,
+   "speech_end": 2.19,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "r01.s3.2": {
+   "dur": 3.78,
+   "speech_end": 3.48,
+   "lufs": -16.2,
+   "tp": -1.6
   },
   "r01.s3.3": {
    "dur": 2.21,
    "speech_end": 1.91,
    "lufs": -16.1,
-   "tp": -1.8
+   "tp": -1.9
   },
   "r01.s3.cheer": {
-   "dur": 3.1,
-   "speech_end": 2.8,
-   "lufs": -16.2,
-   "tp": -2.1
+   "dur": 2.22,
+   "speech_end": 1.92,
+   "lufs": -16.1,
+   "tp": -1.7
   },
   "r01.s3.next": {
    "dur": 2.86,
@@ -151,34 +151,34 @@
    "tp": -2.3
   },
   "r01.s4.1": {
-   "dur": 2.21,
-   "speech_end": 1.91,
+   "dur": 1.95,
+   "speech_end": 1.65,
    "lufs": -16.1,
-   "tp": -1.8
+   "tp": -3.1
   },
   "r01.s4.2": {
-   "dur": 1.46,
-   "speech_end": 1.16,
-   "lufs": -16,
+   "dur": 1.47,
+   "speech_end": 1.17,
+   "lufs": -16.2,
    "tp": -1.9
   },
   "r01.s4.3": {
-   "dur": 1.9,
-   "speech_end": 1.6,
-   "lufs": -16.2,
-   "tp": -2
-  },
-  "r01.s4.4": {
-   "dur": 3.29,
-   "speech_end": 2.99,
-   "lufs": -16.2,
+   "dur": 2.07,
+   "speech_end": 1.77,
+   "lufs": -16.1,
    "tp": -1.9
   },
-  "r01.s4.cheer": {
-   "dur": 2.63,
-   "speech_end": 2.33,
+  "r01.s4.4": {
+   "dur": 4.18,
+   "speech_end": 3.88,
    "lufs": -16.2,
-   "tp": -1.7
+   "tp": -1.6
+  },
+  "r01.s4.cheer": {
+   "dur": 2.33,
+   "speech_end": 2.03,
+   "lufs": -16.2,
+   "tp": -1.9
   },
   "r01.s4.next": {
    "dur": 2.17,
