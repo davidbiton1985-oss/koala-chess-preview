@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./index-Cgd70OMm.js","./chess-Dz_znVVI.js","./engine-Bw-W5prc.js","./profiles-Bchra8oA.js"])))=>i.map(i=>d[i]);
+import{_ as r}from"./index-CXWlETxk.js";let e=null;function n(){return e??=r(()=>import("./index-Cgd70OMm.js"),__vite__mapDeps([0,1,2,3]),import.meta.url).then(t=>t.createEngine({hashMb:8})),e.catch(()=>{e=null}),e}function i(){n().then(t=>t.prewarm()).catch(()=>{})}const a=()=>r(()=>import("./index-Cgd70OMm.js"),__vite__mapDeps([0,1,2,3]),import.meta.url);export{a as e,n as g,i as p};
