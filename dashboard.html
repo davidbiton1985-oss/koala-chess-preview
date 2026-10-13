@@ -172,6 +172,7 @@ function render({ rows }) {
       <section class="card"><h2>How long a visit lasts</h2><p class="sub">One count per visit</p>${bars(SESS.map((k, i) => [SESS_L[i], sess[k] || 0]))}</section>
       <section class="card"><h2>Devices</h2><p class="sub">Once a day per device</p>${bars(sorted(keysIn('device')))}</section>
       <section class="card"><h2>Language</h2>${bars(sorted(keysIn('lang')).map(([k, v]) => [k === 'he' ? 'Hebrew' : 'English', v]))}</section>
+      <section class="card"><h2>New features</h2><p class="sub">Race the Koala results, daily gifts opened, wardrobe purchases</p>${bars([['Races won', keysIn('race_end').win || 0], ['Races lost', keysIn('race_end').loss || 0], ['Gifts opened', inRange('gift_open')], ...sorted(keysIn('wardrobe_buy')).map(([k, v]) => ['Bought: ' + k, v])])}</section>
       <section class="card"><h2>Lessons finished</h2>${bars(sorted(keysIn('lesson_done')).slice(0, 12))}</section>
     </div>
     <p class="note">Counting is off for people whose browser asks not to be tracked, inside partner embeds and in test browsers, so the real numbers are a little higher. <button class="btn" id="out" style="margin-inline-start:8px">Forget token</button></p>
