@@ -63,7 +63,7 @@ td.num, th.num { text-align: end; }
 <script>
 const API = 'https://queen-chess.queen-chess.workers.dev';
 const KEY = 'koala.dashboard.token';
-const STOPS = ['canyon-1','canyon-2','canyon-3','canyon-4','canyon-5','glacier-1','glacier-2','glacier-3','glacier-4','gardens-1','gardens-2','gardens-3','gardens-4','village-1','village-2','village-3','village-4','falls-1','falls-2','falls-3','falls-4','falls-5','fields-1','fields-2','fields-3','fields-4','harbour-1','harbour-2','harbour-3','harbour-4','lighthouse-1','lighthouse-2','lighthouse-3','lighthouse-4','observatory-1','observatory-2','observatory-3','observatory-4','fair-1','fair-2','fair-3','fair-4','sky-1','sky-2','sky-3','sky-4','dunes-1','dunes-2','dunes-3','dunes-4'];
+const STOPS = ['canyon-1','canyon-2','canyon-3','canyon-4','canyon-5','glacier-1','glacier-2','glacier-3','glacier-4','gardens-1','gardens-2','gardens-3','gardens-4','village-1','village-2','village-3','village-4','falls-1','falls-2','falls-3','falls-4','falls-5','fields-1','fields-2','fields-3','fields-4','harbour-1','harbour-2','harbour-3','harbour-4','lighthouse-1','lighthouse-2','lighthouse-3','lighthouse-4','observatory-1','observatory-2','observatory-3','observatory-4','fair-1','fair-2','fair-3','fair-4','sky-1','sky-2','sky-3','sky-4','dunes-1','dunes-2','dunes-3','dunes-4','festival-1'];
 const LEVELS = ['Very Easy','Easy','Medium','Challenging','Hard','Very Hard','Expert','Master'];
 const $ = (h) => { const t = document.createElement('template'); t.innerHTML = h.trim(); return t.content.firstChild; };
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
