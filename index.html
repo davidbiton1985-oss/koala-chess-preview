@@ -31,10 +31,20 @@
   <link rel="preload" href="./fonts/Assistant-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./fonts/Fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
   <title>Koala Chess · שחמט קואלה</title>
+  <!-- the boot card: painted with the HTML (before any script), replaced when the app mounts (startApp → replaceChildren) -->
+  <style>
+    html, body { margin: 0; background: #0B0C0D; }
+    .boot { position: fixed; inset: 0; display: grid; place-content: center; justify-items: center; gap: 14px; color: #e9dcc2;
+      font: 600 17px/1.2 system-ui, -apple-system, sans-serif; letter-spacing: .02em; }
+    .boot img { inline-size: 88px; block-size: 88px; border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,.5); animation: boot 1.6s ease-in-out infinite; }
+    .boot span { opacity: .8; }
+    @keyframes boot { 50% { transform: scale(1.05); } }
+    @media (prefers-reduced-motion: reduce) { .boot img { animation: none; } }
+  </style>
   <script type="module" crossorigin src="./assets/index-F0Qb3tbg.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-B8HUB6gP.css">
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app"><div class="boot" aria-hidden="true"><img src="./brand/apple-touch-icon.png" alt=""><span>Koala Chess · שחמט קואלה</span></div></div>
 </body>
 </html>
