@@ -1,0 +1,1 @@
+import{F as i}from"./index-DvC3R56U.js";import{l as s}from"./learnStrings-BdUD0WoH.js";import{toast as m}from"./toast-DOzf6gwU.js";function n(t,o=900){t.forEach((r,a)=>{window.setTimeout(()=>m(s("ach.toast",{title:i(r.title)}),3200),o+a*3400)})}export{n as s};
