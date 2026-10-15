@@ -1,5 +1,5 @@
 // GENERATED at build time (vite.config.ts) — do not edit by hand; edit the `serviceWorker` template there.
-const VERSION = "koala-1792095880969";
+const VERSION = "koala-1792096484387";
 const SHELL_CACHE = `koala-shell-${VERSION}`;
 const MEDIA_CACHE = `koala-media-${VERSION}`;
 const SHELL_URLS = ['./', './index.html', './manifest.webmanifest'];

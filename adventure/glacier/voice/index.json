@@ -1,0 +1,276 @@
+{
+ "en": {
+  "g02.arrive.1": {
+   "dur": 3.08,
+   "speech_end": 2.78,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "g02.fin.1": {
+   "dur": 1.91,
+   "speech_end": 1.61,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "g02.fin.2": {
+   "dur": 2.36,
+   "speech_end": 2.06,
+   "lufs": -16.1,
+   "tp": -1.6
+  },
+  "g02.fin.3": {
+   "dur": 3.09,
+   "speech_end": 2.79,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "g02.fin.cheer": {
+   "dur": 1.91,
+   "speech_end": 1.61,
+   "lufs": -16.1,
+   "tp": -1.5
+  },
+  "g02.fin.next": {
+   "dur": 2.03,
+   "speech_end": 1.73,
+   "lufs": -15.9,
+   "tp": -1.5
+  },
+  "g02.fin.queen": {
+   "dur": 1.64,
+   "speech_end": 1.34,
+   "lufs": -16.2,
+   "tp": -2.4
+  },
+  "g02.s1.1": {
+   "dur": 1.75,
+   "speech_end": 1.45,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "g02.s1.2": {
+   "dur": 2.06,
+   "speech_end": 1.76,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "g02.s1.3": {
+   "dur": 2.21,
+   "speech_end": 1.91,
+   "lufs": -16.2,
+   "tp": -2.1
+  },
+  "g02.s1.cheer": {
+   "dur": 1.67,
+   "speech_end": 1.37,
+   "lufs": -16.2,
+   "tp": -1.6
+  },
+  "g02.s1.next": {
+   "dur": 2.22,
+   "speech_end": 1.92,
+   "lufs": -16.1,
+   "tp": -1.5
+  },
+  "g02.s2.1": {
+   "dur": 2,
+   "speech_end": 1.7,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "g02.s2.2": {
+   "dur": 1.49,
+   "speech_end": 1.19,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "g02.s2.3": {
+   "dur": 2.33,
+   "speech_end": 2.03,
+   "lufs": -16.1,
+   "tp": -1.7
+  },
+  "g02.s2.4": {
+   "dur": 2,
+   "speech_end": 1.7,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "g02.s2.cheer": {
+   "dur": 1.86,
+   "speech_end": 1.56,
+   "lufs": -16.2,
+   "tp": -2.1
+  },
+  "g02.s2.next": {
+   "dur": 2.07,
+   "speech_end": 1.77,
+   "lufs": -16.2,
+   "tp": -2
+  },
+  "g02.s3.1": {
+   "dur": 2.23,
+   "speech_end": 1.93,
+   "lufs": -16.2,
+   "tp": -1.7
+  },
+  "g02.s3.2": {
+   "dur": 1.6,
+   "speech_end": 1.3,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "g02.s3.3": {
+   "dur": 1.98,
+   "speech_end": 1.68,
+   "lufs": -16.1,
+   "tp": -1.7
+  },
+  "g02.s3.4": {
+   "dur": 2.5,
+   "speech_end": 2.2,
+   "lufs": -16.1,
+   "tp": -2.3
+  },
+  "g02.s3.5": {
+   "dur": 1.68,
+   "speech_end": 1.38,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "g02.s3.cheer": {
+   "dur": 2.53,
+   "speech_end": 2.23,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "g02.s3.next": {
+   "dur": 1.4,
+   "speech_end": 1.1,
+   "lufs": -16.2,
+   "tp": -1.9
+  }
+ },
+ "he": {
+  "g02.arrive.1": {
+   "dur": 3.27,
+   "speech_end": 2.97,
+   "lufs": -16.2,
+   "tp": -1.5
+  },
+  "g02.fin.1": {
+   "dur": 2.37,
+   "speech_end": 2.07,
+   "lufs": -16.1,
+   "tp": -2
+  },
+  "g02.fin.next": {
+   "dur": 1.6,
+   "speech_end": 1.3,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "g02.fin.queen": {
+   "dur": 2.01,
+   "speech_end": 1.71,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "g02.s1.1": {
+   "dur": 1.83,
+   "speech_end": 1.53,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "g02.s1.2": {
+   "dur": 1.96,
+   "speech_end": 1.66,
+   "lufs": -16.2,
+   "tp": -2.5
+  },
+  "g02.s1.3": {
+   "dur": 2.43,
+   "speech_end": 2.13,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "g02.s1.cheer": {
+   "dur": 1.52,
+   "speech_end": 1.22,
+   "lufs": -16.1,
+   "tp": -2
+  },
+  "g02.s2.1": {
+   "dur": 2.12,
+   "speech_end": 1.82,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "g02.s2.3": {
+   "dur": 1.88,
+   "speech_end": 1.58,
+   "lufs": -16.2,
+   "tp": -1.7
+  },
+  "g02.s2.4": {
+   "dur": 2.26,
+   "speech_end": 1.96,
+   "lufs": -16.1,
+   "tp": -2.4
+  },
+  "g02.s2.cheer": {
+   "dur": 1.72,
+   "speech_end": 1.42,
+   "lufs": -16.1,
+   "tp": -1.5
+  },
+  "g02.s2.next": {
+   "dur": 1.83,
+   "speech_end": 1.53,
+   "lufs": -16.2,
+   "tp": -2
+  },
+  "g02.s3.1": {
+   "dur": 2.54,
+   "speech_end": 2.24,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "g02.s3.2": {
+   "dur": 2.42,
+   "speech_end": 2.12,
+   "lufs": -16.2,
+   "tp": -2
+  },
+  "g02.s3.3": {
+   "dur": 1.77,
+   "speech_end": 1.47,
+   "lufs": -16.1,
+   "tp": -1.6
+  },
+  "g02.s3.4": {
+   "dur": 3.65,
+   "speech_end": 3.35,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "g02.s3.5": {
+   "dur": 2.48,
+   "speech_end": 2.18,
+   "lufs": -16.1,
+   "tp": -2
+  },
+  "g02.s3.cheer": {
+   "dur": 3.06,
+   "speech_end": 2.76,
+   "lufs": -16.1,
+   "tp": -1.7
+  },
+  "g02.s3.next": {
+   "dur": 1.3,
+   "speech_end": 1,
+   "lufs": -16,
+   "tp": -1.9
+  }
+ }
+}

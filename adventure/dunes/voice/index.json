@@ -1,0 +1,318 @@
+{
+ "en": {
+  "d12.arrive.1": {
+   "dur": 2.82,
+   "speech_end": 2.52,
+   "lufs": -16.2,
+   "tp": -2
+  },
+  "d12.fin.1": {
+   "dur": 2.31,
+   "speech_end": 2.01,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "d12.fin.2": {
+   "dur": 2.78,
+   "speech_end": 2.48,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "d12.fin.3": {
+   "dur": 2.07,
+   "speech_end": 1.77,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "d12.fin.4": {
+   "dur": 2.38,
+   "speech_end": 2.08,
+   "lufs": -16.2,
+   "tp": -2
+  },
+  "d12.fin.cheer": {
+   "dur": 1.89,
+   "speech_end": 1.59,
+   "lufs": -16,
+   "tp": -2.3
+  },
+  "d12.fin.crown": {
+   "dur": 2.48,
+   "speech_end": 2.18,
+   "lufs": -16.2,
+   "tp": -1.6
+  },
+  "d12.fin.next": {
+   "dur": 1.73,
+   "speech_end": 1.43,
+   "lufs": -16,
+   "tp": -2.5
+  },
+  "d12.fin.queen": {
+   "dur": 2.63,
+   "speech_end": 2.33,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "d12.kings": {
+   "dur": 2.36,
+   "speech_end": 2.06,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "d12.s1.1": {
+   "dur": 2.37,
+   "speech_end": 2.07,
+   "lufs": -16.1,
+   "tp": -1.7
+  },
+  "d12.s1.2": {
+   "dur": 2.18,
+   "speech_end": 1.88,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "d12.s1.3": {
+   "dur": 1.98,
+   "speech_end": 1.68,
+   "lufs": -16.1,
+   "tp": -2
+  },
+  "d12.s1.4": {
+   "dur": 2.87,
+   "speech_end": 2.57,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "d12.s1.cheer": {
+   "dur": 2.52,
+   "speech_end": 2.22,
+   "lufs": -16.1,
+   "tp": -2.1
+  },
+  "d12.s1.crown": {
+   "dur": 2.86,
+   "speech_end": 2.56,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "d12.s1.next": {
+   "dur": 2.47,
+   "speech_end": 2.17,
+   "lufs": -16.2,
+   "tp": -2.4
+  },
+  "d12.s2.1": {
+   "dur": 2.31,
+   "speech_end": 2.01,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "d12.s2.2": {
+   "dur": 1.84,
+   "speech_end": 1.54,
+   "lufs": -16.2,
+   "tp": -1.7
+  },
+  "d12.s2.3": {
+   "dur": 2.47,
+   "speech_end": 2.17,
+   "lufs": -16.2,
+   "tp": -1.5
+  },
+  "d12.s2.cheer": {
+   "dur": 2.63,
+   "speech_end": 2.33,
+   "lufs": -16.2,
+   "tp": -1.6
+  },
+  "d12.s2.next": {
+   "dur": 2.84,
+   "speech_end": 2.54,
+   "lufs": -16.1,
+   "tp": -1.7
+  },
+  "d12.s3.1": {
+   "dur": 1.91,
+   "speech_end": 1.61,
+   "lufs": -16.2,
+   "tp": -2
+  },
+  "d12.s3.2": {
+   "dur": 1.94,
+   "speech_end": 1.64,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "d12.s3.3": {
+   "dur": 2.7,
+   "speech_end": 2.4,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "d12.s3.4": {
+   "dur": 2.32,
+   "speech_end": 2.02,
+   "lufs": -16.2,
+   "tp": -2.5
+  },
+  "d12.s3.5": {
+   "dur": 2.12,
+   "speech_end": 1.82,
+   "lufs": -16,
+   "tp": -2
+  },
+  "d12.s3.cheer": {
+   "dur": 3.43,
+   "speech_end": 3.13,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "d12.s3.next": {
+   "dur": 2.43,
+   "speech_end": 2.13,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "d12.taken": {
+   "dur": 1.84,
+   "speech_end": 1.54,
+   "lufs": -16.1,
+   "tp": -2
+  }
+ },
+ "he": {
+  "d12.fin.1": {
+   "dur": 2.89,
+   "speech_end": 2.59,
+   "lufs": -16.1,
+   "tp": -1.6
+  },
+  "d12.fin.2": {
+   "dur": 2.91,
+   "speech_end": 2.61,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "d12.fin.3": {
+   "dur": 2.53,
+   "speech_end": 2.23,
+   "lufs": -16.1,
+   "tp": -1.7
+  },
+  "d12.fin.4": {
+   "dur": 2.9,
+   "speech_end": 2.6,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "d12.fin.cheer": {
+   "dur": 2.19,
+   "speech_end": 1.89,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "d12.fin.next": {
+   "dur": 2.2,
+   "speech_end": 1.9,
+   "lufs": -16.1,
+   "tp": -2
+  },
+  "d12.kings": {
+   "dur": 2.73,
+   "speech_end": 2.43,
+   "lufs": -16.2,
+   "tp": -1.7
+  },
+  "d12.s1.1": {
+   "dur": 2.58,
+   "speech_end": 2.28,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "d12.s1.2": {
+   "dur": 2.79,
+   "speech_end": 2.49,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "d12.s1.3": {
+   "dur": 1.88,
+   "speech_end": 1.58,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "d12.s1.4": {
+   "dur": 2.5,
+   "speech_end": 2.2,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "d12.s1.cheer": {
+   "dur": 2.82,
+   "speech_end": 2.52,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "d12.s1.crown": {
+   "dur": 2.26,
+   "speech_end": 1.96,
+   "lufs": -16,
+   "tp": -2
+  },
+  "d12.s1.next": {
+   "dur": 2.96,
+   "speech_end": 2.66,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "d12.s2.1": {
+   "dur": 2.79,
+   "speech_end": 2.49,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "d12.s2.2": {
+   "dur": 2.14,
+   "speech_end": 1.84,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "d12.s2.3": {
+   "dur": 2.57,
+   "speech_end": 2.27,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "d12.s2.cheer": {
+   "dur": 2.11,
+   "speech_end": 1.81,
+   "lufs": -16.2,
+   "tp": -2
+  },
+  "d12.s2.next": {
+   "dur": 2.53,
+   "speech_end": 2.23,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "d12.s3.3": {
+   "dur": 3.08,
+   "speech_end": 2.78,
+   "lufs": -16,
+   "tp": -1.9
+  },
+  "d12.s3.4": {
+   "dur": 2.24,
+   "speech_end": 1.94,
+   "lufs": -16.1,
+   "tp": -2
+  },
+  "d12.s3.5": {
+   "dur": 2.4,
+   "speech_end": 2.1,
+   "lufs": -16.1,
+   "tp": -1.8
+  }
+ }
+}
