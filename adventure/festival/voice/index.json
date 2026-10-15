@@ -1,0 +1,150 @@
+{
+ "en": {
+  "x13.arrive.1": {
+   "dur": 3.66,
+   "speech_end": 3.36,
+   "lufs": -16.2,
+   "tp": -2
+  },
+  "x13.bishop": {
+   "dur": 1.53,
+   "speech_end": 1.23,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "x13.cheer": {
+   "dur": 2.88,
+   "speech_end": 2.58,
+   "lufs": -16,
+   "tp": -1.8
+  },
+  "x13.king": {
+   "dur": 2.22,
+   "speech_end": 1.92,
+   "lufs": -16.1,
+   "tp": -2.3
+  },
+  "x13.knight": {
+   "dur": 2.07,
+   "speech_end": 1.77,
+   "lufs": -16.1,
+   "tp": -2
+  },
+  "x13.next": {
+   "dur": 2.17,
+   "speech_end": 1.87,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "x13.others": {
+   "dur": 1.71,
+   "speech_end": 1.41,
+   "lufs": -16,
+   "tp": -2
+  },
+  "x13.pips": {
+   "dur": 2.76,
+   "speech_end": 2.46,
+   "lufs": -16.2,
+   "tp": -1.5
+  },
+  "x13.queen": {
+   "dur": 1.95,
+   "speech_end": 1.65,
+   "lufs": -16.2,
+   "tp": -1.5
+  },
+  "x13.ready": {
+   "dur": 1.32,
+   "speech_end": 1.02,
+   "lufs": -16.1,
+   "tp": -2
+  },
+  "x13.rook": {
+   "dur": 1.54,
+   "speech_end": 1.24,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "x13.s1.1": {
+   "dur": 2.42,
+   "speech_end": 2.12,
+   "lufs": -16.1,
+   "tp": -2.1
+  }
+ },
+ "he": {
+  "x13.arrive.1": {
+   "dur": 3.78,
+   "speech_end": 3.48,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "x13.bishop": {
+   "dur": 1.98,
+   "speech_end": 1.68,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "x13.cheer": {
+   "dur": 3.7,
+   "speech_end": 3.4,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "x13.king": {
+   "dur": 2.03,
+   "speech_end": 1.73,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "x13.knight": {
+   "dur": 2.11,
+   "speech_end": 1.81,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "x13.next": {
+   "dur": 2.82,
+   "speech_end": 2.52,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "x13.others": {
+   "dur": 1.88,
+   "speech_end": 1.58,
+   "lufs": -16.2,
+   "tp": -2
+  },
+  "x13.pips": {
+   "dur": 3.22,
+   "speech_end": 2.92,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "x13.queen": {
+   "dur": 2.06,
+   "speech_end": 1.76,
+   "lufs": -16.1,
+   "tp": -1.9
+  },
+  "x13.ready": {
+   "dur": 1.2,
+   "speech_end": 0.9,
+   "lufs": -16.2,
+   "tp": -2
+  },
+  "x13.rook": {
+   "dur": 1.66,
+   "speech_end": 1.36,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "x13.s1.1": {
+   "dur": 2.4,
+   "speech_end": 2.1,
+   "lufs": -16.1,
+   "tp": -1.6
+  }
+ }
+}
