@@ -179,6 +179,7 @@ function render({ rows }) {
       <section class="card"><h2>Purchases</h2><p class="sub">The Full Island funnel (only counts in a build with VITE_PAYWALL=1) · ${pct(inRange('purchase_ok'), inRange('paywall_view'))} of lock views bought · ${pct(inRange('purchase_ok'), inRange('install'))} of new players</p>${bars(PAY.map(([e, l]) => [l, inRange(e)]))}
         <div style="overflow-x:auto"><table><thead><tr><th>Platform</th>${PAY.map(([, l]) => `<th class="num">${esc(l)}</th>`).join('')}</tr></thead><tbody>${PLATFORMS.map((pf) => `<tr><td>${pf}</td>${PAY.map(([e]) => `<td class="num">${fmt(keysIn(e)[pf] || 0)}</td>`).join('')}</tr>`).join('')}</tbody></table></div></section>
       <section class="card"><h2>Lessons finished</h2>${bars(sorted(keysIn('lesson_done')).slice(0, 12))}</section>
+      <section class="card"><h2>Device health</h2><p class="sub">Frames per second on each 3D screen (once per visit per screen; "gov" = the game lowered the picture's sharpness to keep it smooth) · 3D picture lost (back = it recovered, dead = a reload was needed)</p>${bars([...sorted(keysIn('perf')), ...sorted(keysIn('webgl_lost')).map(([k, v]) => ['Picture lost: ' + k, v])])}</section>
     </div>
     <p class="note">Counting is off for people whose browser asks not to be tracked, inside partner embeds and in test browsers, so the real numbers are a little higher. <button class="btn" id="out" style="margin-inline-start:8px">Forget token</button></p>
   </div>`));
