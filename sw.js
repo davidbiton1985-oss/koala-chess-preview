@@ -1,5 +1,5 @@
 // GENERATED at build time (vite.config.ts) — do not edit by hand; edit the `serviceWorker` template there.
-const VERSION = "koala-1792119043631";
+const VERSION = "koala-1792119483678";
 const SHELL_CACHE = `koala-shell-${VERSION}`;
 // one name across deploys: a returning player keeps every media file that did not change (see vite.config.ts)
 const MEDIA_CACHE = "koala-media-stable-koala";
