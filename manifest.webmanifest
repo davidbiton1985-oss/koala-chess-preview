@@ -1,7 +1,34 @@
 {
+  "id": "./",
   "name": "Koala Chess",
   "short_name": "Koala Chess",
-  "description": "Koala Chess — a real board, on any screen",
+  "description": "Learn chess with Koala on a 3D island adventure, then play and solve puzzles.",
+  "name_localized": {
+    "he": {
+      "value": "שחמט קואלה",
+      "lang": "he",
+      "dir": "rtl"
+    }
+  },
+  "short_name_localized": {
+    "he": {
+      "value": "שחמט קואלה",
+      "lang": "he",
+      "dir": "rtl"
+    }
+  },
+  "description_localized": {
+    "he": {
+      "value": "לומדים שחמט עם קואלה בהרפתקה על אי בתלת־ממד, ואז משחקים ופותרים חידות.",
+      "lang": "he",
+      "dir": "rtl"
+    }
+  },
+  "categories": [
+    "education",
+    "games",
+    "kids"
+  ],
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

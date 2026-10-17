@@ -11,7 +11,7 @@
                            stage re-fits from visualViewport anyway (WCAG 1.4.4). -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
   <meta name="theme-color" content="#15171A">
-  <meta name="description" content="Koala Chess — a real board, on any screen">
+  <meta name="description" content="Learn chess with Koala on a 3D island adventure, then play and solve puzzles.">
   <!-- the only way an iPhone ever loses Safari's address bar and tab strip is a standalone launch: the
        manifest makes "Add to Home Screen" open the game with no browser chrome at all.
        %EDITION_*% / manifest / brand/* come from the edition's meta.json (vite.config.ts editionIdentity). -->
@@ -23,13 +23,30 @@
   <link rel="apple-touch-icon" href="./brand/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Koala Chess">
-  <meta property="og:description" content="Koala Chess — a real board, on any screen">
+  <meta property="og:description" content="Learn chess with Koala on a 3D island adventure, then play and solve puzzles.">
   <meta property="og:image" content="./brand/og.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="./brand/favicon.svg">
   <!-- the first paint's type: the body face and the display serif (self-hosted, chess/public/fonts — SIL OFL) -->
   <link rel="preload" href="./fonts/Assistant-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./fonts/Fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- run-1017 P2-27: a Hebrew reader's first paint needs the Hebrew faces too (it flashed the fallback first) — preloaded
+       only for one (the saved language, else ?lang=he, else the device's), so an English visitor downloads nothing more -->
+  <script>
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem('queenchess:v1:settings') || 'null');
+        var q = /[?&]lang=(he|en)\b/.exec(location.search);
+        var he = s && s.locale ? s.locale === 'he' : q ? q[1] === 'he' : /^he\b/i.test((navigator.languages && navigator.languages[0]) || navigator.language || '');
+        if (!he) return;
+        ['Assistant-hebrew', 'FrankRuhlLibre-hebrew'].forEach(function (f) {
+          var l = document.createElement('link');
+          l.rel = 'preload'; l.as = 'font'; l.type = 'font/woff2'; l.crossOrigin = 'anonymous'; l.href = './fonts/' + f + '.woff2';
+          document.head.appendChild(l);
+        });
+      } catch (e) { /* private mode: the fonts load with the CSS, as before */ }
+    })();
+  </script>
   <title>Koala Chess · שחמט קואלה</title>
   <!-- the boot card: painted with the HTML (before any script), replaced when the app mounts (startApp → replaceChildren) -->
   <style>
@@ -41,8 +58,8 @@
     @keyframes boot { 50% { transform: scale(1.05); } }
     @media (prefers-reduced-motion: reduce) { .boot img { animation: none; } }
   </style>
-  <script type="module" crossorigin src="./assets/index-CtQPyBt5.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-ESdeMz8-.css">
+  <script type="module" crossorigin src="./assets/index-DTy1n5qp.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DiGGryXj.css">
 </head>
 <body>
   <div id="app"><div class="boot" aria-hidden="true"><img src="./brand/apple-touch-icon.png" alt=""><span>Koala Chess · שחמט קואלה</span></div></div>
