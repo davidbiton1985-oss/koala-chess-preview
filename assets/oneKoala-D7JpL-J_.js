@@ -1,0 +1,1 @@
+function m(l,o,i={}){const a=i.leaveMs??400,n=i.firstMs??2400;let s=null,e=0,r=!0;const f=t=>{t!==s&&(s=t,o(t))},u=l(t=>{if(e&&(clearTimeout(e),e=0),t){r=!1,f(!1);return}const c=r?n:a;r=!1,s!==!0&&(e=setTimeout(()=>{e=0,f(!0)},c))});return()=>{e&&clearTimeout(e),e=0,u()}}export{m as o};
