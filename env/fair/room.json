@@ -72,7 +72,10 @@
    0.68,
    0.55
   ],
-  "h": 0.42
+  "h": 0.42,
+  "chair": {
+   "model": "koala-chair.glb"
+  }
  },
  "credits": [
   [
