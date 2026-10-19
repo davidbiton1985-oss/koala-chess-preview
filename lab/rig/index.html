@@ -33,11 +33,11 @@
   <p>הקואלה האמיתי מהתמונה שאישרת — המשחק מזיז אותו בזמן אמת: נושם, ממצמץ, מזיז אוזניים וראש, והפה נפתח לפי הקול. אין סרטון, אין מעבר בין סרטונים.</p>
 </main>
 <script type="module">
-import { createRig, makeLife } from './rig.js';
+import { createRig, makeLife } from './rig-core.js';   // = src/koala/rig.ts (esbuild): the game's own rig
 const cv = document.getElementById('cv');
 const fit = () => { const r = cv.getBoundingClientRect(), k = Math.min(2, devicePixelRatio || 1); cv.width = Math.round(r.width * k); cv.height = Math.round(r.height * k); };
 fit(); addEventListener('resize', fit);
-const rig = await createRig(cv, '../../koala/rig/');
+const rig = await createRig(cv.getContext('webgl2', { premultipliedAlpha: true, alpha: true, antialias: true, preserveDrawingBuffer: true }), '../../');
 const pose = makeLife(7);
 let lang = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'he';
 const sel = document.getElementById('line');
