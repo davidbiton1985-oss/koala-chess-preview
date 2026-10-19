@@ -413,10 +413,30 @@ function rigWave(base) {
     }
   };
 }
+function rigSpeechFrom(base) {
+  let cur = null;
+  return (el) => {
+    if (!el) return null;
+    const src = el.currentSrc || el.src;
+    if (!src || el.paused || el.currentTime <= 0) return null;
+    if (cur?.src !== src) {
+      cur = { src, track: null };
+      const m = /adventure\/([^/]+)\/voice\/(he|en)\/([^/?#]+)\.m4a/.exec(src);
+      if (m) {
+        const mine = cur;
+        void rigTrack(base, m[1], m[2], m[3]).then((t) => {
+          mine.track = t;
+        });
+      }
+    }
+    return cur.track ? { t0: performance.now() / 1e3 - el.currentTime, track: cur.track } : null;
+  };
+}
 export {
   createRig,
   makeLife,
   rigSource,
+  rigSpeechFrom,
   rigTrack,
   rigWave
 };
