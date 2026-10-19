@@ -18,9 +18,9 @@ precision highp float;
 in vec2 aPos;
 uniform sampler2D uW, uE, uA;
 uniform float uS;
-uniform vec2 uNeck, uHinge, uEarLb, uEarRb, uHeadC, uHeadR, uNose, uBreathP;
+uniform vec2 uNeck, uHinge, uEarLb, uEarRb, uHeadC, uHeadR, uNose, uBreathP, uLip0, uLip1;
 uniform float uRoll, uYaw, uPitch, uJaw, uEarL, uEarR, uBreath, uLift;
-out vec2 vUv; out float vCav;
+out vec2 vUv; out float vCav, vBelow;
 vec2 rot(vec2 v, float a) { float c = cos(a), s = sin(a); return vec2(v.x * c - v.y * s, v.x * s + v.y * c); }
 void main() {
   vec2 uv = aPos / uS;
@@ -39,11 +39,12 @@ void main() {
   p.y -= 1.6 * uBreath * w.r;
   vUv = uv;
   vCav = e.b * clamp(uJaw / 8.0, 0.0, 1.0);
+  vec2 dl = uLip1 - uLip0; vBelow = dot(aPos - uLip0, vec2(-dl.y, dl.x) / length(dl));   // rest px below the upper-lip line
   gl_Position = vec4(p.x / uS * 2.0 - 1.0, 1.0 - p.y / uS * 2.0, 0.0, 1.0);
 }`;
 const FS = `#version 300 es
 precision highp float;
-in vec2 vUv; in float vCav;
+in vec2 vUv; in float vCav, vBelow;
 uniform sampler2D uRest, uE;
 uniform float uBlinkL, uBlinkR, uLidH, uAlphaOut;
 out vec4 o;
@@ -52,7 +53,11 @@ void main() {
   float b = e.r * uBlinkL + e.g * uBlinkR;
   vec4 c = texture(uRest, vUv - vec2(0.0, b * uLidH));
   c.rgb *= 1.0 - 0.18 * b;
-  c.rgb = mix(c.rgb, vec3(0.13, 0.05, 0.05), clamp(vCav * 0.95, 0.0, 0.92));
+  // the open mouth: deepest in the gap under the upper lip, the inner lower lip a dark wet red below it; a little of the
+  // photo's own light kept, so the cavity is never a flat patch
+  float low = smoothstep(5.0, 13.0, vBelow);
+  vec3 cav = mix(vec3(0.05, 0.025, 0.025), vec3(0.36, 0.14, 0.13), low) * (0.75 + 0.5 * dot(c.rgb, vec3(0.3, 0.59, 0.11)));
+  c.rgb = mix(c.rgb, cav, clamp(vCav * 0.95, 0.0, 0.92) * mix(1.0, 0.8, low));
   o = uAlphaOut > 0.5 ? vec4(vec3(c.a), 1.0) : vec4(c.rgb * c.a, c.a);
 }`;
 const QVS = `#version 300 es
@@ -258,7 +263,7 @@ async function createRig(gl, base) {
   gl.uniform1i(U("uE"), 2);
   gl.uniform1i(U("uA"), 3);
   gl.uniform1f(U("uS"), S);
-  for (const [u, kk] of [["uNeck", "neck"], ["uHinge", "hinge"], ["uEarLb", "earL_base"], ["uEarRb", "earR_base"], ["uHeadC", "head_c"], ["uHeadR", "head_r"], ["uNose", "nose"], ["uBreathP", "breath_pivot"]]) {
+  for (const [u, kk] of [["uNeck", "neck"], ["uHinge", "hinge"], ["uEarLb", "earL_base"], ["uEarRb", "earR_base"], ["uHeadC", "head_c"], ["uHeadR", "head_r"], ["uNose", "nose"], ["uBreathP", "breath_pivot"], ["uLip0", "lip0"], ["uLip1", "lip1"]]) {
     const v = rig[kk];
     gl.uniform2f(U(u), v[0], v[1]);
   }
