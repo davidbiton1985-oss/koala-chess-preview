@@ -85,7 +85,7 @@ function makeLife(seed = 7) {
       const [tt, s] = twitches[i];
       if (s !== side) continue;
       const d = t - tt;
-      v += 5.5 * Math.exp(-d * 6) * Math.sin(d * 26);
+      v += 4.2 * Math.exp(-d * 5) * Math.sin(d * 17);
     }
     return v;
   };
@@ -116,12 +116,20 @@ function makeLife(seed = 7) {
     let pitch = gp + 0.3 * S(t, 6.1, 0.5) - 0.25 * breath;
     let jaw = 0, lift = 0;
     if (speak) {
-      const ls = t - speak.t0, tr = speak.track, f = (ls + 0.04) * tr.fps, i = Math.floor(f);
-      if (i >= 0 && i < tr.jaw.length) jaw = tr.jaw[i] + (tr.jaw[Math.min(i + 1, tr.jaw.length - 1)] - tr.jaw[i]) * (f - i);
+      const ls = t - speak.t0, tr = speak.track;
+      const at = (x) => {
+        const f = x * tr.fps, i = Math.floor(f);
+        if (i < 0 || i >= tr.jaw.length) return 0;
+        return tr.jaw[i] + (tr.jaw[Math.min(i + 1, tr.jaw.length - 1)] - tr.jaw[i]) * (f - i);
+      };
+      jaw = at(ls + 0.04);
+      let sl = 0;
+      for (let k = 0; k < 7; k++) sl += Math.max(0, at(ls - 0.03 * k));
+      sl /= 7;
       const on = smooth(Math.min(1, Math.max(0, Math.min(ls / 0.35, (tr.duration + 0.4 - ls) / 0.5))));
       yaw = yaw * (1 - 0.7 * on) - 2 * on;
-      pitch += 0.22 * Math.max(0, jaw);
-      roll += 0.06 * jaw * S(t, 1.7, 0);
+      pitch += 0.2 * sl;
+      roll += 0.05 * sl * S(t, 1.7, 0);
       lift = 1.5 * on;
     }
     const sway = 0.5 * Math.cos(2 * Math.PI * t / 7.3 + 1);
