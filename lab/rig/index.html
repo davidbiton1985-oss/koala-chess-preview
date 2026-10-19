@@ -64,7 +64,7 @@ function frame() {
   let t = clock();
   if (speak && speak.audio && !speak.audio.paused && speak.audio.currentTime > 0) speak.t0 = t - speak.audio.currentTime;
   if (speak && t - speak.t0 > speak.track.duration + 1.5) speak = null;
-  rig.gesture(wave.frame());
+  rig.gesture(wave.frame(), wave.fade());
   rig.draw(pose(t, speak, wave.hold(performance.now())));
   requestAnimationFrame(frame);
 }
@@ -75,6 +75,18 @@ window.rigTest = {
   async load(id, l = 'he') { return fetch(`../../koala/rig/tracks/falls/${l}/${id}.json`).then((r) => r.json()); },
   render(t, track, t0) { rig.draw(pose(t, track ? { t0, track } : null)); return true; },
   draw(p) { rig.draw(p); return true; },
+  // the wave at exact instants (the bench): the layer seeked to its own time, the head held as the live path does
+  wv: null,
+  async renderWave(t, w0, track, t0) {
+    if (!this.wv) { this.wv = document.createElement('video'); this.wv.muted = true; this.wv.src = '../../koala/rig/wave.mp4'; await new Promise((r) => this.wv.addEventListener('loadeddata', r, { once: true })); }
+    const LEAD = 0.3, d = this.wv.duration, x = t - w0;
+    const hold = x < 0 || x > LEAD + d + LEAD ? 0 : Math.min(1, x / LEAD, (LEAD + d + LEAD - x) / LEAD);
+    let src = null;
+    if (x >= LEAD && x <= LEAD + d) { this.wv.currentTime = Math.min(d - 0.001, x - LEAD); await new Promise((r) => this.wv.addEventListener('seeked', r, { once: true })); src = this.wv; }
+    const fd = src ? Math.min(1, (x - LEAD) / 0.15, (LEAD + d - x) / 0.15) : 1;
+    rig.gesture(src, fd); rig.draw(pose(t, track ? { t0, track } : null, hold)); rig.gesture(null);
+    return true;
+  },
 };
 window.rigReady = true;
 </script>

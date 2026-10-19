@@ -46,9 +46,9 @@ in vec2 aQ; uniform vec4 uBox; uniform float uS; out vec2 vQ;
 void main() { vQ = aQ; vec2 p = uBox.xy + aQ * uBox.zw; gl_Position = vec4(p.x / uS * 2.0 - 1.0, 1.0 - p.y / uS * 2.0, 0.0, 1.0); }`;
 const QFS = `#version 300 es
 precision highp float;
-in vec2 vQ; uniform sampler2D uG; uniform float uAlphaOut; out vec4 o;
+in vec2 vQ; uniform sampler2D uG; uniform float uAlphaOut, uFade; out vec4 o;
 void main() {
-  vec3 c = texture(uG, vec2(vQ.x, vQ.y * 0.5)).rgb; float a = texture(uG, vec2(vQ.x, 0.5 + vQ.y * 0.5)).r;
+  vec3 c = texture(uG, vec2(vQ.x, vQ.y * 0.5)).rgb * uFade; float a = texture(uG, vec2(vQ.x, 0.5 + vQ.y * 0.5)).r * uFade;
   o = uAlphaOut > 0.5 ? vec4(vec3(a), a) : vec4(c, a);      // premultiplied
 }`;
 const img = (url) => new Promise((res, rej) => {
@@ -118,10 +118,14 @@ function makeLife(seed = 7) {
     const u = minJerk(Math.min(1, (t - g.t) / g.dur));
     return [prev[0] + (g.to[0] - prev[0]) * u, prev[1] + (g.to[1] - prev[1]) * u, prev[2] + (g.to[2] - prev[2]) * u];
   };
-  return (t, speak, hold = 0) => {
+  return (t, speak, hold = 0, look = 0) => {
     const ph = t / 3.9 % 1;
     const breath = ph < 0.42 ? -Math.cos(Math.PI * ph / 0.42) : Math.cos(Math.PI * (ph - 0.42) / 0.58);
-    const [gy, gp, gr] = lookAt(t);
+    let [gy, gp, gr] = lookAt(t);
+    const lk = smooth(Math.min(1, Math.max(0, look)));
+    gy = gy * (1 - lk) - 5 * lk;
+    gp = gp * (1 - lk) + 3.2 * lk;
+    gr = gr * (1 - lk) - 1.2 * lk;
     let roll = gr + 0.25 * S(t, 7.3, 1);
     let yaw = gy + 0.35 * S(t, 9.7, 0);
     let pitch = gp + 0.3 * S(t, 6.1, 0.5) - 0.25 * breath;
@@ -266,15 +270,16 @@ async function createRig(gl, base) {
   gl.uniform1i(gl.getUniformLocation(qp, "uG"), 4);
   gl.uniform1f(gl.getUniformLocation(qp, "uS"), S);
   if (box) gl.uniform4f(gl.getUniformLocation(qp, "uBox"), box.box[0], box.box[1], box.box[2], box.box[2]);
-  const qAlpha = gl.getUniformLocation(qp, "uAlphaOut");
+  const qAlpha = gl.getUniformLocation(qp, "uAlphaOut"), qFade = gl.getUniformLocation(qp, "uFade");
   gl.useProgram(pr);
   gl.bindVertexArray(vao);
-  let gsrc = null;
+  let gsrc = null, gfade = 1;
   const drawGesture = (alphaOut) => {
     if (!gsrc || !box) return;
     gl.useProgram(qp);
     gl.bindVertexArray(qvao);
     gl.uniform1f(qAlpha, alphaOut);
+    gl.uniform1f(qFade, gfade);
     gl.activeTexture(gl.TEXTURE4);
     gl.bindTexture(gl.TEXTURE_2D, gt);
     gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
@@ -289,8 +294,19 @@ async function createRig(gl, base) {
     for (const key of Object.keys(ul)) gl.uniform1f(ul[key], p[key] ?? 0);
   };
   return {
-    gesture(src) {
+    gesture(src, fade = 1) {
       gsrc = src;
+      gfade = Math.max(0, Math.min(1, fade));
+    },
+    headPoint(p, x, y) {
+      const hc = rig.head_c, hr = rig.head_r, no = rig.nose, nk = rig.neck;
+      const qx = (x - hc[0]) / hr[0], qy = (y - hc[1]) / hr[1];
+      const z = 0.55 * hr[0] * Math.sqrt(Math.max(0, 1 - qx * qx - qy * qy)) + 34 * Math.exp(-((x - no[0]) ** 2 + (y - no[1]) ** 2) / (2 * 46 * 46));
+      let px = x + z * Math.sin(p.yaw * Math.PI / 180), py = y + z * Math.sin(p.pitch * Math.PI / 180);
+      const r = p.roll * Math.PI / 180, dx = px - nk[0], dy = py - nk[1];
+      px = nk[0] + dx * Math.cos(r) - dy * Math.sin(r);
+      py = nk[1] + dx * Math.sin(r) + dy * Math.cos(r);
+      return [px, py - p.lift - 1.6 * p.breath, p.roll];
     },
     draw(p) {
       if (gl.isContextLost()) return;
@@ -410,6 +426,12 @@ function rigWave(base) {
     },
     frame() {
       return t0 >= 0 && !v.paused && v.readyState >= 2 ? v : null;
+    },
+    // the layer's first and last frames are the rest picture (a touch softer than the rig's photo): it blends in and out
+    // over 150 ms there, two versions of one picture — measured 10-19, a hard switch was a 3.4-level step in the arm region
+    fade() {
+      const d = Number.isFinite(v.duration) && v.duration > 0 ? v.duration : 5, c = v.currentTime;
+      return Math.min(1, c / 0.15, (d - c) / 0.15);
     }
   };
 }
