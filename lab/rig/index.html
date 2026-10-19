@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>הקואלה החי</title>
+<style>
+  :root { --bg: #14110f; --fg: #f3ede4; --accent: #e9c46a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 20px; margin: 4px 0 12px; }
+  .stage { position: relative; width: 100%; aspect-ratio: 1; border-radius: 10px; overflow: hidden;
+           background: #000 url("../../adventure/falls/arrive-wide.webp") center / cover no-repeat; }
+  canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .bar { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
+  button { font: inherit; padding: 10px 16px; border-radius: 999px; border: 0; background: var(--accent); color: #241b12; font-weight: 700; cursor: pointer; }
+  button.ghost { background: transparent; color: var(--fg); border: 1px solid #555; }
+  select { font: inherit; padding: 8px; border-radius: 8px; background: #221d19; color: var(--fg); border: 1px solid #555; }
+  p { opacity: .85; margin: 6px 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>הקואלה החי — ניסוי</h1>
+  <div class="stage"><canvas id="cv"></canvas></div>
+  <div class="bar">
+    <button id="say">▶ שיגיד משפט</button>
+    <select id="line"></select>
+    <button class="ghost" id="lang">English</button>
+  </div>
+  <p>הקואלה האמיתי מהתמונה שאישרת — המשחק מזיז אותו בזמן אמת: נושם, ממצמץ, מזיז אוזניים וראש, והפה נפתח לפי הקול. אין סרטון, אין מעבר בין סרטונים.</p>
+</main>
+<script type="module">
+import { createRig, makeLife } from './rig.js';
+const cv = document.getElementById('cv');
+const fit = () => { const r = cv.getBoundingClientRect(), k = Math.min(2, devicePixelRatio || 1); cv.width = Math.round(r.width * k); cv.height = Math.round(r.height * k); };
+fit(); addEventListener('resize', fit);
+const rig = await createRig(cv, '../../koala/rig/');
+const pose = makeLife(7);
+let lang = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'he';
+const sel = document.getElementById('line');
+const IDS = ['r05.arrive.1', 'r05.s1.1', 'r05.s1.2', 'r05.s1.3', 'r05.s1.cheer', 'gen.help.1', 'r05.s2.1', 'r05.s3.twist', 'r05.fin.queen', 'r05.fin.cheer'];
+for (const id of IDS) { const o = document.createElement('option'); o.value = id; o.textContent = id; sel.appendChild(o); }
+sel.value = 'r05.s1.1';
+document.getElementById('lang').onclick = (e) => { lang = lang === 'he' ? 'en' : 'he'; e.target.textContent = lang === 'he' ? 'English' : 'עברית'; };
+let speak = null, audio = null;
+async function say() {
+  const id = sel.value;
+  const track = await fetch(`../../koala/rig/tracks/falls/${lang}/${id}.json`).then((r) => r.json());
+  audio?.pause(); audio = new Audio(`../../adventure/falls/voice/${lang}/${id}.m4a`);
+  await audio.play().catch(() => undefined);
+  speak = { t0: clock(), track, audio };
+}
+document.getElementById('say').onclick = say;
+// the clock: performance time; while a line plays, the line follows the AUDIO's own clock (no drift)
+const T0 = performance.now();
+const clock = () => (performance.now() - T0) / 1000;
+function frame() {
+  let t = clock();
+  if (speak && speak.audio && !speak.audio.paused && speak.audio.currentTime > 0) speak.t0 = t - speak.audio.currentTime;
+  if (speak && t - speak.t0 > speak.track.duration + 1.5) speak = null;
+  rig.draw(pose(t, speak));
+  requestAnimationFrame(frame);
+}
+const test = new URLSearchParams(location.search).has('test');
+if (!test) requestAnimationFrame(frame);
+// the test bench (qa): render any instant, deterministically
+window.rigTest = {
+  async load(id, l = 'he') { return fetch(`../../koala/rig/tracks/falls/${l}/${id}.json`).then((r) => r.json()); },
+  render(t, track, t0) { rig.draw(pose(t, track ? { t0, track } : null)); return true; },
+  draw(p) { rig.draw(p); return true; },
+};
+window.rigReady = true;
+</script>
+</body>
+</html>
