@@ -40,6 +40,17 @@ void main() {
   c.rgb = mix(c.rgb, vec3(0.13, 0.05, 0.05), clamp(vCav * 0.95, 0.0, 0.92));
   o = uAlphaOut > 0.5 ? vec4(vec3(c.a), 1.0) : vec4(c.rgb * c.a, c.a);
 }`;
+const QVS = `#version 300 es
+precision highp float;
+in vec2 aQ; uniform vec4 uBox; uniform float uS; out vec2 vQ;
+void main() { vQ = aQ; vec2 p = uBox.xy + aQ * uBox.zw; gl_Position = vec4(p.x / uS * 2.0 - 1.0, 1.0 - p.y / uS * 2.0, 0.0, 1.0); }`;
+const QFS = `#version 300 es
+precision highp float;
+in vec2 vQ; uniform sampler2D uG; uniform float uAlphaOut; out vec4 o;
+void main() {
+  vec3 c = texture(uG, vec2(vQ.x, vQ.y * 0.5)).rgb; float a = texture(uG, vec2(vQ.x, 0.5 + vQ.y * 0.5)).r;
+  o = uAlphaOut > 0.5 ? vec4(vec3(a), a) : vec4(c, a);      // premultiplied
+}`;
 const img = (url) => new Promise((res, rej) => {
   const i = new Image();
   i.crossOrigin = "anonymous";
@@ -107,7 +118,7 @@ function makeLife(seed = 7) {
     const u = minJerk(Math.min(1, (t - g.t) / g.dur));
     return [prev[0] + (g.to[0] - prev[0]) * u, prev[1] + (g.to[1] - prev[1]) * u, prev[2] + (g.to[2] - prev[2]) * u];
   };
-  return (t, speak) => {
+  return (t, speak, hold = 0) => {
     const ph = t / 3.9 % 1;
     const breath = ph < 0.42 ? -Math.cos(Math.PI * ph / 0.42) : Math.cos(Math.PI * (ph - 0.42) / 0.58);
     const [gy, gp, gr] = lookAt(t);
@@ -124,7 +135,7 @@ function makeLife(seed = 7) {
       };
       jaw = at(ls + 0.04);
       let sl = 0;
-      for (let k = 0; k < 7; k++) sl += Math.max(0, at(ls - 0.03 * k));
+      for (let k2 = 0; k2 < 7; k2++) sl += Math.max(0, at(ls - 0.03 * k2));
       sl /= 7;
       const on = smooth(Math.min(1, Math.max(0, Math.min(ls / 0.35, (tr.duration + 0.4 - ls) / 0.5))));
       yaw = yaw * (1 - 0.7 * on) - 2 * on;
@@ -134,7 +145,8 @@ function makeLife(seed = 7) {
     }
     const sway = 0.5 * Math.cos(2 * Math.PI * t / 7.3 + 1);
     const blink = blinkAt(t);
-    return { breath, roll, yaw, pitch, jaw, earL: -sway + twitchAt(t, "L"), earR: sway + twitchAt(t, "R"), blinkL: blink, blinkR: blink, lift };
+    const k = 1 - smooth(Math.min(1, Math.max(0, hold)));
+    return { breath: breath * (0.35 + 0.65 * k), roll: roll * k, yaw: yaw * k, pitch: pitch * k, jaw, earL: (-sway + twitchAt(t, "L")) * k, earR: (sway + twitchAt(t, "R")) * k, blinkL: blink, blinkR: blink, lift: lift * k };
   };
 }
 async function createRig(gl, base) {
@@ -232,10 +244,54 @@ async function createRig(gl, base) {
     lift: U("uLift")
   };
   const uAlphaOut = U("uAlphaOut");
+  const box = await fetch(`${base}koala/rig/wave.json`).then((r) => r.ok ? r.json() : null).catch(() => null);
+  const qp = gl.createProgram();
+  gl.attachShader(qp, sh(gl.VERTEX_SHADER, QVS));
+  gl.attachShader(qp, sh(gl.FRAGMENT_SHADER, QFS));
+  gl.linkProgram(qp);
+  const qvao = gl.createVertexArray();
+  gl.bindVertexArray(qvao);
+  const qb = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, qb);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([0, 0, 1, 0, 0, 1, 1, 1]), gl.STATIC_DRAW);
+  const ql = gl.getAttribLocation(qp, "aQ");
+  gl.enableVertexAttribArray(ql);
+  gl.vertexAttribPointer(ql, 2, gl.FLOAT, false, 0, 0);
+  const gt = gl.createTexture();
+  texs.push(gt);
+  gl.activeTexture(gl.TEXTURE4);
+  gl.bindTexture(gl.TEXTURE_2D, gt);
+  for (const [k2, v] of [[gl.TEXTURE_MIN_FILTER, gl.LINEAR], [gl.TEXTURE_MAG_FILTER, gl.LINEAR], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k2, v);
+  gl.useProgram(qp);
+  gl.uniform1i(gl.getUniformLocation(qp, "uG"), 4);
+  gl.uniform1f(gl.getUniformLocation(qp, "uS"), S);
+  if (box) gl.uniform4f(gl.getUniformLocation(qp, "uBox"), box.box[0], box.box[1], box.box[2], box.box[2]);
+  const qAlpha = gl.getUniformLocation(qp, "uAlphaOut");
+  gl.useProgram(pr);
+  gl.bindVertexArray(vao);
+  let gsrc = null;
+  const drawGesture = (alphaOut) => {
+    if (!gsrc || !box) return;
+    gl.useProgram(qp);
+    gl.bindVertexArray(qvao);
+    gl.uniform1f(qAlpha, alphaOut);
+    gl.activeTexture(gl.TEXTURE4);
+    gl.bindTexture(gl.TEXTURE_2D, gt);
+    gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, gsrc);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    gl.useProgram(pr);
+    gl.bindVertexArray(vao);
+  };
   const pose = (p) => {
     for (const key of Object.keys(ul)) gl.uniform1f(ul[key], p[key] ?? 0);
   };
   return {
+    gesture(src) {
+      gsrc = src;
+    },
     draw(p) {
       if (gl.isContextLost()) return;
       gl.useProgram(pr);
@@ -245,6 +301,7 @@ async function createRig(gl, base) {
       gl.clear(gl.COLOR_BUFFER_BIT);
       pose(p);
       gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_INT, 0);
+      drawGesture(0);
     },
     drawPacked(p) {
       if (gl.isContextLost()) return;
@@ -260,9 +317,14 @@ async function createRig(gl, base) {
       gl.viewport(0, h, w2, h);
       gl.uniform1f(uAlphaOut, 0);
       gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_INT, 0);
+      drawGesture(0);
+      gl.disable(gl.BLEND);
+      gl.useProgram(pr);
+      gl.bindVertexArray(vao);
       gl.viewport(0, 0, w2, h);
       gl.uniform1f(uAlphaOut, 1);
       gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_INT, 0);
+      drawGesture(1);
       gl.enable(gl.BLEND);
     },
     destroy() {
@@ -311,9 +373,50 @@ function rigSource(base, size = 512) {
   };
   return shared;
 }
+function rigWave(base) {
+  const v = document.createElement("video");
+  v.muted = true;
+  v.playsInline = true;
+  v.preload = "auto";
+  v.crossOrigin = "anonymous";
+  v.loop = false;
+  v.src = `${base}koala/rig/wave.mp4`;
+  let t0 = -1, ok = false;
+  v.addEventListener("loadeddata", () => {
+    ok = true;
+  }, { once: true });
+  const LEAD = 0.3;
+  return {
+    get ready() {
+      return ok;
+    },
+    start() {
+      if (!ok) return;
+      t0 = performance.now() / 1e3;
+      window.setTimeout(() => {
+        v.currentTime = 0;
+        void v.play().catch(() => void 0);
+      }, LEAD * 1e3);
+    },
+    hold(now) {
+      if (t0 < 0) return 0;
+      const d = Number.isFinite(v.duration) && v.duration > 0 ? v.duration : 5;
+      const x = now / 1e3 - t0;
+      if (x > LEAD + d + LEAD) {
+        t0 = -1;
+        return 0;
+      }
+      return Math.min(1, x / LEAD, (LEAD + d + LEAD - x) / LEAD);
+    },
+    frame() {
+      return t0 >= 0 && !v.paused && v.readyState >= 2 ? v : null;
+    }
+  };
+}
 export {
   createRig,
   makeLife,
   rigSource,
-  rigTrack
+  rigTrack,
+  rigWave
 };

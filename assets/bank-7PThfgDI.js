@@ -1,0 +1,1 @@
+import"./index-BJUWTM6o.js";import"./chess-Dz_znVVI.js";import{c as a,f as r}from"./puzzles-tBOYYR_X.js";import{l as e}from"./openings-F9F41WgH.js";let o=null;const n=r("./learn-data/");function s(){return o??=a(n),o}function u(){return e(n)}export{u as o,s as p};

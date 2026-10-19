@@ -27,18 +27,21 @@
   <div class="stage"><canvas id="cv"></canvas></div>
   <div class="bar">
     <button id="say">▶ שיגיד משפט</button>
+    <button id="wave">👋 נפנוף</button>
     <select id="line"></select>
     <button class="ghost" id="lang">English</button>
   </div>
   <p>הקואלה האמיתי מהתמונה שאישרת — המשחק מזיז אותו בזמן אמת: נושם, ממצמץ, מזיז אוזניים וראש, והפה נפתח לפי הקול. אין סרטון, אין מעבר בין סרטונים.</p>
 </main>
 <script type="module">
-import { createRig, makeLife } from './rig-core.js';   // = src/koala/rig.ts (esbuild): the game's own rig
+import { createRig, makeLife, rigWave } from './rig-core.js';   // = src/koala/rig.ts (esbuild): the game's own rig
 const cv = document.getElementById('cv');
 const fit = () => { const r = cv.getBoundingClientRect(), k = Math.min(2, devicePixelRatio || 1); cv.width = Math.round(r.width * k); cv.height = Math.round(r.height * k); };
 fit(); addEventListener('resize', fit);
 const rig = await createRig(cv.getContext('webgl2', { premultipliedAlpha: true, alpha: true, antialias: true, preserveDrawingBuffer: true }), '../../');
 const pose = makeLife(7);
+const wave = rigWave('../../');
+document.getElementById('wave').onclick = () => wave.start();
 let lang = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'he';
 const sel = document.getElementById('line');
 const IDS = ['r05.arrive.1', 'r05.s1.1', 'r05.s1.2', 'r05.s1.3', 'r05.s1.cheer', 'gen.help.1', 'r05.s2.1', 'r05.s3.twist', 'r05.fin.queen', 'r05.fin.cheer'];
@@ -61,7 +64,8 @@ function frame() {
   let t = clock();
   if (speak && speak.audio && !speak.audio.paused && speak.audio.currentTime > 0) speak.t0 = t - speak.audio.currentTime;
   if (speak && t - speak.t0 > speak.track.duration + 1.5) speak = null;
-  rig.draw(pose(t, speak));
+  rig.gesture(wave.frame());
+  rig.draw(pose(t, speak, wave.hold(performance.now())));
   requestAnimationFrame(frame);
 }
 const test = new URLSearchParams(location.search).has('test');
