@@ -1,3 +1,18 @@
+const RIG_DEFAULT = true;
+let rigCached = null;
+function rigEnabled() {
+  if (rigCached !== null) return rigCached;
+  const q = typeof location !== "undefined" ? new URLSearchParams(location.search).get("koala") : null;
+  if (q === "video" || q === "v2" || typeof document === "undefined") return rigCached = false;
+  let gl2 = false;
+  try {
+    const c = document.createElement("canvas").getContext("webgl2");
+    gl2 = !!c;
+    c?.getExtension("WEBGL_lose_context")?.loseContext();
+  } catch {
+  }
+  return rigCached = gl2 && (q === "rig" || RIG_DEFAULT);
+}
 const VS = `#version 300 es
 precision highp float;
 in vec2 aPos;
@@ -118,7 +133,7 @@ function makeLife(seed = 7) {
     const u = minJerk(Math.min(1, (t - g.t) / g.dur));
     return [prev[0] + (g.to[0] - prev[0]) * u, prev[1] + (g.to[1] - prev[1]) * u, prev[2] + (g.to[2] - prev[2]) * u];
   };
-  return (t, speak, hold = 0, look = 0) => {
+  return (t, speak, hold = 0, look = 0, react = null) => {
     const ph = t / 3.9 % 1;
     const breath = ph < 0.42 ? -Math.cos(Math.PI * ph / 0.42) : Math.cos(Math.PI * (ph - 0.42) / 0.58);
     let [gy, gp, gr] = lookAt(t);
@@ -146,6 +161,22 @@ function makeLife(seed = 7) {
       pitch += 0.2 * sl;
       roll += 0.05 * sl * S(t, 1.7, 0);
       lift = 1.5 * on;
+    }
+    if (react) {
+      const d = t - react.t0;
+      if (react.kind === "nod" && d >= 0 && d < 0.9) pitch += 3.2 * Math.sin(Math.PI * Math.min(1, d / 0.45)) * (d < 0.45 ? 1 : Math.max(0, 1 - (d - 0.45) / 0.45)) + 1.6 * (d > 0.45 ? Math.sin(Math.PI * (d - 0.45) / 0.45) : 0);
+      if (react.kind === "cheer" && d >= 0 && d < 1.4) {
+        const e = Math.sin(Math.PI * d / 1.4);
+        lift += 5 * e;
+        pitch -= 2.2 * e;
+        roll += 2.4 * Math.sin(d * 9) * e;
+      }
+      if (react.kind === "think" && d >= 0 && d < 2.6) {
+        const e = smooth(Math.min(1, d / 0.5)) * smooth(Math.min(1, (2.6 - d) / 0.5));
+        yaw = yaw * (1 - e) + 4.5 * e;
+        pitch = pitch * (1 - e) - 1.5 * e;
+        roll = roll * (1 - e) + 2 * e;
+      }
     }
     const sway = 0.5 * Math.cos(2 * Math.PI * t / 7.3 + 1);
     const blink = blinkAt(t);
@@ -248,7 +279,7 @@ async function createRig(gl, base) {
     lift: U("uLift")
   };
   const uAlphaOut = U("uAlphaOut");
-  const box = await fetch(`${base}koala/rig/wave.json`).then((r) => r.ok ? r.json() : null).catch(() => null);
+  const box = Array.isArray(rig.wave?.box) ? { box: rig.wave.box } : null;
   const qp = gl.createProgram();
   gl.attachShader(qp, sh(gl.VERTEX_SHADER, QVS));
   gl.attachShader(qp, sh(gl.FRAGMENT_SHADER, QFS));
@@ -376,15 +407,26 @@ function rigSource(base, size = 512) {
     rig = r;
     return !!r;
   }) : Promise.resolve(false);
-  let last = -1;
+  let last = -1, reaction = null;
   shared = {
     canvas,
     ready,
+    get ok() {
+      return !!rig;
+    },
+    react(kind) {
+      reaction = { t0: performance.now() / 1e3, kind };
+      const ms = kind === "think" ? 2600 : kind === "cheer" ? 1400 : 900;
+      return new Promise((r) => window.setTimeout(() => {
+        reaction = null;
+        r();
+      }, ms));
+    },
     frame(speak) {
       const now = performance.now();
       if (!rig || now - last < 4) return;
       last = now;
-      rig.drawPacked(life(now / 1e3, speak));
+      rig.drawPacked(life(now / 1e3, speak, 0, 0, reaction));
     }
   };
   return shared;
@@ -396,11 +438,13 @@ function rigWave(base) {
   v.preload = "auto";
   v.crossOrigin = "anonymous";
   v.loop = false;
-  v.src = `${base}koala/rig/wave.mp4`;
   let t0 = -1, ok = false;
   v.addEventListener("loadeddata", () => {
     ok = true;
   }, { once: true });
+  void fetch(`${base}koala/rig/rig.json`).then((r) => r.json()).then((j) => {
+    if (j.wave) v.src = `${base}koala/rig/wave.mp4`;
+  }).catch(() => void 0);
   const LEAD = 0.3;
   return {
     get ready() {
@@ -455,8 +499,10 @@ function rigSpeechFrom(base) {
   };
 }
 export {
+  RIG_DEFAULT,
   createRig,
   makeLife,
+  rigEnabled,
   rigSource,
   rigSpeechFrom,
   rigTrack,

@@ -75,6 +75,7 @@ window.rigTest = {
   async load(id, l = 'he') { return fetch(`../../koala/rig/tracks/falls/${l}/${id}.json`).then((r) => r.json()); },
   render(t, track, t0) { rig.draw(pose(t, track ? { t0, track } : null)); return true; },
   draw(p) { rig.draw(p); return true; },
+  renderReact(t, kind, t0) { rig.draw(pose(t, null, 0, 0, { t0, kind })); return true; },
   // the wave at exact instants (the bench): the layer seeked to its own time, the head held as the live path does
   wv: null,
   async renderWave(t, w0, track, t0) {
