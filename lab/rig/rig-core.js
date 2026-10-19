@@ -30,7 +30,7 @@ const FS = `#version 300 es
 precision highp float;
 in vec2 vUv; in float vCav;
 uniform sampler2D uRest, uE;
-uniform float uBlinkL, uBlinkR, uLidH;
+uniform float uBlinkL, uBlinkR, uLidH, uAlphaOut;
 out vec4 o;
 void main() {
   vec4 e = texture(uE, vUv);
@@ -38,7 +38,7 @@ void main() {
   vec4 c = texture(uRest, vUv - vec2(0.0, b * uLidH));
   c.rgb *= 1.0 - 0.18 * b;
   c.rgb = mix(c.rgb, vec3(0.16, 0.07, 0.07), clamp(vCav * 0.85, 0.0, 0.85));
-  o = vec4(c.rgb * c.a, c.a);
+  o = uAlphaOut > 0.5 ? vec4(vec3(c.a), 1.0) : vec4(c.rgb * c.a, c.a);
 }`;
 const img = (url) => new Promise((res, rej) => {
   const i = new Image();
@@ -223,15 +223,39 @@ async function createRig(gl, base) {
     blinkR: U("uBlinkR"),
     lift: U("uLift")
   };
+  const uAlphaOut = U("uAlphaOut");
+  const pose = (p) => {
+    for (const key of Object.keys(ul)) gl.uniform1f(ul[key], p[key] ?? 0);
+  };
   return {
     draw(p) {
       if (gl.isContextLost()) return;
       gl.useProgram(pr);
       gl.bindVertexArray(vao);
+      gl.uniform1f(uAlphaOut, 0);
       gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
       gl.clear(gl.COLOR_BUFFER_BIT);
-      for (const key of Object.keys(ul)) gl.uniform1f(ul[key], p[key] ?? 0);
+      pose(p);
       gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_INT, 0);
+    },
+    drawPacked(p) {
+      if (gl.isContextLost()) return;
+      const w2 = gl.drawingBufferWidth, h = gl.drawingBufferHeight / 2;
+      gl.useProgram(pr);
+      gl.bindVertexArray(vao);
+      pose(p);
+      gl.viewport(0, 0, w2, h * 2);
+      gl.clearColor(0, 0, 0, 1);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.clearColor(0, 0, 0, 0);
+      gl.disable(gl.BLEND);
+      gl.viewport(0, h, w2, h);
+      gl.uniform1f(uAlphaOut, 0);
+      gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_INT, 0);
+      gl.viewport(0, 0, w2, h);
+      gl.uniform1f(uAlphaOut, 1);
+      gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_INT, 0);
+      gl.enable(gl.BLEND);
     },
     destroy() {
       if (gl.isContextLost()) return;
@@ -253,8 +277,35 @@ function rigTrack(base, land, lang, id) {
   }
   return p;
 }
+let shared = null;
+function rigSource(base, size = 512) {
+  if (shared) return shared;
+  const canvas = document.createElement("canvas");
+  canvas.width = size;
+  canvas.height = size * 2;
+  const gl = canvas.getContext("webgl2", { premultipliedAlpha: false, alpha: false, antialias: true, preserveDrawingBuffer: true });
+  let rig = null;
+  const life = makeLife(5);
+  const ready = gl ? createRig(gl, base).then((r) => {
+    rig = r;
+    return !!r;
+  }) : Promise.resolve(false);
+  let last = -1;
+  shared = {
+    canvas,
+    ready,
+    frame(speak) {
+      const now = performance.now();
+      if (!rig || now - last < 4) return;
+      last = now;
+      rig.drawPacked(life(now / 1e3, speak));
+    }
+  };
+  return shared;
+}
 export {
   createRig,
   makeLife,
+  rigSource,
   rigTrack
 };
