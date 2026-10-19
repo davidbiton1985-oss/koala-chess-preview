@@ -23,7 +23,7 @@ void main() {
   p += w.b * (p - uBreathP) * (0.0075 * uBreath);
   p.y -= 1.6 * uBreath * w.r;
   vUv = uv;
-  vCav = e.b * clamp(uJaw / 9.0, 0.0, 1.0);
+  vCav = e.b * clamp(uJaw / 8.0, 0.0, 1.0);
   gl_Position = vec4(p.x / uS * 2.0 - 1.0, 1.0 - p.y / uS * 2.0, 0.0, 1.0);
 }`;
 const FS = `#version 300 es
@@ -37,7 +37,7 @@ void main() {
   float b = e.r * uBlinkL + e.g * uBlinkR;
   vec4 c = texture(uRest, vUv - vec2(0.0, b * uLidH));
   c.rgb *= 1.0 - 0.18 * b;
-  c.rgb = mix(c.rgb, vec3(0.16, 0.07, 0.07), clamp(vCav * 0.85, 0.0, 0.85));
+  c.rgb = mix(c.rgb, vec3(0.13, 0.05, 0.05), clamp(vCav * 0.95, 0.0, 0.92));
   o = uAlphaOut > 0.5 ? vec4(vec3(c.a), 1.0) : vec4(c.rgb * c.a, c.a);
 }`;
 const img = (url) => new Promise((res, rej) => {
