@@ -1,5 +1,6 @@
-const RIG_DEFAULT = true;
-let rigCached = null;
+// src/koala/rig.ts
+var RIG_DEFAULT = true;
+var rigCached = null;
 function rigEnabled() {
   if (rigCached !== null) return rigCached;
   const q = typeof location !== "undefined" ? new URLSearchParams(location.search).get("koala") : null;
@@ -13,13 +14,31 @@ function rigEnabled() {
   }
   return rigCached = gl2 && (q === "rig" || RIG_DEFAULT);
 }
-const VS = `#version 300 es
+var MOUTH_SHAPES = "XABCDEF";
+var MOUTH_XF = 0.06;
+var MOUTH_JAW = [0, 0, 2.5, 5.5, 10, 5, 2];
+var MOUTH_PUCKER = [0, 0, 0, 0, 0, 0.55, 1];
+var MOUTH_LEAD = 0.03;
+function mouthAt(cues, ls) {
+  const t = ls + MOUTH_LEAD;
+  let lo = 0, hi = cues.length;
+  while (lo < hi) {
+    const m = lo + hi >> 1;
+    if (cues[m][0] <= t) lo = m + 1;
+    else hi = m;
+  }
+  const i = lo - 1;
+  const ix = (k) => Math.max(0, MOUTH_SHAPES.indexOf(k >= 0 && k < cues.length ? cues[k][1] : "X"));
+  if (i < 0) return [0, 0, 0];
+  return [ix(i - 1), ix(i), smooth(Math.min(1, (t - cues[i][0]) / MOUTH_XF))];
+}
+var VS = `#version 300 es
 precision highp float;
 in vec2 aPos;
 uniform sampler2D uW, uE, uA;
 uniform float uS;
-uniform vec2 uNeck, uHinge, uEarLb, uEarRb, uHeadC, uHeadR, uNose, uBreathP, uLip0, uLip1;
-uniform float uRoll, uYaw, uPitch, uJaw, uEarL, uEarR, uBreath, uLift;
+uniform vec2 uNeck, uHinge, uEarLb, uEarRb, uHeadC, uHeadR, uNose, uBreathP, uLip0, uLip1, uMouthC, uMouthR;
+uniform float uRoll, uYaw, uPitch, uJaw, uEarL, uEarR, uBreath, uLift, uPucker;
 out vec2 vUv; out float vCav, vBelow;
 vec2 rot(vec2 v, float a) { float c = cos(a), s = sin(a); return vec2(v.x * c - v.y * s, v.x * s + v.y * c); }
 void main() {
@@ -27,6 +46,10 @@ void main() {
   vec4 w = texture(uW, uv); vec4 e = texture(uE, uv); vec4 ax = texture(uA, uv);
   vec2 p = aPos;
   p = uHinge + rot(p - uHinge, -radians(uJaw) * w.g);
+  // the pucker (run-1020 'oh' / 'oo'): the lips' corners drawn in, a little forward-and-down, about the mouth's middle
+  vec2 mq = (aPos - uMouthC) / uMouthR; float mw = exp(-dot(mq, mq) * 1.6);
+  p.x = uMouthC.x + (p.x - uMouthC.x) * (1.0 - 0.22 * uPucker * mw);
+  p.y += 2.5 * uPucker * mw;
   float left = step(p.x, uHeadC.x);
   vec2 eb = mix(uEarRb, uEarLb, left);
   p = eb + rot(p - eb, radians(mix(uEarR, -uEarL, left)) * ax.r);
@@ -42,17 +65,26 @@ void main() {
   vec2 dl = uLip1 - uLip0; vBelow = dot(aPos - uLip0, vec2(-dl.y, dl.x) / length(dl));   // rest px below the upper-lip line
   gl_Position = vec4(p.x / uS * 2.0 - 1.0, 1.0 - p.y / uS * 2.0, 0.0, 1.0);
 }`;
-const FS = `#version 300 es
+var FS = `#version 300 es
 precision highp float;
 in vec2 vUv; in float vCav, vBelow;
-uniform sampler2D uRest, uE;
-uniform float uBlinkL, uBlinkR, uLidH, uAlphaOut;
+uniform sampler2D uRest, uE, uM;
+uniform float uBlinkL, uBlinkR, uLidH, uAlphaOut, uMA, uMB, uMMix, uMOn, uMN;
+uniform vec4 uMBox;
 out vec4 o;
 void main() {
   vec4 e = texture(uE, vUv);
   float b = e.r * uBlinkL + e.g * uBlinkR;
   vec4 c = texture(uRest, vUv - vec2(0.0, b * uLidH));
   c.rgb *= 1.0 - 0.18 * b;
+  // the mouth picture (run-1020 lip-sync): its box of the rest frame, the shape dissolving from uMA to uMB; each tile's
+  // alpha is its soft mask (zero at the tile's edge, so the linear filter never reads a neighbour)
+  vec2 mq = (vUv - uMBox.xy) / uMBox.zw;
+  if (uMOn > 0.5 && mq.x >= 0.0 && mq.y >= 0.0 && mq.x <= 1.0 && mq.y <= 1.0) {
+    vec4 ma = texture(uM, vec2((uMA + mq.x) / uMN, mq.y)), mb = texture(uM, vec2((uMB + mq.x) / uMN, mq.y));
+    vec4 m = mix(ma, mb, uMMix);
+    c.rgb = mix(c.rgb, m.rgb, m.a);
+  }
   // the open mouth: deepest in the gap under the upper lip, the inner lower lip a dark wet red below it; a little of the
   // photo's own light kept, so the cavity is never a flat patch
   float low = smoothstep(5.0, 13.0, vBelow);
@@ -60,18 +92,18 @@ void main() {
   c.rgb = mix(c.rgb, cav, clamp(vCav * 0.95, 0.0, 0.92) * mix(1.0, 0.8, low));
   o = uAlphaOut > 0.5 ? vec4(vec3(c.a), 1.0) : vec4(c.rgb * c.a, c.a);
 }`;
-const QVS = `#version 300 es
+var QVS = `#version 300 es
 precision highp float;
 in vec2 aQ; uniform vec4 uBox; uniform float uS; out vec2 vQ;
 void main() { vQ = aQ; vec2 p = uBox.xy + aQ * uBox.zw; gl_Position = vec4(p.x / uS * 2.0 - 1.0, 1.0 - p.y / uS * 2.0, 0.0, 1.0); }`;
-const QFS = `#version 300 es
+var QFS = `#version 300 es
 precision highp float;
 in vec2 vQ; uniform sampler2D uG; uniform float uAlphaOut, uFade; out vec4 o;
 void main() {
   vec3 c = texture(uG, vec2(vQ.x, vQ.y * 0.5)).rgb * uFade; float a = texture(uG, vec2(vQ.x, 0.5 + vQ.y * 0.5)).r * uFade;
   o = uAlphaOut > 0.5 ? vec4(vec3(a), a) : vec4(c, a);      // premultiplied
 }`;
-const SVS = `#version 300 es
+var SVS = `#version 300 es
 precision highp float;
 in vec2 aQ; uniform vec4 uBox; uniform float uS, uFore, uPaw, uW1, uW2; uniform vec2 uElbow, uWrist; out vec2 vQ;
 vec2 rot(vec2 v, float a) { float c = cos(a), s = sin(a); return vec2(v.x * c - v.y * s, v.x * s + v.y * c); }
@@ -87,11 +119,11 @@ void main() {
   p1 = mix(p1, wr + rot(p1 - wr, radians(uPaw)), wp);
   gl_Position = vec4(p1.x / uS * 2.0 - 1.0, 1.0 - p1.y / uS * 2.0, 0.0, 1.0);
 }`;
-const SFS = `#version 300 es
+var SFS = `#version 300 es
 precision highp float;
 in vec2 vQ; uniform sampler2D uG; uniform float uAlphaOut, uFade; out vec4 o;
 void main() { vec4 c = texture(uG, vQ); float a = c.a * uFade; o = uAlphaOut > 0.5 ? vec4(vec3(a), a) : vec4(c.rgb * a, a); }`;
-const img = (url) => new Promise((res, rej) => {
+var img = (url) => new Promise((res, rej) => {
   const i = new Image();
   i.crossOrigin = "anonymous";
   i.onload = () => res(i);
@@ -102,7 +134,7 @@ function rng(seed) {
   let s = seed >>> 0;
   return () => (s = Math.imul(s, 1664525) + 1013904223 >>> 0) / 4294967296;
 }
-const smooth = (x) => x * x * (3 - 2 * x);
+var smooth = (x) => x * x * (3 - 2 * x);
 function makeLife(seed = 7) {
   const r = rng(seed);
   const blinks = [];
@@ -169,7 +201,7 @@ function makeLife(seed = 7) {
     let roll = gr + 0.25 * S(t, 7.3, 1);
     let yaw = gy + 0.35 * S(t, 9.7, 0);
     let pitch = gp + 0.3 * S(t, 6.1, 0.5) - 0.25 * breath;
-    let jaw = 0, lift = 0;
+    let jaw = 0, lift = 0, mA = 0, mB = 0, mMix = 0, mOn = 0;
     if (speak) {
       const ls = t - speak.t0, tr = speak.track;
       const at = (x) => {
@@ -178,6 +210,10 @@ function makeLife(seed = 7) {
         return tr.jaw[i] + (tr.jaw[Math.min(i + 1, tr.jaw.length - 1)] - tr.jaw[i]) * (f - i);
       };
       jaw = at(ls + 0.04);
+      if (tr.cues?.length) {
+        [mA, mB, mMix] = mouthAt(tr.cues, ls);
+        mOn = 1;
+      }
       let sl = 0;
       for (let k2 = 0; k2 < 7; k2++) sl += Math.max(0, at(ls - 0.03 * k2));
       sl /= 7;
@@ -206,7 +242,7 @@ function makeLife(seed = 7) {
     const sway = 0.5 * Math.cos(2 * Math.PI * t / 7.3 + 1);
     const blink = blinkAt(t);
     const k = 1 - smooth(Math.min(1, Math.max(0, hold)));
-    return { breath: breath * (0.35 + 0.65 * k), roll: roll * k, yaw: yaw * k, pitch: pitch * k, jaw, earL: (-sway + twitchAt(t, "L")) * k, earR: (sway + twitchAt(t, "R")) * k, blinkL: blink, blinkR: blink, lift: lift * k };
+    return { breath: breath * (0.35 + 0.65 * k), roll: roll * k, yaw: yaw * k, pitch: pitch * k, jaw, earL: (-sway + twitchAt(t, "L")) * k, earR: (sway + twitchAt(t, "R")) * k, blinkL: blink, blinkR: blink, lift: lift * k, mA, mB, mMix, mOn };
   };
 }
 async function createRig(gl, base) {
@@ -304,6 +340,32 @@ async function createRig(gl, base) {
     lift: U("uLift")
   };
   const uAlphaOut = U("uAlphaOut");
+  const um = { a: U("uMA"), b: U("uMB"), mix: U("uMMix"), on: U("uMOn") };
+  const uPucker = U("uPucker");
+  {
+    const mc = rig.mouth_c, mr = rig.mouth_r;
+    gl.uniform2f(U("uMouthC"), mc[0], mc[1]);
+    gl.uniform2f(U("uMouthR"), mr[0], mr[1]);
+  }
+  const mj = rig.mouth;
+  let mouthOk = false;
+  if (mj?.box && mj.shapes === MOUTH_SHAPES) {
+    gl.uniform1i(U("uM"), 6);
+    gl.uniform1f(U("uMN"), MOUTH_SHAPES.length);
+    gl.uniform4f(U("uMBox"), mj.box[0] / S, mj.box[1] / S, mj.box[2] / S, mj.box[3] / S);
+    void img(`${base}koala/rig/mouth.webp?v=${mj.v ?? 1}`).then((im) => {
+      if (gl.isContextLost()) return;
+      const t = gl.createTexture();
+      texs.push(t);
+      gl.activeTexture(gl.TEXTURE6);
+      gl.bindTexture(gl.TEXTURE_2D, t);
+      gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
+      gl.pixelStorei(gl.UNPACK_COLORSPACE_CONVERSION_WEBGL, gl.NONE);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, im);
+      for (const [k2, v] of [[gl.TEXTURE_MIN_FILTER, gl.LINEAR], [gl.TEXTURE_MAG_FILTER, gl.LINEAR], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k2, v);
+      mouthOk = true;
+    }).catch(() => void 0);
+  }
   const wj = rig.wave;
   const bx = Array.isArray(wj?.box) ? wj.box : null;
   const box = bx ? [bx[0], bx[1], bx[2], bx[3] ?? bx[2]] : null;
@@ -412,7 +474,15 @@ async function createRig(gl, base) {
     gl.bindVertexArray(vao);
   };
   const pose = (p) => {
-    for (const key of Object.keys(ul)) gl.uniform1f(ul[key], p[key] ?? 0);
+    const on = mouthOk && !!p.mOn;
+    const ma = p.mA ?? 0, mb = p.mB ?? 0, mx = p.mMix ?? 0;
+    const jaw = on ? MOUTH_JAW[ma] + (MOUTH_JAW[mb] - MOUTH_JAW[ma]) * mx : p.jaw;
+    gl.uniform1f(uPucker, on ? MOUTH_PUCKER[ma] + (MOUTH_PUCKER[mb] - MOUTH_PUCKER[ma]) * mx : 0);
+    for (const key of Object.keys(ul)) gl.uniform1f(ul[key], key === "jaw" ? jaw : p[key] ?? 0);
+    gl.uniform1f(um.on, on ? 1 : 0);
+    gl.uniform1f(um.a, p.mA ?? 0);
+    gl.uniform1f(um.b, p.mB ?? 0);
+    gl.uniform1f(um.mix, p.mMix ?? 0);
   };
   return {
     gesture(layer, fade = 1) {
@@ -475,7 +545,7 @@ async function createRig(gl, base) {
     }
   };
 }
-const trackCache = /* @__PURE__ */ new Map();
+var trackCache = /* @__PURE__ */ new Map();
 function rigTrack(base, land, lang, id) {
   const url = `${base}koala/rig/tracks/${land}/${lang}/${id}.json`;
   let p = trackCache.get(url);
@@ -485,7 +555,7 @@ function rigTrack(base, land, lang, id) {
   }
   return p;
 }
-let shared = null;
+var shared = null;
 function rigSource(base, size = 512) {
   if (shared) return shared;
   const canvas = document.createElement("canvas");
@@ -652,11 +722,12 @@ function rigWave(base) {
     }
   };
 }
+var voiceSrc = (el) => el.dataset.clip || el.currentSrc || el.src;
 function rigSpeechFrom(base) {
   let cur = null;
   return (el) => {
     if (!el) return null;
-    const src = el.currentSrc || el.src;
+    const src = voiceSrc(el);
     if (!src || el.paused || el.currentTime <= 0) return null;
     if (cur?.src !== src) {
       cur = { src, track: null };
@@ -672,13 +743,18 @@ function rigSpeechFrom(base) {
   };
 }
 export {
+  MOUTH_JAW,
+  MOUTH_PUCKER,
+  MOUTH_SHAPES,
   RIG_DEFAULT,
   createRig,
   makeLife,
+  mouthAt,
   rigEnabled,
   rigSource,
   rigSpeechFrom,
   rigTrack,
   rigWave,
+  voiceSrc,
   waveBend
 };
