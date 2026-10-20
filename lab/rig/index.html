@@ -34,14 +34,14 @@
   <p>הקואלה האמיתי מהתמונה שאישרת — המשחק מזיז אותו בזמן אמת: נושם, ממצמץ, מזיז אוזניים וראש, והפה נפתח לפי הקול. אין סרטון, אין מעבר בין סרטונים.</p>
 </main>
 <script type="module">
-import { createRig, makeLife, rigWave } from './rig-core.js';   // = src/koala/rig.ts (esbuild): the game's own rig
+import { createRig, makeLife, rigWave, waveBend } from './rig-core.js';   // = src/koala/rig.ts (esbuild): the game's own rig
 const cv = document.getElementById('cv');
 const fit = () => { const r = cv.getBoundingClientRect(), k = Math.min(2, devicePixelRatio || 1); cv.width = Math.round(r.width * k); cv.height = Math.round(r.height * k); };
 fit(); addEventListener('resize', fit);
 const rig = await createRig(cv.getContext('webgl2', { premultipliedAlpha: true, alpha: true, antialias: true, preserveDrawingBuffer: true }), '../../');
 const pose = makeLife(7);
 const wave = rigWave('../../');
-document.getElementById('wave').onclick = () => wave.start();
+document.getElementById('wave').onclick = () => wave.start(3.7);
 let lang = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'he';
 const sel = document.getElementById('line');
 const IDS = ['r05.arrive.1', 'r05.s1.1', 'r05.s1.2', 'r05.s1.3', 'r05.s1.cheer', 'gen.help.1', 'r05.s2.1', 'r05.s3.twist', 'r05.fin.queen', 'r05.fin.cheer'];
@@ -64,7 +64,7 @@ function frame() {
   let t = clock();
   if (speak && speak.audio && !speak.audio.paused && speak.audio.currentTime > 0) speak.t0 = t - speak.audio.currentTime;
   if (speak && t - speak.t0 > speak.track.duration + 1.5) speak = null;
-  rig.gesture(wave.frame(), wave.fade());
+  rig.gesture(wave.layer(performance.now()));
   rig.draw(pose(t, speak, wave.hold(performance.now())));
   requestAnimationFrame(frame);
 }
@@ -76,17 +76,30 @@ window.rigTest = {
   render(t, track, t0) { rig.draw(pose(t, track ? { t0, track } : null)); return true; },
   draw(p) { rig.draw(p); return true; },
   renderReact(t, kind, t0) { rig.draw(pose(t, null, 0, 0, { t0, kind })); return true; },
-  // the wave at exact instants (the bench): the layer seeked to its own time, the head held as the live path does
+  // the wave (run-1020) at exact instants: lead → raise (its video seeked to the frame) → the still bent live → lower → tail,
+  // the head held as the live path does. wdur = how long the paw is up.
   wv: null,
-  async renderWave(t, w0, track, t0) {
-    if (!this.wv) { this.wv = document.createElement('video'); this.wv.muted = true; this.wv.src = '../../koala/rig/wave.mp4'; await new Promise((r) => this.wv.addEventListener('loadeddata', r, { once: true })); }
-    const LEAD = 0.3, d = this.wv.duration, x = t - w0;
-    const hold = x < 0 || x > LEAD + d + LEAD ? 0 : Math.min(1, x / LEAD, (LEAD + d + LEAD - x) / LEAD);
-    let src = null;
-    if (x >= LEAD && x <= LEAD + d) { this.wv.currentTime = Math.min(d - 0.001, x - LEAD); await new Promise((r) => this.wv.addEventListener('seeked', r, { once: true })); src = this.wv; }
-    const fd = src ? Math.min(1, (x - LEAD) / 0.15, (LEAD + d - x) / 0.15) : 1;
-    rig.gesture(src, fd); rig.draw(pose(t, track ? { t0, track } : null, hold)); rig.gesture(null);
-    return true;
+  async waveLoad() {
+    if (this.wv) return this.wv;
+    const j = (await fetch('../../koala/rig/rig.json').then((r) => r.json())).wave;
+    const v = (f) => new Promise((r) => { const e = document.createElement('video'); e.muted = true; e.preload = 'auto'; e.src = '../../koala/rig/' + f; e.addEventListener('loadeddata', () => r(e), { once: true }); });
+    const still = await new Promise((r) => { const i = new Image(); i.onload = () => r(i); i.src = '../../koala/rig/wave_still.webp'; });
+    this.wv = { j, up: await v('wave_raise.mp4'), down: await v('wave_lower.mp4'), still };
+    return this.wv;
+  },
+  async seek(e, x) { e.currentTime = x; await new Promise((r) => e.addEventListener('seeked', r, { once: true })); },
+  async renderWave(t, w0, wdur = 1.7, track = null, t0 = 0) {
+    const { j, up, down, still } = await this.waveLoad();
+    const LEAD = 0.3, rd = j.rdur, ld = j.ldur, x = t - w0;
+    const T1 = LEAD, T2 = T1 + rd, T3 = T2 + wdur, T4 = T3 + ld, T5 = T4 + LEAD;
+    const sm = (u) => u * u * (3 - 2 * u);
+    const hold = x <= 0 || x >= T5 ? 0 : x < T1 ? sm(x / LEAD) : x > T4 ? 1 - sm((x - T4) / LEAD) : 1;
+    let layer = null;
+    if (x >= T1 && x < T2) { await this.seek(up, Math.min(rd, x - T1) + 0.001); layer = { kind: 'video', src: up }; }
+    else if (x >= T2 && x < T3) layer = { kind: 'still', src: still, ...waveBend(x - T2, wdur) };
+    else if (x >= T3 && x < T4) { await this.seek(down, Math.min(ld, x - T3) + 0.001); layer = { kind: 'video', src: down }; }
+    rig.gesture(layer); rig.draw(pose(t, track ? { t0, track } : null, hold)); rig.gesture(null);
+    return { x, hold, phase: x < T1 ? 'lead' : x < T2 ? 'raise' : x < T3 ? 'wave' : x < T4 ? 'lower' : 'tail' };
   },
 };
 window.rigReady = true;

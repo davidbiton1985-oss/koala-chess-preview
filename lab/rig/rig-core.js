@@ -71,6 +71,26 @@ void main() {
   vec3 c = texture(uG, vec2(vQ.x, vQ.y * 0.5)).rgb * uFade; float a = texture(uG, vec2(vQ.x, 0.5 + vQ.y * 0.5)).r * uFade;
   o = uAlphaOut > 0.5 ? vec4(vec3(a), a) : vec4(c, a);      // premultiplied
 }`;
+const SVS = `#version 300 es
+precision highp float;
+in vec2 aQ; uniform vec4 uBox; uniform float uS, uFore, uPaw, uW1, uW2; uniform vec2 uElbow, uWrist; out vec2 vQ;
+vec2 rot(vec2 v, float a) { float c = cos(a), s = sin(a); return vec2(v.x * c - v.y * s, v.x * s + v.y * c); }
+void main() {
+  vQ = aQ;
+  vec2 p = uBox.xy + aQ * uBox.zw;
+  vec2 ax = uWrist - uElbow; float L = length(ax); vec2 d = ax / L;
+  vec2 q = p - uElbow; float s = dot(q, d) / L; float lat = abs(q.x * d.y - q.y * d.x);
+  float wf = smoothstep(-0.08, 0.28, s) * (1.0 - smoothstep(uW1, uW1 * 1.45, lat));
+  float wp = smoothstep(0.80, 1.04, s) * (1.0 - smoothstep(uW2, uW2 * 1.4, lat));
+  vec2 wr = uElbow + rot(ax, radians(uFore));
+  vec2 p1 = uElbow + rot(q, radians(uFore) * wf);
+  p1 = mix(p1, wr + rot(p1 - wr, radians(uPaw)), wp);
+  gl_Position = vec4(p1.x / uS * 2.0 - 1.0, 1.0 - p1.y / uS * 2.0, 0.0, 1.0);
+}`;
+const SFS = `#version 300 es
+precision highp float;
+in vec2 vQ; uniform sampler2D uG; uniform float uAlphaOut, uFade; out vec4 o;
+void main() { vec4 c = texture(uG, vQ); float a = c.a * uFade; o = uAlphaOut > 0.5 ? vec4(vec3(a), a) : vec4(c.rgb * a, a); }`;
 const img = (url) => new Promise((res, rej) => {
   const i = new Image();
   i.crossOrigin = "anonymous";
@@ -284,7 +304,9 @@ async function createRig(gl, base) {
     lift: U("uLift")
   };
   const uAlphaOut = U("uAlphaOut");
-  const box = Array.isArray(rig.wave?.box) ? { box: rig.wave.box } : null;
+  const wj = rig.wave;
+  const bx = Array.isArray(wj?.box) ? wj.box : null;
+  const box = bx ? [bx[0], bx[1], bx[2], bx[3] ?? bx[2]] : null;
   const qp = gl.createProgram();
   gl.attachShader(qp, sh(gl.VERTEX_SHADER, QVS));
   gl.attachShader(qp, sh(gl.FRAGMENT_SHADER, QFS));
@@ -305,24 +327,87 @@ async function createRig(gl, base) {
   gl.useProgram(qp);
   gl.uniform1i(gl.getUniformLocation(qp, "uG"), 4);
   gl.uniform1f(gl.getUniformLocation(qp, "uS"), S);
-  if (box) gl.uniform4f(gl.getUniformLocation(qp, "uBox"), box.box[0], box.box[1], box.box[2], box.box[2]);
+  if (box) gl.uniform4f(gl.getUniformLocation(qp, "uBox"), box[0], box[1], box[2], box[3]);
   const qAlpha = gl.getUniformLocation(qp, "uAlphaOut"), qFade = gl.getUniformLocation(qp, "uFade");
+  const sp = gl.createProgram();
+  gl.attachShader(sp, sh(gl.VERTEX_SHADER, SVS));
+  gl.attachShader(sp, sh(gl.FRAGMENT_SHADER, SFS));
+  gl.linkProgram(sp);
+  const SN = 48, sg = new Float32Array((SN + 1) * (SN + 1) * 2);
+  let si = 0;
+  for (let y = 0; y <= SN; y++) for (let x = 0; x <= SN; x++) {
+    sg[si++] = x / SN;
+    sg[si++] = y / SN;
+  }
+  const sidx = new Uint16Array(SN * SN * 6);
+  si = 0;
+  for (let y = 0; y < SN; y++) for (let x = 0; x < SN; x++) {
+    const a0 = y * (SN + 1) + x, b0 = a0 + 1, c0 = a0 + SN + 1, d0 = c0 + 1;
+    sidx.set([a0, b0, c0, b0, d0, c0], si);
+    si += 6;
+  }
+  const svao = gl.createVertexArray();
+  gl.bindVertexArray(svao);
+  const sb = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, sb);
+  gl.bufferData(gl.ARRAY_BUFFER, sg, gl.STATIC_DRAW);
+  const sl = gl.getAttribLocation(sp, "aQ");
+  gl.enableVertexAttribArray(sl);
+  gl.vertexAttribPointer(sl, 2, gl.FLOAT, false, 0, 0);
+  const sib = gl.createBuffer();
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, sib);
+  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, sidx, gl.STATIC_DRAW);
+  gl.useProgram(sp);
+  gl.uniform1i(gl.getUniformLocation(sp, "uG"), 5);
+  gl.uniform1f(gl.getUniformLocation(sp, "uS"), S);
+  if (box) gl.uniform4f(gl.getUniformLocation(sp, "uBox"), box[0], box[1], box[2], box[3]);
+  const el = wj?.elbow ?? [0, 0], wr = wj?.wrist ?? [0, 1];
+  gl.uniform2f(gl.getUniformLocation(sp, "uElbow"), el[0], el[1]);
+  gl.uniform2f(gl.getUniformLocation(sp, "uWrist"), wr[0], wr[1]);
+  gl.uniform1f(gl.getUniformLocation(sp, "uW1"), wj?.fore_w ?? 78);
+  gl.uniform1f(gl.getUniformLocation(sp, "uW2"), wj?.paw_w ?? 95);
+  const sAlpha = gl.getUniformLocation(sp, "uAlphaOut"), sFade = gl.getUniformLocation(sp, "uFade"), sFore = gl.getUniformLocation(sp, "uFore"), sPaw = gl.getUniformLocation(sp, "uPaw");
+  const st = gl.createTexture();
+  texs.push(st);
+  gl.activeTexture(gl.TEXTURE5);
+  gl.bindTexture(gl.TEXTURE_2D, st);
+  for (const [k2, v] of [[gl.TEXTURE_MIN_FILTER, gl.LINEAR], [gl.TEXTURE_MAG_FILTER, gl.LINEAR], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k2, v);
+  let stillOf = null;
   gl.useProgram(pr);
   gl.bindVertexArray(vao);
-  let gsrc = null, gfade = 1;
+  let glayer = null, gfade = 1, gfresh = false;
   const drawGesture = (alphaOut) => {
-    if (!gsrc || !box) return;
-    gl.useProgram(qp);
-    gl.bindVertexArray(qvao);
-    gl.uniform1f(qAlpha, alphaOut);
-    gl.uniform1f(qFade, gfade);
-    gl.activeTexture(gl.TEXTURE4);
-    gl.bindTexture(gl.TEXTURE_2D, gt);
-    gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, gsrc);
+    if (!glayer || !box) return;
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
+    if (glayer.kind === "video") {
+      gl.useProgram(qp);
+      gl.bindVertexArray(qvao);
+      gl.uniform1f(qAlpha, alphaOut);
+      gl.uniform1f(qFade, gfade);
+      gl.activeTexture(gl.TEXTURE4);
+      gl.bindTexture(gl.TEXTURE_2D, gt);
+      if (gfresh) {
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, glayer.src);
+        gfresh = false;
+      }
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    } else {
+      gl.useProgram(sp);
+      gl.bindVertexArray(svao);
+      gl.uniform1f(sAlpha, alphaOut);
+      gl.uniform1f(sFade, gfade * (glayer.fade ?? 1));
+      gl.uniform1f(sFore, glayer.fore);
+      gl.uniform1f(sPaw, glayer.paw);
+      gl.activeTexture(gl.TEXTURE5);
+      gl.bindTexture(gl.TEXTURE_2D, st);
+      if (stillOf !== glayer.src) {
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, glayer.src);
+        stillOf = glayer.src;
+      }
+      gl.drawElements(gl.TRIANGLES, sidx.length, gl.UNSIGNED_SHORT, 0);
+    }
     gl.useProgram(pr);
     gl.bindVertexArray(vao);
   };
@@ -330,8 +415,9 @@ async function createRig(gl, base) {
     for (const key of Object.keys(ul)) gl.uniform1f(ul[key], p[key] ?? 0);
   };
   return {
-    gesture(src, fade = 1) {
-      gsrc = src;
+    gesture(layer, fade = 1) {
+      glayer = layer;
+      gfresh = true;
       gfade = Math.max(0, Math.min(1, fade));
     },
     headPoint(p, x, y) {
@@ -436,51 +522,133 @@ function rigSource(base, size = 512) {
   };
   return shared;
 }
+function waveBend(tw, dur) {
+  if (tw <= 0 || tw >= dur) return { fore: 0, paw: 0 };
+  const env = smooth(Math.min(1, tw / 0.35)) * smooth(Math.min(1, (dur - tw) / 0.45));
+  const w = 2 * Math.PI * 1.55 * tw;
+  return { fore: 6 * env * Math.sin(w), paw: 12 * env * Math.sin(w - 0.9) };
+}
 function rigWave(base) {
-  const v = document.createElement("video");
-  v.muted = true;
-  v.playsInline = true;
-  v.preload = "auto";
-  v.crossOrigin = "anonymous";
-  v.loop = false;
-  let t0 = -1, ok = false;
-  v.addEventListener("loadeddata", () => {
-    ok = true;
-  }, { once: true });
-  void fetch(`${base}koala/rig/rig.json`).then((r) => r.json()).then((j) => {
-    if (j.wave) v.src = `${base}koala/rig/wave.mp4`;
-  }).catch(() => void 0);
+  const mk = (src) => {
+    const v = document.createElement("video");
+    v.muted = true;
+    v.playsInline = true;
+    v.preload = "auto";
+    v.crossOrigin = "anonymous";
+    v.loop = false;
+    v.src = src;
+    return v;
+  };
+  let up = null, down = null, still = null;
+  let ok = 0;
   const LEAD = 0.3;
+  let rdur = 0.8, ldur = 0.9;
+  void fetch(`${base}koala/rig/rig.json`).then((r) => r.json()).then((j) => {
+    if (j.wave?.v !== 2) return;
+    rdur = j.wave.rdur ?? rdur;
+    ldur = j.wave.ldur ?? ldur;
+    up = mk(`${base}koala/rig/wave_raise.mp4`);
+    down = mk(`${base}koala/rig/wave_lower.mp4`);
+    for (const v of [up, down]) v.addEventListener("canplaythrough", () => {
+      ok++;
+    }, { once: true });
+    still = new Image();
+    still.crossOrigin = "anonymous";
+    still.onload = () => {
+      ok++;
+    };
+    still.src = `${base}koala/rig/wave_still.webp`;
+  }).catch(() => void 0);
+  let ph = "idle", at = 0, wdur = 1.7, outFrom = 0;
+  const now_ = () => performance.now() / 1e3;
+  const playing = (v) => v.readyState >= 2 && v.currentTime > 0 && !v.ended;
+  const done = (v, d) => v.ended || v.currentTime >= d - 0.5 / 60;
+  const go = (p, t) => {
+    ph = p;
+    at = t;
+  };
   return {
     get ready() {
-      return ok;
+      return ok >= 3;
     },
-    start() {
-      if (!ok) return;
-      t0 = performance.now() / 1e3;
-      window.setTimeout(() => {
-        v.currentTime = 0;
-        void v.play().catch(() => void 0);
-      }, LEAD * 1e3);
+    get busy() {
+      return ph !== "idle";
     },
-    hold(now) {
-      if (t0 < 0) return 0;
-      const d = Number.isFinite(v.duration) && v.duration > 0 ? v.duration : 5;
-      const x = now / 1e3 - t0;
-      if (x > LEAD + d + LEAD) {
-        t0 = -1;
-        return 0;
+    get phase() {
+      return ph;
+    },
+    start(lineDur) {
+      if (ok < 3 || ph !== "idle") return;
+      wdur = Math.max(1.2, Math.min(2.4, (lineDur ?? 3.7) - rdur - ldur - 0.3));
+      go("lead", now_());
+    },
+    // he left the screen mid-wave: back to rest, so he never comes back with the paw up
+    cancel() {
+      ph = "idle";
+      up?.pause();
+      down?.pause();
+    },
+    hold(nowMs) {
+      const t = nowMs / 1e3;
+      if (ph === "idle") return 0;
+      if (ph === "lead") return smooth(Math.min(1, (t - at) / LEAD));
+      if (ph === "tail") return 1 - smooth(Math.min(1, (t - at) / LEAD));
+      return 1;
+    },
+    layer(nowMs) {
+      const t = nowMs / 1e3;
+      if (!up || !down || !still) return null;
+      switch (ph) {
+        case "idle":
+          return null;
+        case "lead":
+          if (t - at < LEAD) return null;
+          up.currentTime = 0;
+          void up.play().catch(() => void 0);
+          go("raise", t);
+          return null;
+        case "raise":
+          if (done(up, rdur)) {
+            go("wave", t);
+            return { kind: "still", src: still, fore: 0, paw: 0 };
+          }
+          if (playing(up)) return { kind: "video", src: up };
+          if (t - at > 0.8) go("tail", t);
+          return null;
+        case "wave": {
+          const x = t - at;
+          if (x >= wdur) {
+            down.currentTime = 0;
+            void down.play().catch(() => void 0);
+            go("lower", t);
+            return { kind: "still", src: still, fore: 0, paw: 0 };
+          }
+          return { kind: "still", src: still, ...waveBend(x, wdur) };
+        }
+        case "lower":
+          if (done(down, ldur)) {
+            go("tail", t);
+            return null;
+          }
+          if (playing(down)) return { kind: "video", src: down };
+          if (t - at > 0.8) {
+            go("out", t);
+            outFrom = t;
+          }
+          return { kind: "still", src: still, fore: 0, paw: 0 };
+        case "out": {
+          const f = 1 - (t - outFrom) / 0.4;
+          if (f <= 0) {
+            go("tail", t);
+            return null;
+          }
+          return { kind: "still", src: still, fore: 0, paw: 0, fade: f };
+        }
+        case "tail":
+          if (t - at >= LEAD) ph = "idle";
+          return null;
       }
-      return Math.min(1, x / LEAD, (LEAD + d + LEAD - x) / LEAD);
-    },
-    frame() {
-      return t0 >= 0 && !v.paused && v.readyState >= 2 ? v : null;
-    },
-    // the layer's first and last frames are the rest picture (a touch softer than the rig's photo): it blends in and out
-    // over 150 ms there, two versions of one picture — measured 10-19, a hard switch was a 3.4-level step in the arm region
-    fade() {
-      const d = Number.isFinite(v.duration) && v.duration > 0 ? v.duration : 5, c = v.currentTime;
-      return Math.min(1, c / 0.15, (d - c) / 0.15);
+      return null;
     }
   };
 }
@@ -511,5 +679,6 @@ export {
   rigSource,
   rigSpeechFrom,
   rigTrack,
-  rigWave
+  rigWave,
+  waveBend
 };
