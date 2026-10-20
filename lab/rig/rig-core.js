@@ -116,7 +116,7 @@ function makeLife(seed = 7) {
       const [tt, s] = twitches[i];
       if (s !== side) continue;
       const d = t - tt;
-      v += 4.2 * Math.exp(-d * 5) * Math.sin(d * 17);
+      v += 4.2 * (1 - Math.exp(-d / 0.025)) * Math.exp(-d * 5) * Math.sin(d * 17);
     }
     return v;
   };
