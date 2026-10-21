@@ -1,5 +1,5 @@
 // src/koala/rig.ts
-var RIG_DEFAULT = true;
+var RIG_DEFAULT = false;
 var rigCached = null;
 function rigEnabled() {
   if (rigCached !== null) return rigCached;
