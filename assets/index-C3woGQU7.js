@@ -1,0 +1,1 @@
+/* empty css            */import{i as a,p as r}from"./transit-C-kZeaSy.js";import{c,a as m,r as f}from"./transit-C-kZeaSy.js";import"./index-Dj9ZBxAI.js";let t=!1;function o(){if(t)return;t=!0,a();const e=globalThis.requestIdleCallback;e?e(r,{timeout:2e3}):setTimeout(r,600)}export{c as cover,o as installUx2,m as isCovered,f as reveal};

@@ -57,9 +57,14 @@
     .boot span { opacity: .8; }
     @keyframes boot { 50% { transform: scale(1.05); } }
     @media (prefers-reduced-motion: reduce) { .boot img { animation: none; } }
+    /* run-1027 ?ux=2: the first paint is already the island's sky (the shell's clouds open on it, never on black) */
+    html.ux2-boot, html.ux2-boot body { background: #DCCFB8; }
+    html.ux2-boot .boot { background: linear-gradient(to bottom, #E6D6B8, #B9AFA6 55%, #8E8C90); color: #3B2A18; }
+    html.ux2-boot .qc-app:not([data-kind]) { background: linear-gradient(to bottom, #E6D6B8, #B9AFA6 55%, #8E8C90); }
   </style>
-  <script type="module" crossorigin src="./assets/index-BFdCz9RV.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DdIrXAuk.css">
+  <script>if (/[?&]ux=2\b/.test(location.search) || /[?&]ux=2\b/.test(location.hash)) document.documentElement.classList.add('ux2-boot');</script>
+  <script type="module" crossorigin src="./assets/index-Dj9ZBxAI.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-n4Lmc6F-.css">
 </head>
 <body>
   <div id="app"><div class="boot" aria-hidden="true"><img src="./brand/apple-touch-icon.png" alt=""><span>Koala Chess · שחמט קואלה</span></div></div>

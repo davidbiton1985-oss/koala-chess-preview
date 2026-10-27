@@ -1,0 +1,1 @@
+const o=typeof location<"u"?new URLSearchParams(location.search).get("koala"):null,a=o==="k3d"?"k3d":"photo",k=a==="k3d"?"koala_k3d":"koala",n=a==="k3d"?"koala_k3d":"koala";export{k as K,n as a,a as b};
