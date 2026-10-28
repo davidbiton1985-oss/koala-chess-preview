@@ -62,9 +62,16 @@
     html.ux2-boot .boot { background: linear-gradient(to bottom, #E6D6B8, #B9AFA6 55%, #8E8C90); color: #3B2A18; }
     html.ux2-boot .qc-app:not([data-kind]) { background: linear-gradient(to bottom, #E6D6B8, #B9AFA6 55%, #8E8C90); }
   </style>
-  <script>if (/[?&]ux=2\b/.test(location.search) || /[?&]ux=2\b/.test(location.hash)) document.documentElement.classList.add('ux2-boot');</script>
-  <script type="module" crossorigin src="./assets/index-Dj9ZBxAI.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-n4Lmc6F-.css">
+  <script>
+    // the ux-2 shell (src/ux2/flag.ts): ?ux=2 asks for it, ?ux=1 for the old one, else the build's default (UX2_DEFAULT)
+    (function () {
+      var on = 'false' === 'true', s = location.search + location.hash;
+      if (/[?&]ux=2\b/.test(s)) on = true; else if (/[?&]ux=1\b/.test(s)) on = false;
+      if (on) document.documentElement.classList.add('ux2-boot');
+    })();
+  </script>
+  <script type="module" crossorigin src="./assets/index-CrEAvb_9.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-ZKDxr_AC.css">
 </head>
 <body>
   <div id="app"><div class="boot" aria-hidden="true"><img src="./brand/apple-touch-icon.png" alt=""><span>Koala Chess · שחמט קואלה</span></div></div>

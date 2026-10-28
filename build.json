@@ -1,11 +1,11 @@
 {
-  "commit": "eaca75b688b1f85dd0139de1b6fe4b5c71d2eeee",
+  "commit": "82ad2da0d013e033b98792a20544e74db4645c47",
   "ref": "main",
-  "subject": "Merge run-1027 DevOps lane, phase 1: npm run gate / gate:full (PASS/FAIL per step; real-pointer play + learn e2e, a console sweep of 32 routes, bundle and first-load budgets, timing tests that SKIP on a busy Mac), Home lighter on a phone (entry JS 81.5 → 72.2 KB gz, Home ready 2151 → 1969 ms; the Resume-door race fixed), publish safety (release-build.sh = one clean commit, stamped; deploy-preview.sh refuses an unstamped build; rollback rehearsed), PUBLISH.md, devops.md",
-  "committedAt": "2026-10-27T12:53:40+02:00",
-  "builtAt": "2026-10-27T10:54:49Z",
+  "subject": "Merge run-1027 UX lane, phase 3: one switch UX2_DEFAULT (false; ?ux=1 the way back; read through core/flags.ts; the product only), the first visit READY 1,282 → 960 ms (three.js off the hello's path), the tabs as places (Play at the treehouse table, Puzzles at the Moon Observatory, the Wardrobe in his room, Me at the lighthouse lookout — each the land's own 360° panorama, the koala in it to scale; ≥ 30 draws/s on the mid-range phone, the scene up in ~0.4 s), tap fixes (the parting clouds, a fading gift), the HUD never selects text, the win hook's light size; 3 new caption drafts",
+  "committedAt": "2026-10-28T04:00:57+02:00",
+  "builtAt": "2026-10-28T02:04:06Z",
   "builtBy": "chess/scripts/release-build.sh (a clean detached worktree)",
-  "sourceGates": "tsc ok · vitest Tests  3489 passed (3489) · frozen core intact",
+  "sourceGates": "tsc ok · vitest Tests  3638 passed (3638) · frozen core intact",
   "node": "v25.5.0",
   "vite": "6.4.3"
 }
