@@ -1,0 +1,1 @@
+import{a0 as r}from"./index-dvhUhZEm.js";const t=!1;function s(i,e=t){const n=i==null||i.trim()===""?NaN:Number(i);return Number.isFinite(n)?n:e?2:0}function o(){return s(r("vis"))}function l(){return o()>=2}function v(){const i=r("vistier");return i==="high"||i==="mid"||i==="low"?i:null}export{v as a,l as v};
