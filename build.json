@@ -1,11 +1,11 @@
 {
-  "commit": "af884805b8c111c9d0856b17dd916d87b4bb2856",
+  "commit": "b18802317a3487844796a186483f3ac378148be9",
   "ref": "main",
-  "subject": "The k3d koala is the only koala: David 11-01 \"the koala has 3 arms in the animation\" — the photo koala's wave, cheer (it plays the wave) and point raise a paw while both arms still hug the queen, and so do 175 of its line clips (Falls, Canyon, Glacier, Sky). KOALA_SET defaults to k3d (0 of 173 clips with a raised paw); ?koala=photo is the way back, and even there wave/point play nod/look. qa/koala-arms.mjs (the third-arm guard: the largest new region of his silhouette beyond the clip's first frame, every emote and listed line) joins the fast gate. A line without its k3d clip yet plays over his rest loop (Sky next in the PC queue). Coach tests keep the photo paths as fixtures; three QA scripts follow the set. tsc ok, vitest green",
-  "committedAt": "2026-11-01T21:34:39+02:00",
-  "builtAt": "2026-11-01T19:51:05Z",
+  "subject": "Round 1 merge fixes: the host's warm-up timer never fires after a destroy (an unhandled 'window is not defined' in vitest), and the wardrobe chip's Hebrew no longer needs its verb to agree with the item ('משקפיים עגולים מחכה' was wrong): '{item}: אפשר ללבוש במלתחה!' / 'אפשר ללבוש!' (en: ready to wear). vitest 3666/3666, no errors",
+  "committedAt": "2026-11-02T03:26:21+02:00",
+  "builtAt": "2026-11-02T01:27:51Z",
   "builtBy": "chess/scripts/release-build.sh (a clean detached worktree)",
-  "sourceGates": "tsc ok · vitest Tests  3638 passed (3638) · frozen core intact",
+  "sourceGates": "tsc ok · vitest Tests  3666 passed (3666) · frozen core intact",
   "node": "v25.5.0",
   "vite": "6.4.3"
 }
