@@ -1,11 +1,11 @@
 {
-  "commit": "b18802317a3487844796a186483f3ac378148be9",
+  "commit": "e1577fb7a2561a4768eccf1a19d27a0ee8b3f740",
   "ref": "main",
-  "subject": "Round 1 merge fixes: the host's warm-up timer never fires after a destroy (an unhandled 'window is not defined' in vitest), and the wardrobe chip's Hebrew no longer needs its verb to agree with the item ('משקפיים עגולים מחכה' was wrong): '{item}: אפשר ללבוש במלתחה!' / 'אפשר ללבוש!' (en: ready to wear). vitest 3666/3666, no errors",
-  "committedAt": "2026-11-02T03:26:21+02:00",
-  "builtAt": "2026-11-02T01:27:51Z",
+  "subject": "Merge run-1101 round 1: the learning lane — Koala's ladder (the daily puzzle at the player's own level: six rungs, generated tiny boards checked by chess.js), the check land judged by chess rules (every legal escape counts), more tasks the child finds (21 → 34 %, 65 % in the concept lands), finished stops replay with their stars, a real game with Koala after the journey, the land-lit line with no gender to agree",
+  "committedAt": "2026-11-02T08:48:34+02:00",
+  "builtAt": "2026-11-02T06:49:46Z",
   "builtBy": "chess/scripts/release-build.sh (a clean detached worktree)",
-  "sourceGates": "tsc ok · vitest Tests  3666 passed (3666) · frozen core intact",
+  "sourceGates": "tsc ok · vitest Tests  3794 passed (3794) · frozen core intact",
   "node": "v25.5.0",
   "vite": "6.4.3"
 }

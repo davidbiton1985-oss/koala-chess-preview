@@ -1,0 +1,1 @@
+import{o as r}from"./oneKoala-D7JpL-J_.js";function t(a,o,s={}){return o?(s.startInRoom&&a.classList.add("is-koala-in-room"),r(o,i=>a.classList.toggle("is-koala-in-room",!i),s.firstMs===void 0?{}:{firstMs:s.firstMs})):(a.classList.remove("is-koala-in-room"),()=>{})}function n(a){return a.classList.add("koala-card-face"),a}export{t as f,n as k};
