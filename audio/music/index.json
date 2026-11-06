@@ -6,5 +6,13 @@
   "canyon": "canyon.m4a",
   "glacier": "glacier.m4a",
   "falls": "falls.m4a"
+ },
+ "lufs": {
+  "home": -18.1,
+  "puzzle": -20.0,
+  "win": -14.9,
+  "canyon": -18.0,
+  "glacier": -18.0,
+  "falls": -18.0
  }
 }

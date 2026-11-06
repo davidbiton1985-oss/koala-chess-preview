@@ -1,11 +1,11 @@
 {
-  "commit": "e1577fb7a2561a4768eccf1a19d27a0ee8b3f740",
+  "commit": "6d8ed9fcdefc71b5104169cd82554f3b1c7d6f8c",
   "ref": "main",
-  "subject": "Merge run-1101 round 1: the learning lane — Koala's ladder (the daily puzzle at the player's own level: six rungs, generated tiny boards checked by chess.js), the check land judged by chess rules (every legal escape counts), more tasks the child finds (21 → 34 %, 65 % in the concept lands), finished stops replay with their stars, a real game with Koala after the journey, the land-lit line with no gender to agree",
-  "committedAt": "2026-11-02T08:48:34+02:00",
-  "builtAt": "2026-11-02T06:49:46Z",
+  "subject": "The store app carries one koala: the photo koala's gestures, rig, stills and line clips (web only, ?koala=photo) leave base and the packs; the base was 150.2 MB over its 150 MB budget, 43 MB now",
+  "committedAt": "2026-11-06T19:16:06+02:00",
+  "builtAt": "2026-11-06T17:17:04Z",
   "builtBy": "chess/scripts/release-build.sh (a clean detached worktree)",
-  "sourceGates": "tsc ok · vitest Tests  3794 passed (3794) · frozen core intact",
+  "sourceGates": "tsc ok · vitest Tests  3821 passed (3821) · frozen core intact",
   "node": "v25.5.0",
   "vite": "6.4.3"
 }
