@@ -1,11 +1,11 @@
 {
-  "commit": "8598351ddf10e8ef12ec5de2acaa2fc96cd1c76c",
+  "commit": "143532209e723276ba5d9cb06d0bd9b6836063ff",
   "ref": "main",
-  "subject": "The home koala speaks. David (11-07): \"a koala ... that speaks but there is no sound\": his bubble lines were text only. The 13 lines David approved (55 drafts, 11-07) and then approved by ear in English (one take each, review page home_voice_en_r1) play in his voice: public/koala/voice/<lang>/<key>.m4a with its index.json (import-voice.mjs --out public/koala/voice), -16 LUFS like the adventures. ux2/hostVoice.ts finds a bubble line's voice by its words; a line without one stays text. The browser refuses sound before the first touch: the line still in the bubble plays on that touch, unless it lands on a link or a button that takes the player away. Checked in the browser: first touch on the sky plays hello.lead aloud, a poke plays poke.1; Hebrew asks for nothing (no Hebrew voice yet). The TTS script reads a lines file (--lines) for lines that are not a land's.",
-  "committedAt": "2026-11-07T12:03:39+02:00",
-  "builtAt": "2026-11-07T10:04:47Z",
+  "subject": "Real clouds. David (11-07): the clouds of the way into an adventure \"are in really low resolution and i need them to be high resolution that looks more realistic\". They were 512 × 256 paintings of soft circles, stretched about 6× on a Retina desk (blurry, blotchy grain, flat bases that stacked like paper). Now four renders of real volumetric cumulus (scripts/clouds/render_cloud_bank.py, Blender Cycles: puffs → a wide-band SDF whose surface a turbulence pushes in and out, lit by the island's warm sun from the top left with a cool lilac shade; our own work, CC0) at 2048 × 1024 and 1024 × 512, WebP 53 / 22 KB. One source for the transition, the island's sky, the koala's perch and the places. The transition's banks are <img> sharing one decoded 2048 picture (a phone never holds seven 8 MB canvases), decoded ahead, their flat bases fading into the mist; the canvases (the sky, the places) take the 1024 ones; the paintings stay as the fallback. Checked on a 1440 Retina desk and a 390 × 844 phone.",
+  "committedAt": "2026-11-07T14:38:09+02:00",
+  "builtAt": "2026-11-07T12:39:24Z",
   "builtBy": "chess/scripts/release-build.sh (a clean detached worktree)",
-  "sourceGates": "tsc ok · vitest Tests  3899 passed (3899) · frozen core intact",
+  "sourceGates": "tsc ok · vitest Tests  3900 passed (3900) · frozen core intact",
   "node": "v25.5.0",
   "vite": "6.4.3"
 }

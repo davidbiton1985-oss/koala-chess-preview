@@ -1,1 +1,0 @@
-import{a6 as r}from"./index-BxFLpDdh.js";const t=!0;function o(i,e=t){const n=i==null||i.trim()===""?NaN:Number(i);return Number.isFinite(n)?n:e?2:0}function s(){return o(r("vis"))}function v(){return s()>=2}function l(){const i=r("vistier");return i==="high"||i==="mid"||i==="low"?i:null}export{l as a,v};
