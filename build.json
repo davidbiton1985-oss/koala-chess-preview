@@ -1,9 +1,9 @@
 {
-  "commit": "b955f9de2436be12f121905906e51dfa0687754d",
+  "commit": "90577bad3e8c41695d589a48f681b4def60051fb",
   "ref": "main",
-  "subject": "Three bugs from the real-player sweep (11-07), each confirmed before the fix. - The review called a checkmate a \"missed win\" (Ra8# when the engine liked Nb5#): negate({mate: 0}) stayed {mate: 0}, a loss, for the side that had just mated. It reads as {mate: 1} now. The same bug made the koala's probes see a mating move as the worst one (bots.ts), so a style move could be picked over a mate in one. - On a desk the \"Give me a hint\" offer stood centred over the board's near rank (d1, e1) and took the click meant for a square, exactly when a child is stuck. It stands by Koala's bubble, as sideways: no square under it in Sky s2 and Dunes s2, en and he. - A phone showed 7 of 13 island stations (8 he, 9 sideways). A beacon that would collide steps aside (≤ 32 px, the way that leaves the beacons still to come the most room) instead of being hidden; a land under the phone's doors column stands beside it; a land past a side of the screen (a phone frames the island wider than itself) stands at that edge, at its height, while the island rests. Now 12 of 13 upright in both languages, 11 of 13 sideways; the desk keeps 13 of 13.",
-  "committedAt": "2026-11-07T15:14:45+02:00",
-  "builtAt": "2026-11-07T13:16:01Z",
+  "subject": "The island shows every station on a phone: 13 of 13 on 8 phone sizes, upright and sideways, he and en (the sweep's M1; after b955f9de it was 12 of 13 upright, 10 of 13 sideways). Three causes, each found by logging why each hidden station was hidden: - Sideways, the dock and the Continue card stand over the island's lower half, and Harbour, the Fair and the Gardens were under them: a station still under a piece of the HUD steps out to the nearest clear side of it (above first), or to the nearest clear point around it when it is boxed in. Never in a land's close-up. - In a crowded middle a station found no free spot within 32 px: a longer step (44, 56 px), only for a station crowded by other stations (one under the HUD or the koala still hides, as before). - The player's land's name hid the station under it (Lantern Village, Crystal Glacier on a 360 px phone): that station now looks for a spot clear of the name, and the name goes over the orb when under it would hide one. Checked at 390x844, 360x780, 360x740, 430x932, 844x390, 932x430; vitest 3902/3902.",
+  "committedAt": "2026-11-07T18:18:15+02:00",
+  "builtAt": "2026-11-07T16:19:40Z",
   "builtBy": "chess/scripts/release-build.sh (a clean detached worktree)",
   "sourceGates": "tsc ok · vitest Tests  3902 passed (3902) · frozen core intact",
   "node": "v25.5.0",
