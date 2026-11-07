@@ -1,11 +1,11 @@
 {
-  "commit": "4bca49fb8e362e1f1d7acbd3d98ac0164a3739b1",
+  "commit": "24b5a8ae0682a89cea2039ecc6b55e463b1344fa",
   "ref": "main",
-  "subject": "The review's long-task check asks what it is there for. Its exemption for the review board's setup was a fixed 400 ms, and the board now finishes inside the analysis: it ends at the room-live signal, setup gets a 200 ms ceiling it never had, and the engine must be in a worker, since the two now finish together (the window after the room is ~20 ms and could no longer guard the analysis alone)",
-  "committedAt": "2026-11-07T08:30:17+02:00",
-  "builtAt": "2026-11-07T06:31:32Z",
+  "subject": "Every station on the island opens. David: \"only 1 is working\". A press shrank any button by 4% with the global press rule (system.css), and `scale` also scales a station's transform, so a pressed station jumped 4% of its distance towards the top left corner and out from under the mouse: its click went to the app. Only the stations near the corner ever worked (x < ~575 px on a 1440 desk). Stations (and the old map's beacons) are left out of that rule; their orb still answers the press. The two sky islands had no station on a desk (their point stands behind the top bar): they keep one at the top of the free band, clear of the HUD. The goal chip was measured 88 × 80 px off (a fixed part of the HUD counted the HUD's own place twice), so the stations were steered into it. The welcome's stations had nothing behind them: they go into that land's next stop, like the big button.",
+  "committedAt": "2026-11-07T10:52:34+02:00",
+  "builtAt": "2026-11-07T08:54:02Z",
   "builtBy": "chess/scripts/release-build.sh (a clean detached worktree)",
-  "sourceGates": "tsc ok · vitest Tests  3896 passed (3896) · frozen core intact",
+  "sourceGates": "tsc ok · vitest Tests  3897 passed (3897) · frozen core intact",
   "node": "v25.5.0",
   "vite": "6.4.3"
 }
