@@ -1,11 +1,11 @@
 {
-  "commit": "143532209e723276ba5d9cb06d0bd9b6836063ff",
+  "commit": "b955f9de2436be12f121905906e51dfa0687754d",
   "ref": "main",
-  "subject": "Real clouds. David (11-07): the clouds of the way into an adventure \"are in really low resolution and i need them to be high resolution that looks more realistic\". They were 512 × 256 paintings of soft circles, stretched about 6× on a Retina desk (blurry, blotchy grain, flat bases that stacked like paper). Now four renders of real volumetric cumulus (scripts/clouds/render_cloud_bank.py, Blender Cycles: puffs → a wide-band SDF whose surface a turbulence pushes in and out, lit by the island's warm sun from the top left with a cool lilac shade; our own work, CC0) at 2048 × 1024 and 1024 × 512, WebP 53 / 22 KB. One source for the transition, the island's sky, the koala's perch and the places. The transition's banks are <img> sharing one decoded 2048 picture (a phone never holds seven 8 MB canvases), decoded ahead, their flat bases fading into the mist; the canvases (the sky, the places) take the 1024 ones; the paintings stay as the fallback. Checked on a 1440 Retina desk and a 390 × 844 phone.",
-  "committedAt": "2026-11-07T14:38:09+02:00",
-  "builtAt": "2026-11-07T12:39:24Z",
+  "subject": "Three bugs from the real-player sweep (11-07), each confirmed before the fix. - The review called a checkmate a \"missed win\" (Ra8# when the engine liked Nb5#): negate({mate: 0}) stayed {mate: 0}, a loss, for the side that had just mated. It reads as {mate: 1} now. The same bug made the koala's probes see a mating move as the worst one (bots.ts), so a style move could be picked over a mate in one. - On a desk the \"Give me a hint\" offer stood centred over the board's near rank (d1, e1) and took the click meant for a square, exactly when a child is stuck. It stands by Koala's bubble, as sideways: no square under it in Sky s2 and Dunes s2, en and he. - A phone showed 7 of 13 island stations (8 he, 9 sideways). A beacon that would collide steps aside (≤ 32 px, the way that leaves the beacons still to come the most room) instead of being hidden; a land under the phone's doors column stands beside it; a land past a side of the screen (a phone frames the island wider than itself) stands at that edge, at its height, while the island rests. Now 12 of 13 upright in both languages, 11 of 13 sideways; the desk keeps 13 of 13.",
+  "committedAt": "2026-11-07T15:14:45+02:00",
+  "builtAt": "2026-11-07T13:16:01Z",
   "builtBy": "chess/scripts/release-build.sh (a clean detached worktree)",
-  "sourceGates": "tsc ok · vitest Tests  3900 passed (3900) · frozen core intact",
+  "sourceGates": "tsc ok · vitest Tests  3902 passed (3902) · frozen core intact",
   "node": "v25.5.0",
   "vite": "6.4.3"
 }
