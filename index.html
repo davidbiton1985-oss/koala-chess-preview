@@ -10,7 +10,7 @@
        user-scalable / maximum-scale are deliberately NOT set: pinch-zoom is an accessibility right, and the
                            stage re-fits from visualViewport anyway (WCAG 1.4.4). -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
-  <meta name="theme-color" content="#15171A">
+  <meta name="theme-color" content="#F4EADA">
   <meta name="description" content="Learn chess with Koala on a 3D island adventure, then play and solve puzzles.">
   <!-- the only way an iPhone ever loses Safari's address bar and tab strip is a standalone launch: the
        manifest makes "Add to Home Screen" open the game with no browser chrome at all.
@@ -27,9 +27,9 @@
   <meta property="og:image" content="./brand/og.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="./brand/favicon.svg">
-  <!-- the first paint's type: the body face and the display serif (self-hosted, chess/public/fonts — SIL OFL) -->
+  <!-- the first paint's type: the body face and the rounded display face (self-hosted, chess/public/fonts — SIL OFL) -->
   <link rel="preload" href="./fonts/Assistant-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="./fonts/Fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/Fredoka-latin.woff2" as="font" type="font/woff2" crossorigin>
   <!-- run-1017 P2-27: a Hebrew reader's first paint needs the Hebrew faces too (it flashed the fallback first) — preloaded
        only for one (the saved language, else ?lang=he, else the device's), so an English visitor downloads nothing more -->
   <script>
@@ -38,17 +38,22 @@
         var s = JSON.parse(localStorage.getItem('queenchess:v1:settings') || 'null');
         var q = /[?&]lang=(he|en)\b/.exec(location.search);
         var he = s && s.locale ? s.locale === 'he' : q ? q[1] === 'he' : /^he\b/i.test((navigator.languages && navigator.languages[0]) || navigator.language || '');
-        if (!he) return;
-        ['Assistant-hebrew', 'FrankRuhlLibre-hebrew'].forEach(function (f) {
+        if (he) ['Assistant-hebrew', 'Fredoka-hebrew'].forEach(function (f) {
           var l = document.createElement('link');
           l.rel = 'preload'; l.as = 'font'; l.type = 'font/woff2'; l.crossOrigin = 'anonymous'; l.href = './fonts/' + f + '.woff2';
+          document.head.appendChild(l);
+        });
+        // run-1101 r3: a returning player opens on Home: its chunks come with the entry, not a round trip after it (vite.config.ts firstScreen)
+        if (s && s.firstRunDone && /^#?\/?$/.test(location.hash)) ["./assets/index-Bgm6cBSU.js","./assets/ux2-CSI4JVxN.js","./assets/plural-B6YVeRHS.js","./assets/feel-CCv5Ag6K.js","./assets/transit-CfT1eqzc.js","./assets/burst-C8c0fOVO.js","./assets/home-B3O4oAPq.js","./assets/index-BJUWTM6o.js","./assets/chess-Dz_znVVI.js","./assets/puzzles-B4TjQ9jE.js","./assets/journey-Bqx1q5Nw.js","./assets/progressStore-Bl3FFX2r.js","./assets/games-exxRBD5w.js","./assets/learn2-SsXGcGLa.js","./assets/components-WEVHrgsZ.js","./assets/host-Cwkjndyu.js","./assets/mount-Br1nE3zW.js","./assets/set-CpX2PmK5.js","./assets/chirp-6sDbbLfv.js","./assets/hello-DDt9yj5P.js","./assets/mapLogic-CxhI7SFQ.js","./assets/map-nH6Nn0l9.js","./assets/three.module-D5rf0S9N.js","./assets/stageGuard-CDV98Ouf.js","./assets/flag-C_07jK1B.js","./assets/chain-D2yejyGL.js","./assets/grade-BSuY6yDo.js","./assets/tier-L4U8tzMV.js"].forEach(function (href) {
+          var l = document.createElement('link');
+          l.rel = 'modulepreload'; l.href = href; l.crossOrigin = 'anonymous';
           document.head.appendChild(l);
         });
       } catch (e) { /* private mode: the fonts load with the CSS, as before */ }
     })();
   </script>
   <title>Koala Chess · שחמט קואלה</title>
-  <!-- the boot card: painted with the HTML (before any script), replaced when the app mounts (startApp → replaceChildren) -->
+  <!-- the boot card: painted with the HTML (before any script), gone when the first screen is in (ui/app.ts commit) -->
   <style>
     html, body { margin: 0; background: #0B0C0D; }
     .boot { position: fixed; inset: 0; display: grid; place-content: center; justify-items: center; gap: 14px; color: #e9dcc2;
@@ -57,10 +62,13 @@
     .boot span { opacity: .8; }
     @keyframes boot { 50% { transform: scale(1.05); } }
     @media (prefers-reduced-motion: reduce) { .boot img { animation: none; } }
+    /* the shell is built under the boot card, unseen, until the first screen is in (ui/app.ts) */
+    .qc-app.is-booting { visibility: hidden; }
     /* run-1027 ?ux=2: the first paint is already the island's sky (the shell's clouds open on it, never on black) */
-    html.ux2-boot, html.ux2-boot body { background: #DCCFB8; }
-    html.ux2-boot .boot { background: linear-gradient(to bottom, #E6D6B8, #B9AFA6 55%, #8E8C90); color: #3B2A18; }
-    html.ux2-boot .qc-app:not([data-kind]) { background: linear-gradient(to bottom, #E6D6B8, #B9AFA6 55%, #8E8C90); }
+    html.ux2-boot, html.ux2-boot body { background: #F4EADA; }
+    html.ux2-boot .boot { background: linear-gradient(to bottom, #FBE3B4, #F6DDB6 45%, #E8DAC2); color: #3B2A18; }
+    html.ux2-boot .qc-app:not([data-kind]) { background: linear-gradient(to bottom, #FBE3B4, #F6DDB6 45%, #E8DAC2); }
+    html.ux2-boot .boot img { box-shadow: 0 0 0 1px rgb(59 42 24 / .1), 0 5px 0 #E2CFAF, 0 16px 28px -12px rgb(59 42 24 / .4); }
   </style>
   <script>
     // the ux-2 shell (src/ux2/flag.ts): ?ux=2 asks for it, ?ux=1 for the old one, else the build's default (UX2_DEFAULT)
@@ -70,8 +78,8 @@
       if (on) document.documentElement.classList.add('ux2-boot');
     })();
   </script>
-  <script type="module" crossorigin src="./assets/index-BxFLpDdh.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BYzJ2HfC.css">
+  <script type="module" crossorigin src="./assets/index-CSImASqk.js"></script>
+  <link rel="preload" as="style" crossorigin href="./assets/index-CXycqJBN.css" data-qc-css onload="this.onload=null;this.rel='stylesheet'">
 </head>
 <body>
   <div id="app"><div class="boot" aria-hidden="true"><img src="./brand/apple-touch-icon.png" alt=""><span>Koala Chess · שחמט קואלה</span></div></div>

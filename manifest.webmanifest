@@ -37,8 +37,8 @@
     "standalone"
   ],
   "orientation": "any",
-  "background_color": "#0B0C0D",
-  "theme_color": "#15171A",
+  "background_color": "#F4EADA",
+  "theme_color": "#F4EADA",
   "lang": "en",
   "dir": "ltr",
   "icons": [

@@ -1,11 +1,11 @@
 {
-  "commit": "6d8ed9fcdefc71b5104169cd82554f3b1c7d6f8c",
+  "commit": "4bca49fb8e362e1f1d7acbd3d98ac0164a3739b1",
   "ref": "main",
-  "subject": "The store app carries one koala: the photo koala's gestures, rig, stills and line clips (web only, ?koala=photo) leave base and the packs; the base was 150.2 MB over its 150 MB budget, 43 MB now",
-  "committedAt": "2026-11-06T19:16:06+02:00",
-  "builtAt": "2026-11-06T17:17:04Z",
+  "subject": "The review's long-task check asks what it is there for. Its exemption for the review board's setup was a fixed 400 ms, and the board now finishes inside the analysis: it ends at the room-live signal, setup gets a 200 ms ceiling it never had, and the engine must be in a worker, since the two now finish together (the window after the room is ~20 ms and could no longer guard the analysis alone)",
+  "committedAt": "2026-11-07T08:30:17+02:00",
+  "builtAt": "2026-11-07T06:31:32Z",
   "builtBy": "chess/scripts/release-build.sh (a clean detached worktree)",
-  "sourceGates": "tsc ok · vitest Tests  3821 passed (3821) · frozen core intact",
+  "sourceGates": "tsc ok · vitest Tests  3896 passed (3896) · frozen core intact",
   "node": "v25.5.0",
   "vite": "6.4.3"
 }

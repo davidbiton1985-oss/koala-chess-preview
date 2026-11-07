@@ -61,15 +61,13 @@
  "seatMirror": true,
  "rig": {
   "keyColor": 16771282,
-  "keyIntensity": 1.6,
-  "keyAz": 95,
-  "keyEl": 26,
+  "keyIntensity": 2.6,
   "skyColor": 13161700,
   "groundColor": 4861984,
   "skyIntensity": 0.6,
   "rimColor": 11059432,
   "rimIntensity": 0.5,
-  "envIntensity": 1.1,
+  "envIntensity": 0.6,
   "exposure": 1.0,
   "shadowIntensity": 0.7
  },
