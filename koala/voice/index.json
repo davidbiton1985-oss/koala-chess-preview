@@ -1,0 +1,82 @@
+{
+ "en": {
+  "hello.hi": {
+   "dur": 1.57,
+   "speech_end": 1.27,
+   "lufs": -16.1,
+   "tp": -2
+  },
+  "hello.lead": {
+   "dur": 3.4,
+   "speech_end": 3.1,
+   "lufs": -16,
+   "tp": -1.9
+  },
+  "hello.levelLead": {
+   "dur": 2.23,
+   "speech_end": 1.93,
+   "lufs": -16.1,
+   "tp": -1.6
+  },
+  "home.allDone": {
+   "dur": 1.91,
+   "speech_end": 1.61,
+   "lufs": -16.2,
+   "tp": -1.9
+  },
+  "home.back": {
+   "dur": 1.91,
+   "speech_end": 1.61,
+   "lufs": -16,
+   "tp": -2.8
+  },
+  "home.firstDone": {
+   "dur": 2.47,
+   "speech_end": 2.17,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "place.me.line": {
+   "dur": 2.34,
+   "speech_end": 2.04,
+   "lufs": -16.1,
+   "tp": -1.7
+  },
+  "place.play.line": {
+   "dur": 1.74,
+   "speech_end": 1.44,
+   "lufs": -16.2,
+   "tp": -2.2
+  },
+  "place.puzzles.line": {
+   "dur": 3.26,
+   "speech_end": 2.96,
+   "lufs": -16.2,
+   "tp": -1.7
+  },
+  "poke.1": {
+   "dur": 1.47,
+   "speech_end": 1.17,
+   "lufs": -16.2,
+   "tp": -2.5
+  },
+  "poke.2": {
+   "dur": 2.76,
+   "speech_end": 2.46,
+   "lufs": -16.2,
+   "tp": -1.8
+  },
+  "poke.3": {
+   "dur": 3.26,
+   "speech_end": 2.96,
+   "lufs": -16.1,
+   "tp": -1.8
+  },
+  "poke.4": {
+   "dur": 1.98,
+   "speech_end": 1.68,
+   "lufs": -16,
+   "tp": -2
+  }
+ }
+}

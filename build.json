@@ -1,11 +1,11 @@
 {
-  "commit": "24b5a8ae0682a89cea2039ecc6b55e463b1344fa",
+  "commit": "8598351ddf10e8ef12ec5de2acaa2fc96cd1c76c",
   "ref": "main",
-  "subject": "Every station on the island opens. David: \"only 1 is working\". A press shrank any button by 4% with the global press rule (system.css), and `scale` also scales a station's transform, so a pressed station jumped 4% of its distance towards the top left corner and out from under the mouse: its click went to the app. Only the stations near the corner ever worked (x < ~575 px on a 1440 desk). Stations (and the old map's beacons) are left out of that rule; their orb still answers the press. The two sky islands had no station on a desk (their point stands behind the top bar): they keep one at the top of the free band, clear of the HUD. The goal chip was measured 88 × 80 px off (a fixed part of the HUD counted the HUD's own place twice), so the stations were steered into it. The welcome's stations had nothing behind them: they go into that land's next stop, like the big button.",
-  "committedAt": "2026-11-07T10:52:34+02:00",
-  "builtAt": "2026-11-07T08:54:02Z",
+  "subject": "The home koala speaks. David (11-07): \"a koala ... that speaks but there is no sound\": his bubble lines were text only. The 13 lines David approved (55 drafts, 11-07) and then approved by ear in English (one take each, review page home_voice_en_r1) play in his voice: public/koala/voice/<lang>/<key>.m4a with its index.json (import-voice.mjs --out public/koala/voice), -16 LUFS like the adventures. ux2/hostVoice.ts finds a bubble line's voice by its words; a line without one stays text. The browser refuses sound before the first touch: the line still in the bubble plays on that touch, unless it lands on a link or a button that takes the player away. Checked in the browser: first touch on the sky plays hello.lead aloud, a poke plays poke.1; Hebrew asks for nothing (no Hebrew voice yet). The TTS script reads a lines file (--lines) for lines that are not a land's.",
+  "committedAt": "2026-11-07T12:03:39+02:00",
+  "builtAt": "2026-11-07T10:04:47Z",
   "builtBy": "chess/scripts/release-build.sh (a clean detached worktree)",
-  "sourceGates": "tsc ok · vitest Tests  3897 passed (3897) · frozen core intact",
+  "sourceGates": "tsc ok · vitest Tests  3899 passed (3899) · frozen core intact",
   "node": "v25.5.0",
   "vite": "6.4.3"
 }
