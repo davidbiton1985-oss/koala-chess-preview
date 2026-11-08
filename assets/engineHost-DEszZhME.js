@@ -1,2 +1,0 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./index-DG6VTVX2.js","./chess-Dz_znVVI.js","./engine-Bw-W5prc.js","./profiles-Bchra8oA.js"])))=>i.map(i=>d[i]);
-import{_ as r}from"./index-Bj1cmTt1.js";let e=null;function n(){return e??=r(()=>import("./index-DG6VTVX2.js"),__vite__mapDeps([0,1,2,3]),import.meta.url).then(t=>t.createEngine({hashMb:8})),e.catch(()=>{e=null}),e}function i(){n().then(t=>t.prewarm()).catch(()=>{})}const a=()=>r(()=>import("./index-DG6VTVX2.js"),__vite__mapDeps([0,1,2,3]),import.meta.url);export{a as e,n as g,i as p};

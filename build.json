@@ -1,9 +1,9 @@
 {
-  "commit": "4b1b710e00baf77d48ce6d4274d1df7e70e420ff",
+  "commit": "115b318b868b44d3464542d973234515da57bebd",
   "ref": "main",
-  "subject": "The QA harness (?qa) opens any land by its link, so the gate's land tests (Falls from its first beat, the Falls load probe) play it directly; players' links still go to the land's card while it is under its cloud, and the island climbs either way. The gate's e2e-adventure-phone failed on eaa570f0 because Falls (act 2) is clouded for a new visitor.",
-  "committedAt": "2026-11-08T09:48:25+02:00",
-  "builtAt": "2026-11-08T07:49:23Z",
+  "subject": "Koala lines: Fields' first lip-sync line through the eye check (he s1.2). Six other takes (Gardens en s1.next, Village en s1.1 and arrival, Fields en arrival and s1.1, Fields he arrival) fail where his eyes turn from the side to the camera on the way home: the de-blink blends the two eye shapes across that turn, whatever the span; they need new takes.",
+  "committedAt": "2026-11-08T13:13:45+02:00",
+  "builtAt": "2026-11-08T13:14:03Z",
   "builtBy": "chess/scripts/release-build.sh (a clean detached worktree)",
   "sourceGates": "tsc ok · vitest Tests  3904 passed (3904) · frozen core intact",
   "node": "v25.5.0",
