@@ -1,9 +1,9 @@
 {
-  "commit": "d9f3613c6237df1a7de84ad3ecdbf17774fb5f00",
+  "commit": "03d83393da4bd412d2dd5d92eff1f90ce9e8f551",
   "ref": "main",
-  "subject": "Sky: 4 more koala lines through the eye check (he s1.3, s1.cheer; en s1.next, fin.queen), each re-finished with the new de-blink span the last check gave. en fin.queen passed against the earlier call, so it was looked at once more: the cream rim over the right iris at 95-97 is in the talk's own frames (80-94) and the raw anchor, the way he looks in this line, not a re-made fault. en fin.1 re-finishes from a clean anchor (raw1).",
-  "committedAt": "2026-11-08T07:36:42+02:00",
-  "builtAt": "2026-11-08T05:38:00Z",
+  "subject": "Offline on the public site: Cloudflare answers /index.html with a redirect to /, and a cached redirect can't answer a navigation (the browser refuses it, so an offline visit would end on an error). The service worker now stores the shell as a plain copy of what the redirect gave, and keeps only real pages (200, not redirected) from navigations.",
+  "committedAt": "2026-11-08T08:27:01+02:00",
+  "builtAt": "2026-11-08T06:28:02Z",
   "builtBy": "chess/scripts/release-build.sh (a clean detached worktree)",
   "sourceGates": "tsc ok · vitest Tests  3902 passed (3902) · frozen core intact",
   "node": "v25.5.0",

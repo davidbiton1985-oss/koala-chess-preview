@@ -1,5 +1,5 @@
 // GENERATED at build time (vite.config.ts) — do not edit by hand; edit the `serviceWorker` template there.
-const VERSION = "koala-1794116274544";
+const VERSION = "koala-1794119276177";
 const SHELL_CACHE = `koala-shell-${VERSION}`;
 // one name across deploys: a returning player keeps every media file that did not change (see vite.config.ts)
 const MEDIA_CACHE = "koala-media-stable-koala";
@@ -28,7 +28,12 @@ async function sha12(buf) {
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(SHELL_CACHE);
-    await Promise.allSettled(SHELL_URLS.map((u) => cache.add(u)));
+    // (11-08) the public site redirects /index.html to / (Cloudflare's html handling): a cached redirected response can't
+    // answer a navigation (the browser refuses it), so the shell is stored as a plain copy of what the redirect gave
+    await Promise.allSettled(SHELL_URLS.map(async (u) => {
+      const res = await fetch(u, { cache: 'no-cache' });
+      if (res.ok) await cache.put(u, res.redirected ? new Response(await res.blob(), { status: 200, headers: res.headers }) : res);
+    }));
   })());
   self.skipWaiting();
 });
@@ -94,7 +99,8 @@ self.addEventListener('fetch', (event) => {
     event.respondWith((async () => {
       try {
         const fresh = await fetch(req);
-        (await caches.open(SHELL_CACHE)).put(req, fresh.clone());
+        // only a real page is kept (never a redirect: offline it would leave the visitor on an error)
+        if (fresh.ok && fresh.status === 200 && !fresh.redirected) (await caches.open(SHELL_CACHE)).put(req, fresh.clone());
         return fresh;
       } catch {
         const cache = await caches.open(SHELL_CACHE);
