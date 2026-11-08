@@ -1,11 +1,11 @@
 {
-  "commit": "03d83393da4bd412d2dd5d92eff1f90ce9e8f551",
+  "commit": "4b1b710e00baf77d48ce6d4274d1df7e70e420ff",
   "ref": "main",
-  "subject": "Offline on the public site: Cloudflare answers /index.html with a redirect to /, and a cached redirect can't answer a navigation (the browser refuses it, so an offline visit would end on an error). The service worker now stores the shell as a plain copy of what the redirect gave, and keeps only real pages (200, not redirected) from navigations.",
-  "committedAt": "2026-11-08T08:27:01+02:00",
-  "builtAt": "2026-11-08T06:28:02Z",
+  "subject": "The QA harness (?qa) opens any land by its link, so the gate's land tests (Falls from its first beat, the Falls load probe) play it directly; players' links still go to the land's card while it is under its cloud, and the island climbs either way. The gate's e2e-adventure-phone failed on eaa570f0 because Falls (act 2) is clouded for a new visitor.",
+  "committedAt": "2026-11-08T09:48:25+02:00",
+  "builtAt": "2026-11-08T07:49:23Z",
   "builtBy": "chess/scripts/release-build.sh (a clean detached worktree)",
-  "sourceGates": "tsc ok · vitest Tests  3902 passed (3902) · frozen core intact",
+  "sourceGates": "tsc ok · vitest Tests  3904 passed (3904) · frozen core intact",
   "node": "v25.5.0",
   "vite": "6.4.3"
 }
