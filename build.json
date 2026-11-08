@@ -1,9 +1,9 @@
 {
-  "commit": "90577bad3e8c41695d589a48f681b4def60051fb",
+  "commit": "d9f3613c6237df1a7de84ad3ecdbf17774fb5f00",
   "ref": "main",
-  "subject": "The island shows every station on a phone: 13 of 13 on 8 phone sizes, upright and sideways, he and en (the sweep's M1; after b955f9de it was 12 of 13 upright, 10 of 13 sideways). Three causes, each found by logging why each hidden station was hidden: - Sideways, the dock and the Continue card stand over the island's lower half, and Harbour, the Fair and the Gardens were under them: a station still under a piece of the HUD steps out to the nearest clear side of it (above first), or to the nearest clear point around it when it is boxed in. Never in a land's close-up. - In a crowded middle a station found no free spot within 32 px: a longer step (44, 56 px), only for a station crowded by other stations (one under the HUD or the koala still hides, as before). - The player's land's name hid the station under it (Lantern Village, Crystal Glacier on a 360 px phone): that station now looks for a spot clear of the name, and the name goes over the orb when under it would hide one. Checked at 390x844, 360x780, 360x740, 430x932, 844x390, 932x430; vitest 3902/3902.",
-  "committedAt": "2026-11-07T18:18:15+02:00",
-  "builtAt": "2026-11-07T16:19:40Z",
+  "subject": "Sky: 4 more koala lines through the eye check (he s1.3, s1.cheer; en s1.next, fin.queen), each re-finished with the new de-blink span the last check gave. en fin.queen passed against the earlier call, so it was looked at once more: the cream rim over the right iris at 95-97 is in the talk's own frames (80-94) and the raw anchor, the way he looks in this line, not a re-made fault. en fin.1 re-finishes from a clean anchor (raw1).",
+  "committedAt": "2026-11-08T07:36:42+02:00",
+  "builtAt": "2026-11-08T05:38:00Z",
   "builtBy": "chess/scripts/release-build.sh (a clean detached worktree)",
   "sourceGates": "tsc ok · vitest Tests  3902 passed (3902) · frozen core intact",
   "node": "v25.5.0",
